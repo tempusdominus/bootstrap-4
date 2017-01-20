@@ -12,7 +12,7 @@
     "tether": "^1.4.0",
     "moment": "^2.17",
     "moment-timezone": "^0.5.11",
-    "tempusdominus-core": "5.0.0-alpha"
+    "tempusdominus-core": "5.0.0-alpha2"
   },
   "peerDependenciesd": {
     "bootstrap": "4.0.0-alpha.6",
@@ -20,7 +20,7 @@
     "tether": "^1.4.0",
     "moment": "^2.17",
     "moment-timezone": "^0.5.11",
-    "tempusdominus-core": "5.0.0-alpha"
+    "tempusdominus-core": "5.0.0-alpha2"
   },
   "scripts": {
     "change-version": "node grunt/change-version.js",
@@ -46,16 +46,17 @@
     "grunt-contrib-concat": "^1.0.1",
     "grunt-contrib-connect": "^1.0.1",
     "grunt-contrib-jasmine": "^1.0.3",
-    "grunt-sass": "2.0.0"  ,
     "grunt-contrib-uglify": "latest",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-env": "^0.4.4",
     "grunt-eslint": "^19.0.0",
     "grunt-jscs": "latest",
     "grunt-nuget": "^0.1.5",
+    "grunt-sass": "2.0.0",
     "grunt-stamp": "^0.3.0",
     "grunt-string-replace": "latest",
     "load-grunt-tasks": "latest",
+    "tempusdominus-core": "^5.0.0-alpha2",
     "uglify-js": "^2.7.5"
   },
   "homepage": "https://tempusdominus.github.io/bootstrap-4/",
@@ -70,7 +71,7 @@
     "type": "git",
     "url": "https://github.com/tempusdominus/bootstrap-4.git"
   },
-  "version": "5.0.0-alpha",
+  "version": "5.0.0-alpha2",
   "files": [
     "build",
     "src/js/**/*.js",

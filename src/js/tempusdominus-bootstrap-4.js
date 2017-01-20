@@ -1,6 +1,6 @@
 //noinspection JSUnusedGlobalSymbols
 /* global DateTimePicker */
-const TempusDominusBootstrap3 = ($ => { // eslint-disable-line no-unused-vars
+const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
     const JQUERY_NO_CONFLICT = $.fn[DateTimePicker.NAME],
         verticalModes = ['top', 'bottom', 'auto'],
         horizontalModes = ['left', 'right', 'auto'],
@@ -25,8 +25,21 @@ const TempusDominusBootstrap3 = ($ => { // eslint-disable-line no-unused-vars
             return $selector;
         };
 
-    class TempusDominusBootstrap3 extends DateTimePicker {
+    class TempusDominusBootstrap4 extends DateTimePicker {
         constructor(element, options) {
+            $.extend(true, DateTimePicker.Default, {
+                icons: {
+                    time: 'fa fa-clock-o',
+                    date: 'fa fa-calendar',
+                    up: 'fa fa-arrow-up',
+                    down: 'fa fa-arrow-down',
+                    previous: 'fa fa-chevron-left',
+                    next: 'fa fa-chevron-right',
+                    today: 'fa fa-calendar-check-o',
+                    clear: 'fa fa-delete',
+                    close: 'fa fa-times'
+                }
+            });
             super(element, options);
             this._init();
         }
@@ -47,7 +60,7 @@ const TempusDominusBootstrap3 = ($ => { // eslint-disable-line no-unused-vars
             const headTemplate = $('<thead>').append($('<tr>').append($('<th>').addClass('prev').attr('data-action', 'previous').append($('<span>').addClass(this._options.icons.previous))).append($('<th>').addClass('picker-switch').attr('data-action', 'pickerSwitch').attr('colspan', `${this._options.calendarWeeks ? '6' : '5'}`)).append($('<th>').addClass('next').attr('data-action', 'next').append($('<span>').addClass(this._options.icons.next)))),
                 contTemplate = $('<tbody>').append($('<tr>').append($('<td>').attr('colspan', `${this._options.calendarWeeks ? '8' : '7'}`)));
 
-            return [$('<div>').addClass('datepicker-days').append($('<table>').addClass('table-condensed').append(headTemplate).append($('<tbody>'))), $('<div>').addClass('datepicker-months').append($('<table>').addClass('table-condensed').append(headTemplate.clone()).append(contTemplate.clone())), $('<div>').addClass('datepicker-years').append($('<table>').addClass('table-condensed').append(headTemplate.clone()).append(contTemplate.clone())), $('<div>').addClass('datepicker-decades').append($('<table>').addClass('table-condensed').append(headTemplate.clone()).append(contTemplate.clone()))];
+            return [$('<div>').addClass('datepicker-days').append($('<table>').addClass('table table-sm').append(headTemplate).append($('<tbody>'))), $('<div>').addClass('datepicker-months').append($('<table>').addClass('table-condensed').append(headTemplate.clone()).append(contTemplate.clone())), $('<div>').addClass('datepicker-years').append($('<table>').addClass('table-condensed').append(headTemplate.clone()).append(contTemplate.clone())), $('<div>').addClass('datepicker-decades').append($('<table>').addClass('table-condensed').append(headTemplate.clone()).append(contTemplate.clone()))];
         }
 
         _getTimePickerMainTemplate() {
@@ -1021,7 +1034,7 @@ const TempusDominusBootstrap3 = ($ => { // eslint-disable-line no-unused-vars
                 }
 
                 if (!data) {
-                    data = new TempusDominusBootstrap3($(this), option);
+                    data = new TempusDominusBootstrap4($(this), option);
                     $(this).data(DateTimePicker.DATA_KEY, data);
                 }
 
@@ -1045,13 +1058,13 @@ const TempusDominusBootstrap3 = ($ => { // eslint-disable-line no-unused-vars
         if ($target.length === 0) {
             return;
         }
-        TempusDominusBootstrap3._jQueryInterface.call($target, 'toggle');
+        TempusDominusBootstrap4._jQueryInterface.call($target, 'toggle');
     }).on(DateTimePicker.Event.CHANGE, `.${DateTimePicker.ClassName.INPUT}`, function (event) {
         let $target = getSelectorFromElement($(this));
         if ($target.length === 0) {
             return;
         }
-        TempusDominusBootstrap3._jQueryInterface.call($target, '_change', event);
+        TempusDominusBootstrap4._jQueryInterface.call($target, '_change', event);
     }).on(DateTimePicker.Event.BLUR, `.${DateTimePicker.ClassName.INPUT}`, function (event) {
         let $target = getSelectorFromElement($(this));
         if ($target.length === 0) {
@@ -1061,19 +1074,19 @@ const TempusDominusBootstrap3 = ($ => { // eslint-disable-line no-unused-vars
         if (config._options.debug) {
             return;
         }
-        TempusDominusBootstrap3._jQueryInterface.call($target, 'hide', event);
+        TempusDominusBootstrap4._jQueryInterface.call($target, 'hide', event);
     }).on(DateTimePicker.Event.KEYDOWN, `.${DateTimePicker.ClassName.INPUT}`, function (event) {
         let $target = getSelectorFromElement($(this));
         if ($target.length === 0) {
             return;
         }
-        TempusDominusBootstrap3._jQueryInterface.call($target, '_keydown', event);
+        TempusDominusBootstrap4._jQueryInterface.call($target, '_keydown', event);
     }).on(DateTimePicker.Event.KEYUP, `.${DateTimePicker.ClassName.INPUT}`, function (event) {
         let $target = getSelectorFromElement($(this));
         if ($target.length === 0) {
             return;
         }
-        TempusDominusBootstrap3._jQueryInterface.call($target, '_keyup', event);
+        TempusDominusBootstrap4._jQueryInterface.call($target, '_keyup', event);
     }).on(DateTimePicker.Event.FOCUS, `.${DateTimePicker.ClassName.INPUT}`, function (event) {
         let $target = getSelectorFromElement($(this));
         if ($target.length === 0) {
@@ -1083,15 +1096,15 @@ const TempusDominusBootstrap3 = ($ => { // eslint-disable-line no-unused-vars
         if (!config._options.allowInputToggle) {
             return;
         }
-        TempusDominusBootstrap3._jQueryInterface.call($target, config, event);
+        TempusDominusBootstrap4._jQueryInterface.call($target, config, event);
     });
 
-    $.fn[DateTimePicker.NAME] = TempusDominusBootstrap3._jQueryInterface;
-    $.fn[DateTimePicker.NAME].Constructor = TempusDominusBootstrap3;
+    $.fn[DateTimePicker.NAME] = TempusDominusBootstrap4._jQueryInterface;
+    $.fn[DateTimePicker.NAME].Constructor = TempusDominusBootstrap4;
     $.fn[DateTimePicker.NAME].noConflict = function () {
         $.fn[DateTimePicker.NAME] = JQUERY_NO_CONFLICT;
-        return TempusDominusBootstrap3._jQueryInterface;
+        return TempusDominusBootstrap4._jQueryInterface;
     };
 
-    return TempusDominusBootstrap3;
+    return TempusDominusBootstrap4;
 })(jQuery);

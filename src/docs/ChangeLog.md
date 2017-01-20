@@ -10,6 +10,7 @@
 * Bootstrap 4-esk plugin creation style
 * All events are namespaced properly `{event}.datetimepicker`
 * Added a jquery no conflict option
+* Removed LESS files. Bootstrap 4 doesn't use LESS any more. Now using SASS to build CSS
 
 ### Other changes
 

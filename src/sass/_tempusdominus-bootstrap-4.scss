@@ -1,12 +1,7 @@
-/*!
- * Datetimepicker for Bootstrap 3
- * ! version : 4.7.14
- * https://github.com/Eonasdan/bootstrap-datetimepicker/
- */
 $bs-datetimepicker-timepicker-font-size: 1.2em !default;
 $bs-datetimepicker-active-bg: $btn-primary-bg !default;
 $bs-datetimepicker-active-color: $btn-primary-color !default;
-$bs-datetimepicker-border-radius: $border-radius-base !default;
+$bs-datetimepicker-border-radius: $border-radius !default;
 $bs-datetimepicker-btn-hover-bg: $gray-lighter !default;
 $bs-datetimepicker-disabled-color: $gray-light !default;
 $bs-datetimepicker-alternate-color: $gray-light !default;
@@ -25,15 +20,15 @@ $bs-datetimepicker-text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25) !default;
         width: 19em;
 
         &.timepicker-sbs {
-            @media (min-width: $screen-sm-min) {
+            @media (min-width: map-get($grid-breakpoints, 'sm')) {
                 width: 38em;
             }
 
-            @media (min-width: $screen-md-min) {
+            @media (min-width: map-get($grid-breakpoints, 'md')) {
                 width: 38em;
             }
 
-            @media (min-width: $screen-lg-min) {
+            @media (min-width: map-get($grid-breakpoints, 'lg')) {
                 width: 38em;
             }
         }

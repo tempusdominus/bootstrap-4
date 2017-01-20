@@ -46,7 +46,7 @@
     "grunt-contrib-concat": "^1.0.1",
     "grunt-contrib-connect": "^1.0.1",
     "grunt-contrib-jasmine": "^1.0.3",
-    "grunt-contrib-less": "latest",
+    "grunt-sass": "2.0.0"  ,
     "grunt-contrib-uglify": "latest",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-env": "^0.4.4",

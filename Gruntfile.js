@@ -2,25 +2,25 @@ module.exports = function (grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         banner: '/*@preserve\n' +
-        ' * Tempus Dominus Bootstrap3 v<%= pkg.version %> (<%= pkg.homepage %>)\n' +
+        ' * Tempus Dominus Bootstrap4 v<%= pkg.version %> (<%= pkg.homepage %>)\n' +
         ' * Copyright 2016-<%= grunt.template.today("yyyy") %> <%= pkg.author %>\n' +
         ' * Licensed under MIT (https://github.com/tempusdominus/bootstrap-3/blob/master/LICENSE)\n' +
         ' */\n',
         jqueryCheck: 'if (typeof jQuery === \'undefined\') {\n' +
-        '  throw new Error(\'Tempus Dominus Bootstrap3\\\'s requires jQuery. jQuery must be included before Tempus Dominus Bootstrap3\\\'s JavaScript.\')\n' +
+        '  throw new Error(\'Tempus Dominus Bootstrap4\\\'s requires jQuery. jQuery must be included before Tempus Dominus Bootstrap4\\\'s JavaScript.\')\n' +
         '}\n',
         jqueryVersionCheck: '+function ($) {\n' +
         '  var version = $.fn.jquery.split(\' \')[0].split(\'.\')\n' +
         '  if ((version[0] < 2 && version[1] < 9) || (version[0] == 1 && version[1] == 9 && version[2] < 1) || (version[0] >= 4)) {\n' +
-        '    throw new Error(\'Tempus Dominus Bootstrap3\\\'s requires at least jQuery v1.9.1 but less than v4.0.0\')\n' +
+        '    throw new Error(\'Tempus Dominus Bootstrap4\\\'s requires at least jQuery v1.9.1 but less than v4.0.0\')\n' +
         '  }\n' +
         '}(jQuery);\n\n',
         momentCheck: 'if (typeof moment === \'undefined\') {\n' +
-        '  throw new Error(\'Tempus Dominus Bootstrap3\\\'s requires moment.js. Moment.js must be included before Tempus Dominus Bootstrap3\\\'s JavaScript.\')\n' +
+        '  throw new Error(\'Tempus Dominus Bootstrap4\\\'s requires moment.js. Moment.js must be included before Tempus Dominus Bootstrap4\\\'s JavaScript.\')\n' +
         '}\n',
         momentVersionCheck: 'var version = moment.version.split(\'.\')\n' +
         'if ((version[0] <= 2 && version[1] < 17) || (version[0] >= 3)) {\n' +
-        '  throw new Error(\'Tempus Dominus Bootstrap3\\\'s requires at least moment.js v2.17.0 but less than v3.0.0\')\n' +
+        '  throw new Error(\'Tempus Dominus Bootstrap4\\\'s requires at least moment.js v2.17.0 but less than v3.0.0\')\n' +
         '}\n',
         uglify: {
             target: {
@@ -130,23 +130,23 @@ module.exports = function (grunt) {
                 dest: 'build/js/<%= pkg.name %>.js'
             }
         },
-        less: {
+        sass: {
             production: {
                 options: {
                     cleancss: true,
                     compress: true,
-                    paths: 'node_modules'
+                    includePaths: ['node_modules']
                 },
                 files: {
-                    'build/css/<%= pkg.name %>.min.css': 'src/less/<%= pkg.name %>-build.less'
+                    'build/css/<%= pkg.name %>.min.css': 'src/sass/<%= pkg.name %>-build.scss'
                 }
             },
             development: {
                 options: {
-                    paths: 'node_modules'
+                    includePaths: ['node_modules']
                 },
                 files: {
-                    'build/css/<%= pkg.name %>.css': 'src/less/<%= pkg.name %>-build.less'
+                    'build/css/<%= pkg.name %>.css': 'src/sass/<%= pkg.name %>-build.scss'
                 }
             }
         },
@@ -195,13 +195,13 @@ module.exports = function (grunt) {
     // Task to be run when building
     grunt.registerTask('build:js', ['babel:dev', 'concat', 'eslint', 'babel:dist', 'stamp:bootstrap', 'uglify', 'copy']);
 
-    grunt.registerTask('build:style', ['less', 'stamp:css', 'copy']);
+    grunt.registerTask('build:style', ['sass', 'stamp:css', 'copy']);
 
     grunt.registerTask('test', ['build', 'env:paris', 'connect', 'jasmine']);
 
     grunt.registerTask('copy', 'Generate docs', function () {
-        grunt.file.copy('build/js/tempusdominus-bootstrap-3.js', 'src/docs/theme/js/tempusdominus-bootstrap-3.js');
-        grunt.file.copy('build/css/tempusdominus-bootstrap-3.css', 'src/docs/theme/css/tempusdominus-bootstrap-3.css');
+        grunt.file.copy('build/js/tempusdominus-bootstrap-4.js', 'src/docs/theme/js/tempusdominus-bootstrap-4.js');
+        grunt.file.copy('build/css/tempusdominus-bootstrap-4.css', 'src/docs/theme/css/tempusdominus-bootstrap-4.css');
     });
 
     grunt.registerTask('docs', 'Generate docs', function () {
@@ -221,8 +221,8 @@ module.exports = function (grunt) {
         grunt.task.run([
             'bump_version:' + version,
             'build:travis',
-            'docs',
-            'nugetpack'
+            'docs'//,
+            //'nugetpack' //todo not ready
         ]);
     });
 };

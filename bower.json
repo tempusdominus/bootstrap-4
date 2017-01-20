@@ -1,0 +1,35 @@
+{
+  "name": "tempusdominus-bootstrap-4",
+  "version": "5.0.0-aplha",
+  "main": [
+    "build/css/tempusdominus-bootstrap-4.min.css",
+    "build/js/tempusdominus-bootstrap-4.min.js"
+  ],
+  "dependencies": {
+    "jquery": ">=1.8.3",
+    "moment": ">=2.10.5",
+    "tempusdominus-core": "5.0.0-alpha"
+  },
+  "homepage": "https://github.com/tempusdominus/bootstrap-4",
+  "authors": [
+    "Eonasdan"
+  ],
+  "description": "tempus dominus bootstrap4 datetimepicker",
+  "keywords": [
+    "twitter-bootstrap",
+    "bootstrap",
+    "datepicker",
+    "datetimepicker",
+    "timepicker",
+    "moment"
+  ],
+  "license": "MIT",
+  "private": false,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

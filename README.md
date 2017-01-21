@@ -1,4 +1,4 @@
-# Tempus Dominus Bootstrap 3
+# Tempus Dominus Bootstrap 4
 ![GitHub version](https://badge.fury.io/gh/tempusdominus%2Fbootstrap-3-datetimepicker.png)
 
 # Version 5

@@ -1,5 +1,5 @@
 # Tempus Dominus Bootstrap 4
-![GitHub version](https://badge.fury.io/gh/tempusdominus%2Fbootstrap-3-datetimepicker.png)
+![GitHub version](https://badge.fury.io/gh/tempusdominus%2Fbootstrap-4-datetimepicker.png)
 
 # Version 5
 This is the Bootstrap 4 component of the new Version 5. This is a "scorched earth" version and there are **a lot** of breaking changes.

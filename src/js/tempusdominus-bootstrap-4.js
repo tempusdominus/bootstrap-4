@@ -371,7 +371,7 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
             const yearsView = this.widget.find('.datepicker-years'),
                 yearsViewHeader = yearsView.find('th'),
                 startYear = this._viewDate.clone().subtract(5, 'y'),
-                endYear = this._viewDate.clone().add(6, 'y');
+                endYear = this._viewDate.clone().add(4, 'y');
             let html = '';
 
             yearsViewHeader.eq(0).find('span').attr('title', this._options.tooltips.prevDecade);
@@ -425,16 +425,16 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
             }
 
             while (!startDecade.isAfter(endDecade, 'y')) {
-                endDecadeYear = startDecade.year() + 12;
+                endDecadeYear = startDecade.year() + 10;
                 minDateDecade = this._options.minDate && this._options.minDate.isAfter(startDecade, 'y') && this._options.minDate.year() <= endDecadeYear;
                 maxDateDecade = this._options.maxDate && this._options.maxDate.isAfter(startDecade, 'y') && this._options.maxDate.year() <= endDecadeYear;
                 html += `<span data-action="selectDecade" class="decade${this._date.isAfter(startDecade) && this._date.year() <= endDecadeYear ? ' active' : ''}${!this._isValid(startDecade, 'y') && !minDateDecade && !maxDateDecade ? ' disabled' : ''}" data-selection="${startDecade.year()}6">${startDecade.year()}1 - ${startDecade.year()}12</span>`;
-                startDecade.add(12, 'y');
+                startDecade.add(10, 'y');
             }
             html += '<span></span><span></span><span></span>'; //push the dangling block over, at least this way it's even
 
             decadesView.find('td').html(html);
-            decadesViewHeader.eq(1).text(`${startedAt.year()}1-${startDecade.year()}`);
+            decadesViewHeader.eq(1).text(`${startedAt.year()}-${startDecade.year()}`);
         }
 
         _fillDate() {

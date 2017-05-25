@@ -285,9 +285,9 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
             }
 
             if (horizontal === 'right') {
-                this.widget.addClass('pull-right');
+                this.widget.addClass('float-right');
             } else {
-                this.widget.removeClass('pull-right');
+                this.widget.removeClass('float-right');
             }
 
             // find the first parent element that has a static css positioning

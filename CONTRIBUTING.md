@@ -1,7 +1,7 @@
 Submitting Issues
 =================
 
-If you are submitting a bug, please test and/or fork [this jsfiddle](http://jsfiddle.net/Eonasdan/0Ltv25o8/) demonstrating the issue. Code issues and fringe case bugs that do not include a jsfiddle (or similar) will be closed.
+If you are submitting a bug, please test and/or fork [this jsfiddle](https://jsfiddle.net/Eonasdan/agbkdzhv/) demonstrating the issue. Code issues and fringe case bugs that do not include a jsfiddle (or similar) will be closed.
 
 Issues that are submitted without a description (title only) will be closed with no further explanation.
 
@@ -11,8 +11,8 @@ Contributing code
 To contribute, fork the library and install grunt and dependencies. You need [node](http://nodejs.org/); use [nvm](https://github.com/creationix/nvm) or [nenv](https://github.com/ryuone/nenv) to install it.
 
 ```bash
-git clone https://github.com/Eonasdan/bootstrap-datetimepicker.git
-cd bootstrap-datetimepicker
+git clone https://github.com/tempusdominus/bootstrap-4.git
+cd bootstrap-4
 npm install -g grunt-cli
 npm install
 git checkout development  # all patches against development branch, please!

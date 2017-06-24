@@ -27,19 +27,6 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
 
     class TempusDominusBootstrap4 extends DateTimePicker {
         constructor(element, options) {
-            $.extend(true, DateTimePicker.Default, {
-                icons: {
-                    time: 'fa fa-clock-o',
-                    date: 'fa fa-calendar',
-                    up: 'fa fa-arrow-up',
-                    down: 'fa fa-arrow-down',
-                    previous: 'fa fa-chevron-left',
-                    next: 'fa fa-chevron-right',
-                    today: 'fa fa-calendar-check-o',
-                    clear: 'fa fa-delete',
-                    close: 'fa fa-times'
-                }
-            });
             super(element, options);
             this._init();
         }

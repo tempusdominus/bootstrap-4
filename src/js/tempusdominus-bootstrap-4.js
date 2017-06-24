@@ -210,7 +210,7 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
             }
             if (this._hasDate()) {
                 content.append($('<li>').addClass(this._options.collapse && this._hasTime() ? 'collapse' : '')
-                    .addClass((this._options.collapse && this._hasTime() && this._options.viewMode === 'time' ? '' : 'in'))
+                    .addClass((this._options.collapse && this._hasTime() && this._options.viewMode === 'time' ? '' : 'show'))
                     .append(dateView));
             }
             if (this._options.toolbarPlacement === 'default') {
@@ -218,8 +218,8 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
             }
             if (this._hasTime()) {
                 content.append($('<li>').addClass(this._options.collapse && this._hasDate() ? 'collapse' : '')
-                    .addClass((this._options.collapse && this._hasDate() && this._options.viewMode === 'time' ? 'in' : ''))
-                    .append(dateView));
+                    .addClass((this._options.collapse && this._hasDate() && this._options.viewMode === 'time' ? 'show' : ''))
+                    .append(timeView));
             }
             if (this._options.toolbarPlacement === 'bottom') {
                 content.append(toolbar);
@@ -272,9 +272,9 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
             }
 
             if (horizontal === 'right') {
-                this.widget.addClass('pull-right');
+                this.widget.addClass('float-right');
             } else {
-                this.widget.removeClass('pull-right');
+                this.widget.removeClass('float-right');
             }
 
             // find the first parent element that has a static css positioning
@@ -718,8 +718,8 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
                         const $this = $(e.target),
                             $link = $this.closest('a'),
                             $parent = $this.closest('ul'),
-                            expanded = $parent.find('.in'),
-                            closed = $parent.find('.collapse:not(.in)'),
+                            expanded = $parent.find('.show'),
+                            closed = $parent.find('.collapse:not(.show)'),
                             $span = $this.is('span') ? $this : $this.find('span');
                         let collapseData;
 
@@ -734,8 +734,8 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
                                 closed.collapse('show');
                             } else {
                                 // otherwise just toggle in class on the two views
-                                expanded.removeClass('in');
-                                closed.addClass('in');
+                                expanded.removeClass('show');
+                                closed.addClass('show');
                             }
                             $span.toggleClass(this._options.icons.time + ' ' + this._options.icons.date);
 

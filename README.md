@@ -19,7 +19,7 @@ If you have issues, please check the following first:
 * Have you read the docs? 
 * Do you have the latest version of momentjs?
 * Do you have the latest version of jQuery?
-* ~~Please test and/or fork [this jsfiddle](http://jsfiddle.net/Eonasdan/0Ltv25o8/) with an example of your issue before you post an issue here.~~ **new fiddle coming soon**
+* Please test and/or fork [this jsfiddle](https://jsfiddle.net/Eonasdan/agbkdzhv/) with an example of your issue before you post an issue here.
 * Please indicate which version of the picker you are using (this can be found at the top of any included file)
 
 ## Where do you use this?

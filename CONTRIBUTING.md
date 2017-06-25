@@ -1,7 +1,7 @@
 Submitting Issues
 =================
 
-If you are submitting a bug, please test and/or fork [this jsfiddle](https://jsfiddle.net/Eonasdan/agbkdzhv/) demonstrating the issue. Code issues and fringe case bugs that do not include a jsfiddle (or similar) will be closed.
+If you are submitting a bug, please test and/or fork [this jsfiddle](https://jsfiddle.net/Eonasdan/3cqL9t3x/) demonstrating the issue. Code issues and fringe case bugs that do not include a jsfiddle (or similar) will be closed.
 
 Issues that are submitted without a description (title only) will be closed with no further explanation.
 

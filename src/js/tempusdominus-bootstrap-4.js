@@ -414,7 +414,7 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
 
             decadesView.find('.disabled').removeClass('disabled');
 
-            if (startDecade.isSame(window.moment({ y: 1900 })) || this._options.minDate && this._options.minDate.isAfter(startDecade, 'y')) {
+            if (startDecade.year() === 0 || this._options.minDate && this._options.minDate.isAfter(startDecade, 'y')) {
                 decadesViewHeader.eq(0).addClass('disabled');
             }
 

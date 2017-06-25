@@ -44,10 +44,23 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
         }
 
         _getDatePickerTemplate() {
-            const headTemplate = $('<thead>').append($('<tr>').append($('<th>').addClass('prev').attr('data-action', 'previous').append($('<span>').addClass(this._options.icons.previous))).append($('<th>').addClass('picker-switch').attr('data-action', 'pickerSwitch').attr('colspan', `${this._options.calendarWeeks ? '6' : '5'}`)).append($('<th>').addClass('next').attr('data-action', 'next').append($('<span>').addClass(this._options.icons.next)))),
-                contTemplate = $('<tbody>').append($('<tr>').append($('<td>').attr('colspan', `${this._options.calendarWeeks ? '8' : '7'}`)));
+            const headTemplate = $('<thead>')
+                    .append($('<tr>')
+                        .append($('<th>').addClass('prev').attr('data-action', 'previous')
+                            .append($('<span>').addClass(this._options.icons.previous)))
+                        .append($('<th>').addClass('picker-switch').attr('data-action', 'pickerSwitch').attr('colspan', `${this._options.calendarWeeks ? '6' : '5'}`))
+                        .append($('<th>').addClass('next').attr('data-action', 'next')
+                            .append($('<span>').addClass(this._options.icons.next)))),
+                contTemplate = $('<tbody>')
+                    .append($('<tr>')
+                        .append($('<td>').attr('colspan', `${this._options.calendarWeeks ? '8' : '7'}`)));
 
-            return [$('<div>').addClass('datepicker-days').append($('<table>').addClass('table table-sm').append(headTemplate).append($('<tbody>'))), $('<div>').addClass('datepicker-months').append($('<table>').addClass('table-condensed').append(headTemplate.clone()).append(contTemplate.clone())), $('<div>').addClass('datepicker-years').append($('<table>').addClass('table-condensed').append(headTemplate.clone()).append(contTemplate.clone())), $('<div>').addClass('datepicker-decades').append($('<table>').addClass('table-condensed').append(headTemplate.clone()).append(contTemplate.clone()))];
+            return [
+                $('<div>').addClass('datepicker-days').append($('<table>').addClass('table table-sm').append(headTemplate).append($('<tbody>'))),
+                $('<div>').addClass('datepicker-months').append($('<table>').addClass('table-condensed').append(headTemplate.clone()).append(contTemplate.clone())),
+                $('<div>').addClass('datepicker-years').append($('<table>').addClass('table-condensed').append(headTemplate.clone()).append(contTemplate.clone())),
+                $('<div>').addClass('datepicker-decades').append($('<table>').addClass('table-condensed').append(headTemplate.clone()).append(contTemplate.clone()))
+            ];
         }
 
         _getTimePickerMainTemplate() {
@@ -358,7 +371,7 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
             const yearsView = this.widget.find('.datepicker-years'),
                 yearsViewHeader = yearsView.find('th'),
                 startYear = this._viewDate.clone().subtract(5, 'y'),
-                endYear = this._viewDate.clone().add(6, 'y');
+                endYear = this._viewDate.clone().add(4, 'y');
             let html = '';
 
             yearsViewHeader.eq(0).find('span').attr('title', this._options.tooltips.prevDecade);
@@ -412,16 +425,16 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
             }
 
             while (!startDecade.isAfter(endDecade, 'y')) {
-                endDecadeYear = startDecade.year() + 12;
+                endDecadeYear = startDecade.year() + 10;
                 minDateDecade = this._options.minDate && this._options.minDate.isAfter(startDecade, 'y') && this._options.minDate.year() <= endDecadeYear;
                 maxDateDecade = this._options.maxDate && this._options.maxDate.isAfter(startDecade, 'y') && this._options.maxDate.year() <= endDecadeYear;
-                html += `<span data-action="selectDecade" class="decade${this._date.isAfter(startDecade) && this._date.year() <= endDecadeYear ? ' active' : ''}${!this._isValid(startDecade, 'y') && !minDateDecade && !maxDateDecade ? ' disabled' : ''}" data-selection="${startDecade.year()}6">${startDecade.year()}1 - ${startDecade.year()}12</span>`;
-                startDecade.add(12, 'y');
+                html += `<span data-action="selectDecade" class="decade${this._date.isAfter(startDecade) && this._date.year() <= endDecadeYear ? ' active' : ''}${!this._isValid(startDecade, 'y') && !minDateDecade && !maxDateDecade ? ' disabled' : ''}" data-selection="${startDecade.year()}6">${startDecade.year()} - ${startDecade.year()}</span>`;
+                startDecade.add(10, 'y');
             }
             html += '<span></span><span></span><span></span>'; //push the dangling block over, at least this way it's even
 
             decadesView.find('td').html(html);
-            decadesViewHeader.eq(1).text(`${startedAt.year()}1-${startDecade.year()}`);
+            decadesViewHeader.eq(1).text(`${startedAt.year()}-${startDecade.year()}`);
         }
 
         _fillDate() {

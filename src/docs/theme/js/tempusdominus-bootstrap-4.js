@@ -1,5 +1,5 @@
 /*@preserve
- * Tempus Dominus Bootstrap4 v5.0.0-alpha (https://tempusdominus.github.io/bootstrap-4/)
+ * Tempus Dominus Bootstrap4 v5.0.0-alpha2 (https://tempusdominus.github.io/bootstrap-4/)
  * Copyright 2016-2017 Jonathan Peterson
  * Licensed under MIT (https://github.com/tempusdominus/bootstrap-3/blob/master/LICENSE)
  */
@@ -29,27 +29,13 @@ if ((version[0] <= 2 && version[1] < 17) || (version[0] >= 3)) {
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-function _classCallCheck2(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var _createClass = function () {
-    function defineProperties(target, props) {
-        for (var i = 0; i < props.length; i++) {
-            var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
-        }
-    }return function (Constructor, protoProps, staticProps) {
-        if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
-    };
-}();
-
-function _classCallCheck(instance, Constructor) {
-    if (!(instance instanceof Constructor)) {
-        throw new TypeError("Cannot call a class as a function");
-    }
-}
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var DateTimePicker = function ($) {
     var NAME = 'datetimepicker',
@@ -358,6 +344,7 @@ var DateTimePicker = function ($) {
         /**
          * @return {string}
          */
+
 
         //private
 
@@ -1558,7 +1545,7 @@ var TempusDominusBootstrap4 = function ($) {
         _inherits(TempusDominusBootstrap4, _DateTimePicker);
 
         function TempusDominusBootstrap4(element, options) {
-            _classCallCheck2(this, TempusDominusBootstrap4);
+            _classCallCheck(this, TempusDominusBootstrap4);
 
             $.extend(true, DateTimePicker.Default, {
                 icons: {
@@ -1593,8 +1580,8 @@ var TempusDominusBootstrap4 = function ($) {
         };
 
         TempusDominusBootstrap4.prototype._getDatePickerTemplate = function _getDatePickerTemplate() {
-            var headTemplate = $('<thead>').append($('<tr>').append($('<th>').addClass('prev').attr('data-action', 'previous').append($('<span>').addClass(this._options.icons.previous))).append($('<th>').addClass('picker-switch').attr('data-action', 'pickerSwitch').attr('colspan', "" + (this._options.calendarWeeks ? '6' : '5'))).append($('<th>').addClass('next').attr('data-action', 'next').append($('<span>').addClass(this._options.icons.next)))),
-                contTemplate = $('<tbody>').append($('<tr>').append($('<td>').attr('colspan', "" + (this._options.calendarWeeks ? '8' : '7'))));
+            var headTemplate = $('<thead>').append($('<tr>').append($('<th>').addClass('prev').attr('data-action', 'previous').append($('<span>').addClass(this._options.icons.previous))).append($('<th>').addClass('picker-switch').attr('data-action', 'pickerSwitch').attr('colspan', '' + (this._options.calendarWeeks ? '6' : '5'))).append($('<th>').addClass('next').attr('data-action', 'next').append($('<span>').addClass(this._options.icons.next)))),
+                contTemplate = $('<tbody>').append($('<tr>').append($('<td>').attr('colspan', '' + (this._options.calendarWeeks ? '8' : '7'))));
 
             return [$('<div>').addClass('datepicker-days').append($('<table>').addClass('table table-sm').append(headTemplate).append($('<tbody>'))), $('<div>').addClass('datepicker-months').append($('<table>').addClass('table-condensed').append(headTemplate.clone()).append(contTemplate.clone())), $('<div>').addClass('datepicker-years').append($('<table>').addClass('table-condensed').append(headTemplate.clone()).append(contTemplate.clone())), $('<div>').addClass('datepicker-decades').append($('<table>').addClass('table-condensed').append(headTemplate.clone()).append(contTemplate.clone()))];
         };
@@ -1729,7 +1716,7 @@ var TempusDominusBootstrap4 = function ($) {
                 dateView = $('<div>').addClass('datepicker').append(this._getDatePickerTemplate()),
                 timeView = $('<div>').addClass('timepicker').append(this._getTimePickerTemplate()),
                 content = $('<ul>').addClass('list-unstyled'),
-                toolbar = $('<li>').addClass("picker-switch" + (this._options.collapse ? ' accordion-toggle' : '')).append(this._getToolbar());
+                toolbar = $('<li>').addClass('picker-switch' + (this._options.collapse ? ' accordion-toggle' : '')).append(this._getToolbar());
 
             if (this._options.inline) {
                 template.removeClass('dropdown-menu');
@@ -1834,10 +1821,10 @@ var TempusDominusBootstrap4 = function ($) {
             }
 
             this.widget.css({
-                top: "" + (vertical === 'top' ? 'auto' : position.top + this._element.outerHeight()),
-                bottom: "" + (vertical === 'top' ? parent.outerHeight() - (parent === this._element ? 0 : position.top) : 'auto'),
-                left: "" + (horizontal === 'left' ? parent === this._element ? 0 : position.left : 'auto'),
-                right: "" + (horizontal === 'left' ? 'auto' : parent.outerWidth() - this._element.outerWidth() - (parent === this._element ? 0 : position.left))
+                top: '' + (vertical === 'top' ? 'auto' : position.top + this._element.outerHeight()),
+                bottom: '' + (vertical === 'top' ? parent.outerHeight() - (parent === this._element ? 0 : position.top) : 'auto'),
+                left: '' + (horizontal === 'left' ? parent === this._element ? 0 : position.left : 'auto'),
+                right: '' + (horizontal === 'left' ? 'auto' : parent.outerWidth() - this._element.outerWidth() - (parent === this._element ? 0 : position.left))
             });
         };
 
@@ -1903,7 +1890,7 @@ var TempusDominusBootstrap4 = function ($) {
             var yearsView = this.widget.find('.datepicker-years'),
                 yearsViewHeader = yearsView.find('th'),
                 startYear = this._viewDate.clone().subtract(5, 'y'),
-                endYear = this._viewDate.clone().add(6, 'y');
+                endYear = this._viewDate.clone().add(4, 'y');
             var html = '';
 
             yearsViewHeader.eq(0).find('span').attr('title', this._options.tooltips.prevDecade);
@@ -1916,14 +1903,14 @@ var TempusDominusBootstrap4 = function ($) {
                 yearsViewHeader.eq(0).addClass('disabled');
             }
 
-            yearsViewHeader.eq(1).text(startYear.year() + "-" + endYear.year());
+            yearsViewHeader.eq(1).text(startYear.year() + '-' + endYear.year());
 
             if (this._options.maxDate && this._options.maxDate.isBefore(endYear, 'y')) {
                 yearsViewHeader.eq(2).addClass('disabled');
             }
 
             while (!startYear.isAfter(endYear, 'y')) {
-                html += "<span data-action=\"selectYear\" class=\"year" + (startYear.isSame(this._date, 'y') && !this.unset ? ' active' : '') + (!this._isValid(startYear, 'y') ? ' disabled' : '') + "\">" + startYear.year() + "</span>";
+                html += '<span data-action="selectYear" class="year' + (startYear.isSame(this._date, 'y') && !this.unset ? ' active' : '') + (!this._isValid(startYear, 'y') ? ' disabled' : '') + '">' + startYear.year() + '</span>';
                 startYear.add(1, 'y');
             }
 
@@ -1950,23 +1937,23 @@ var TempusDominusBootstrap4 = function ($) {
                 decadesViewHeader.eq(0).addClass('disabled');
             }
 
-            decadesViewHeader.eq(1).text(startDecade.year() + "-" + endDecade.year());
+            decadesViewHeader.eq(1).text(startDecade.year() + '-' + endDecade.year());
 
             if (startDecade.isSame(moment({ y: 2000 })) || this._options.maxDate && this._options.maxDate.isBefore(endDecade, 'y')) {
                 decadesViewHeader.eq(2).addClass('disabled');
             }
 
             while (!startDecade.isAfter(endDecade, 'y')) {
-                endDecadeYear = startDecade.year() + 12;
+                endDecadeYear = startDecade.year() + 10;
                 minDateDecade = this._options.minDate && this._options.minDate.isAfter(startDecade, 'y') && this._options.minDate.year() <= endDecadeYear;
                 maxDateDecade = this._options.maxDate && this._options.maxDate.isAfter(startDecade, 'y') && this._options.maxDate.year() <= endDecadeYear;
-                html += "<span data-action=\"selectDecade\" class=\"decade" + (this._date.isAfter(startDecade) && this._date.year() <= endDecadeYear ? ' active' : '') + (!this._isValid(startDecade, 'y') && !minDateDecade && !maxDateDecade ? ' disabled' : '') + "\" data-selection=\"" + startDecade.year() + "6\">" + startDecade.year() + "1 - " + startDecade.year() + "12</span>";
-                startDecade.add(12, 'y');
+                html += '<span data-action="selectDecade" class="decade' + (this._date.isAfter(startDecade) && this._date.year() <= endDecadeYear ? ' active' : '') + (!this._isValid(startDecade, 'y') && !minDateDecade && !maxDateDecade ? ' disabled' : '') + '" data-selection="' + startDecade.year() + '6">' + startDecade.year() + ' - ' + startDecade.year() + '</span>';
+                startDecade.add(10, 'y');
             }
             html += '<span></span><span></span><span></span>'; //push the dangling block over, at least this way it's even
 
             decadesView.find('td').html(html);
-            decadesViewHeader.eq(1).text(startedAt.year() + "1-" + startDecade.year());
+            decadesViewHeader.eq(1).text(startedAt.year() + '-' + startDecade.year());
         };
 
         TempusDominusBootstrap4.prototype._fillDate = function _fillDate() {
@@ -2003,7 +1990,7 @@ var TempusDominusBootstrap4 = function ($) {
                 if (currentDate.weekday() === 0) {
                     row = $('<tr>');
                     if (this._options.calendarWeeks) {
-                        row.append("<td class=\"cw\">" + currentDate.week() + "</td>");
+                        row.append('<td class="cw">' + currentDate.week() + '</td>');
                     }
                     html.push(row);
                 }
@@ -2026,7 +2013,7 @@ var TempusDominusBootstrap4 = function ($) {
                 if (currentDate.day() === 0 || currentDate.day() === 6) {
                     clsName += ' weekend';
                 }
-                row.append("<td data-action=\"selectDay\" data-day=\"" + currentDate.format('L') + "\" class=\"day" + clsName + "\">" + currentDate.date() + "</td>");
+                row.append('<td data-action="selectDay" data-day="' + currentDate.format('L') + '" class="day' + clsName + '">' + currentDate.date() + '</td>');
                 currentDate.add(1, 'd');
             }
 
@@ -2053,7 +2040,7 @@ var TempusDominusBootstrap4 = function ($) {
                     row = $('<tr>');
                     html.push(row);
                 }
-                row.append("<td data-action=\"selectHour\" class=\"hour" + (!this._isValid(currentHour, 'h') ? ' disabled' : '') + "\">" + currentHour.format(this.use24Hours ? 'HH' : 'hh') + "</td>");
+                row.append('<td data-action="selectHour" class="hour' + (!this._isValid(currentHour, 'h') ? ' disabled' : '') + '">' + currentHour.format(this.use24Hours ? 'HH' : 'hh') + '</td>');
                 currentHour.add(1, 'h');
             }
             table.empty().append(html);
@@ -2071,7 +2058,7 @@ var TempusDominusBootstrap4 = function ($) {
                     row = $('<tr>');
                     html.push(row);
                 }
-                row.append("<td data-action=\"selectMinute\" class=\"minute" + (!this._isValid(currentMinute, 'm') ? ' disabled' : '') + "\">" + currentMinute.format('mm') + "</td>");
+                row.append('<td data-action="selectMinute" class="minute' + (!this._isValid(currentMinute, 'm') ? ' disabled' : '') + '">' + currentMinute.format('mm') + '</td>');
                 currentMinute.add(step, 'm');
             }
             table.empty().append(html);
@@ -2088,7 +2075,7 @@ var TempusDominusBootstrap4 = function ($) {
                     row = $('<tr>');
                     html.push(row);
                 }
-                row.append("<td data-action=\"selectSecond\" class=\"second" + (!this._isValid(currentSecond, 's') ? ' disabled' : '') + "\">" + currentSecond.format('ss') + "</td>");
+                row.append('<td data-action="selectSecond" class="second' + (!this._isValid(currentSecond, 's') ? ' disabled' : '') + '">' + currentSecond.format('ss') + '</td>');
                 currentSecond.add(5, 's');
             }
 
@@ -2112,7 +2099,7 @@ var TempusDominusBootstrap4 = function ($) {
                     toggle.addClass('disabled');
                 }
             }
-            timeComponents.filter('[data-time-component=hours]').text(this._date.format("" + (this.use24Hours ? 'HH' : 'hh')));
+            timeComponents.filter('[data-time-component=hours]').text(this._date.format('' + (this.use24Hours ? 'HH' : 'hh')));
             timeComponents.filter('[data-time-component=minutes]').text(this._date.format('mm'));
             timeComponents.filter('[data-time-component=seconds]').text(this._date.format('ss'));
 
@@ -2502,7 +2489,7 @@ var TempusDominusBootstrap4 = function ($) {
                 throw new TypeError('toolbarPlacement() expects a string parameter');
             }
             if (toolbarPlacements.indexOf(_toolbarPlacement) === -1) {
-                throw new TypeError("toolbarPlacement() parameter must be one of (" + toolbarPlacements.join(', ') + ") value");
+                throw new TypeError('toolbarPlacement() parameter must be one of (' + toolbarPlacements.join(', ') + ') value');
             }
             this._options.toolbarPlacement = _toolbarPlacement;
 
@@ -2526,7 +2513,7 @@ var TempusDominusBootstrap4 = function ($) {
                 }
                 _widgetPositioning.horizontal = _widgetPositioning.horizontal.toLowerCase();
                 if (horizontalModes.indexOf(_widgetPositioning.horizontal) === -1) {
-                    throw new TypeError("widgetPositioning() expects horizontal parameter to be one of (" + horizontalModes.join(', ') + ")");
+                    throw new TypeError('widgetPositioning() expects horizontal parameter to be one of (' + horizontalModes.join(', ') + ')');
                 }
                 this._options.widgetPositioning.horizontal = _widgetPositioning.horizontal;
             }
@@ -2536,7 +2523,7 @@ var TempusDominusBootstrap4 = function ($) {
                 }
                 _widgetPositioning.vertical = _widgetPositioning.vertical.toLowerCase();
                 if (verticalModes.indexOf(_widgetPositioning.vertical) === -1) {
-                    throw new TypeError("widgetPositioning() expects vertical parameter to be one of (" + verticalModes.join(', ') + ")");
+                    throw new TypeError('widgetPositioning() expects vertical parameter to be one of (' + verticalModes.join(', ') + ')');
                 }
                 this._options.widgetPositioning.vertical = _widgetPositioning.vertical;
             }
@@ -2569,7 +2556,7 @@ var TempusDominusBootstrap4 = function ($) {
         TempusDominusBootstrap4._jQueryInterface = function _jQueryInterface(option, argument) {
             return this.each(function () {
                 var data = $(this).data(DateTimePicker.DATA_KEY);
-                if ((typeof option === "undefined" ? "undefined" : _typeof(option)) === 'object') {
+                if ((typeof option === 'undefined' ? 'undefined' : _typeof(option)) === 'object') {
                     $.extend({}, DateTimePicker.Default, option);
                 }
 
@@ -2580,7 +2567,7 @@ var TempusDominusBootstrap4 = function ($) {
 
                 if (typeof option === 'string') {
                     if (data[option] === undefined) {
-                        throw new Error("No method named \"" + option + "\"");
+                        throw new Error('No method named "' + option + '"');
                     }
                     data[option](argument);
                 }
@@ -2603,13 +2590,13 @@ var TempusDominusBootstrap4 = function ($) {
             return;
         }
         TempusDominusBootstrap4._jQueryInterface.call($target, 'toggle');
-    }).on(DateTimePicker.Event.CHANGE, "." + DateTimePicker.ClassName.INPUT, function (event) {
+    }).on(DateTimePicker.Event.CHANGE, '.' + DateTimePicker.ClassName.INPUT, function (event) {
         var $target = getSelectorFromElement($(this));
         if ($target.length === 0) {
             return;
         }
         TempusDominusBootstrap4._jQueryInterface.call($target, '_change', event);
-    }).on(DateTimePicker.Event.BLUR, "." + DateTimePicker.ClassName.INPUT, function (event) {
+    }).on(DateTimePicker.Event.BLUR, '.' + DateTimePicker.ClassName.INPUT, function (event) {
         var $target = getSelectorFromElement($(this));
         if ($target.length === 0) {
             return;
@@ -2619,19 +2606,19 @@ var TempusDominusBootstrap4 = function ($) {
             return;
         }
         TempusDominusBootstrap4._jQueryInterface.call($target, 'hide', event);
-    }).on(DateTimePicker.Event.KEYDOWN, "." + DateTimePicker.ClassName.INPUT, function (event) {
+    }).on(DateTimePicker.Event.KEYDOWN, '.' + DateTimePicker.ClassName.INPUT, function (event) {
         var $target = getSelectorFromElement($(this));
         if ($target.length === 0) {
             return;
         }
         TempusDominusBootstrap4._jQueryInterface.call($target, '_keydown', event);
-    }).on(DateTimePicker.Event.KEYUP, "." + DateTimePicker.ClassName.INPUT, function (event) {
+    }).on(DateTimePicker.Event.KEYUP, '.' + DateTimePicker.ClassName.INPUT, function (event) {
         var $target = getSelectorFromElement($(this));
         if ($target.length === 0) {
             return;
         }
         TempusDominusBootstrap4._jQueryInterface.call($target, '_keyup', event);
-    }).on(DateTimePicker.Event.FOCUS, "." + DateTimePicker.ClassName.INPUT, function (event) {
+    }).on(DateTimePicker.Event.FOCUS, '.' + DateTimePicker.ClassName.INPUT, function (event) {
         var $target = getSelectorFromElement($(this));
         if ($target.length === 0) {
             return;

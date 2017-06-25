@@ -7,20 +7,20 @@ module.exports = function (grunt) {
         ' * Licensed under MIT (https://github.com/tempusdominus/bootstrap-3/blob/master/LICENSE)\n' +
         ' */\n',
         jqueryCheck: 'if (typeof jQuery === \'undefined\') {\n' +
-        '  throw new Error(\'Tempus Dominus Bootstrap4\\\'s requires jQuery. jQuery must be included before Tempus Dominus Bootstrap4\\\'s JavaScript.\')\n' +
+        '  throw new Error(\'Tempus Dominus Bootstrap4\\\'s requires jQuery. jQuery must be included before Tempus Dominus Bootstrap4\\\'s JavaScript.\');\n' +
         '}\n',
         jqueryVersionCheck: '+function ($) {\n' +
-        '  var version = $.fn.jquery.split(\' \')[0].split(\'.\')\n' +
-        '  if ((version[0] < 2 && version[1] < 9) || (version[0] == 1 && version[1] == 9 && version[2] < 1) || (version[0] >= 4)) {\n' +
-        '    throw new Error(\'Tempus Dominus Bootstrap4\\\'s requires at least jQuery v1.9.1 but less than v4.0.0\')\n' +
+        '  var version = $.fn.jquery.split(\' \')[0].split(\'.\');\n' +
+        '  if ((version[0] < 2 && version[1] < 9) || (version[0] === 1 && version[1] === 9 && version[2] < 1) || (version[0] >= 4)) {\n' +
+        '    throw new Error(\'Tempus Dominus Bootstrap4\\\'s requires at least jQuery v1.9.1 but less than v4.0.0\');\n' +
         '  }\n' +
         '}(jQuery);\n\n',
         momentCheck: 'if (typeof moment === \'undefined\') {\n' +
-        '  throw new Error(\'Tempus Dominus Bootstrap4\\\'s requires moment.js. Moment.js must be included before Tempus Dominus Bootstrap4\\\'s JavaScript.\')\n' +
+        '  throw new Error(\'Tempus Dominus Bootstrap4\\\'s requires moment.js. Moment.js must be included before Tempus Dominus Bootstrap4\\\'s JavaScript.\');\n' +
         '}\n',
         momentVersionCheck: 'var version = moment.version.split(\'.\')\n' +
         'if ((version[0] <= 2 && version[1] < 17) || (version[0] >= 3)) {\n' +
-        '  throw new Error(\'Tempus Dominus Bootstrap4\\\'s requires at least moment.js v2.17.0 but less than v3.0.0\')\n' +
+        '  throw new Error(\'Tempus Dominus Bootstrap4\\\'s requires at least moment.js v2.17.0 but less than v3.0.0\');\n' +
         '}\n',
         uglify: {
             target: {

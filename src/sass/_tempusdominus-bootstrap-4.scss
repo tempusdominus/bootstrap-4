@@ -17,7 +17,7 @@ $bs-datetimepicker-text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25) !default;
         display: block;
         margin: 2px 0;
         padding: 4px;
-        width: 19em;
+        width: 12.8vw;
 
         &.timepicker-sbs {
             @media (min-width: map-get($grid-breakpoints, 'sm')) {

@@ -1,3 +1,7 @@
+<div class="alert alert-warning">
+    This guide still needs a lot of work
+</div>
+
 # Minimal Requirements
 
 1. jQuery
@@ -20,8 +24,9 @@
 </head>
 ```
 
+## Package Managers
 
-## [bower](http://bower.io) ![Bower version](https://badge.fury.io/bo/tempusdominus-core.png)
+### [bower](http://bower.io) ![Bower version](https://badge.fury.io/bo/tempusdominus-core.png)
 
 Run the following command:
 ```
@@ -37,37 +42,41 @@ Include necessary scripts and styles:
   <script type="text/javascript" src="/bower_components/tempusdominus-core/build/js/core.min.js"></script>
 </head>
 ```
-## Nuget
+### Nuget
 
-### [Core](https://www.nuget.org/packages/Tempus.Dominus.Core/): ![NuGet version](https://badge.fury.io/nu/Tempus.Dominus.Core.png)
-```
-PM> Install-Package Tempus.Dominus.Core
-```
+### [Tempus.Dominus.Bootstrap.4](https://www.nuget.org/packages/Tempus.Dominus.Bootstrap.4/): ![NuGet version](https://badge.fury.io/nu/Tempus.Dominus.Bootstrap.4.png)
+
+    PM> Install-Package Tempus.Dominus.Bootstrap.4
+
 
 ```html
 <head>
   <script type="text/javascript" src="/scripts/jquery.min.js"></script>
   <script type="text/javascript" src="/scripts/moment.min.js"></script>
-  <script type="text/javascript" src="/scripts/tempusdominus/core.js"></script>
+  <script type="text/javascript" src="/scripts/tempusdominus/tempusdominus-bootstrap-4.js"></script>
 </head>
 ```
 
-## Rails
+### Rails
 
 Need new wrapper for this version.
 
-## Angular Wrapper
+### Angular Wrapper
 Need new wrapper for this version.
 
-## Meteor.js
+### Meteor.js
 
 Need new wrapper for this version.
+
+### Composer
+
+    $ composer require tempusdominus/bootstrap-4:5.0.0-alpha.6
 
 ## Manual
 
-### Acquire [jQuery](http://jquery.com)
-### Acquire  [Moment.js](https://github.com/moment/moment)
-
+1. Acquire [jQuery](http://jquery.com)
+2. Acquire [Moment.js](https://github.com/moment/moment)
+3. Acquire 
 ```html
 <script type="text/javascript" src="/path/to/jquery.js"></script>
 <script type="text/javascript" src="/path/to/moment.js"></script>

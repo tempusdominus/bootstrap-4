@@ -1,60 +1,33 @@
-<div class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
-
-        <!-- Collapsed navigation -->
-        <div class="navbar-header">
-            <!-- Expander button -->
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-
-            <!-- Main title -->
+<header class="navbar navbar-light navbar-toggleable-md bd-navbar">
+    <nav class="container">
+        <div class="d-flex justify-content-between hidden-lg-up">
             <a class="navbar-brand" href="{{ nav.homepage_url }}">{{ config.site_name }}</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bd-main-nav" aria-controls="bd-main-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
         </div>
 
-        <!-- Expanded navigation -->
-        <div class="navbar-collapse collapse">
-            <!-- Main navigation -->
+        <div class="collapse navbar-collapse" id="bd-main-nav">
             <ul class="nav navbar-nav">
-            {% for nav_item in nav %}
-            {% if nav_item.children %}
+                {% for nav_item in nav %}
+                {% if nav_item.children %}
                 <li class="dropdown{% if nav_item.active %} active{% endif %}">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ nav_item.title }} <b class="caret"></b></a>
                     <ul class="dropdown-menu">
-                    {% for nav_item in nav_item.children %}
+                        {% for nav_item in nav_item.children %}
                         <li {% if nav_item.active %}class="active"{% endif %}>
-                            <a href="{{ nav_item.url }}">{{ nav_item.title }}</a>
+                            <a class="nav-item nav-link" href="{{ nav_item.url }}">{{ nav_item.title }}</a>
                         </li>
-                    {% endfor %}
+                        {% endfor %}
                     </ul>
                 </li>
-            {% else %}
-                <li {% if nav_item.active %}class="active"{% endif %}>
-                    <a href="{{ nav_item.url }}">{{ nav_item.title }}</a>
-                </li>
-            {% endif %}
-            {% endfor %}
-            </ul>
-
-            <!-- Search, Navigation and Repo links -->
-            <ul class="nav navbar-nav navbar-right">
-                {% if include_search %}
-                <li>
-                    <a href="#searchModal" data-toggle="modal"><i class="fa fa-search"></i> Search</a>
+                {% else %}
+                <li class="nav-item {% if nav_item.active %}active{% endif %}">
+                    <a class="nav-item nav-link" href="{{ nav_item.url }}">{{ nav_item.title }}</a>
                 </li>
                 {% endif %}
-                {% if config.repo_url %}
-                <li>
-                    <a href="{{ config.repo_url }}">
-                        <i class="fa fa-github"></i>
-                        {{ config.repo_name }}
-                    </a>
-                </li>
-                {% endif %}
+                {% endfor %}
             </ul>
         </div>
-    </div>
-</div>
+    </nav>
+</header>

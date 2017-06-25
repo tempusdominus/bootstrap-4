@@ -388,7 +388,7 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
         _updateDecades() {
             const decadesView = this.widget.find('.datepicker-decades'),
                 decadesViewHeader = decadesView.find('th'),
-                startDecade = moment({ y: this._viewDate.year() - this._viewDate.year() % 100 - 1 }),
+                startDecade = window.moment({ y: this._viewDate.year() - this._viewDate.year() % 100 - 1 }),
                 endDecade = startDecade.clone().add(100, 'y'),
                 startedAt = startDecade.clone();
             let minDateDecade = false,
@@ -401,13 +401,13 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
 
             decadesView.find('.disabled').removeClass('disabled');
 
-            if (startDecade.isSame(moment({ y: 1900 })) || this._options.minDate && this._options.minDate.isAfter(startDecade, 'y')) {
+            if (startDecade.isSame(window.moment({ y: 1900 })) || this._options.minDate && this._options.minDate.isAfter(startDecade, 'y')) {
                 decadesViewHeader.eq(0).addClass('disabled');
             }
 
             decadesViewHeader.eq(1).text(`${startDecade.year()}-${endDecade.year()}`);
 
-            if (startDecade.isSame(moment({ y: 2000 })) || this._options.maxDate && this._options.maxDate.isBefore(endDecade, 'y')) {
+            if (startDecade.isSame(window.moment({ y: 2000 })) || this._options.maxDate && this._options.maxDate.isBefore(endDecade, 'y')) {
                 decadesViewHeader.eq(2).addClass('disabled');
             }
 
@@ -599,20 +599,21 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
                     break;
 
                 case 'selectMonth':
-                    const month = $(e.target).closest('tbody').find('span').index($(e.target));
-                    this._viewDate.month(month);
-                    if (this.currentViewMode === DateTimePicker.MinViewModeNumber) {
-                        this._setValue(this._date.clone().year(this._viewDate.year()).month(this._viewDate.month()));
-                        if (!this._options.inline) {
-                            this.hide();
+                    {
+                        const month = $(e.target).closest('tbody').find('span').index($(e.target));
+                        this._viewDate.month(month);
+                        if (this.currentViewMode === DateTimePicker.MinViewModeNumber) {
+                            this._setValue(this._date.clone().year(this._viewDate.year()).month(this._viewDate.month()));
+                            if (!this._options.inline) {
+                                this.hide();
+                            }
+                        } else {
+                            this._showMode(-1);
+                            this._fillDate();
                         }
-                    } else {
-                        this._showMode(-1);
-                        this._fillDate();
+                        this._viewUpdate('M');
+                        break;
                     }
-                    this._viewUpdate('M');
-                    break;
-
                 case 'selectYear':
                     {
                         const year = parseInt($(e.target).text(), 10) || 0;
@@ -726,7 +727,7 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
                         if (expanded && expanded.length) {
                             collapseData = expanded.data('collapse');
                             if (collapseData && collapseData.transitioning) {
-                                return;
+                                return true;
                             }
                             if (expanded.collapse) {
                                 // if collapse plugin is available through bootstrap.js then use it
@@ -764,22 +765,24 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
                     this.widget.find('.timepicker .timepicker-seconds').show();
                     break;
                 case 'selectHour':
-                    let hour = parseInt($(e.target).text(), 10);
+                    {
+                        let hour = parseInt($(e.target).text(), 10);
 
-                    if (!this.use24Hours) {
-                        if (this._date.hours() >= 12) {
-                            if (hour !== 12) {
-                                hour += 12;
-                            }
-                        } else {
-                            if (hour === 12) {
-                                hour = 0;
+                        if (!this.use24Hours) {
+                            if (this._date.hours() >= 12) {
+                                if (hour !== 12) {
+                                    hour += 12;
+                                }
+                            } else {
+                                if (hour === 12) {
+                                    hour = 0;
+                                }
                             }
                         }
+                        this._setValue(this._date.clone().hours(hour));
+                        this._doAction(e, 'showPicker');
+                        break;
                     }
-                    this._setValue(this._date.clone().hours(hour));
-                    this._doAction(e, 'showPicker');
-                    break;
                 case 'selectMinute':
                     this._setValue(this._date.clone().minutes(parseInt($(e.target).text(), 10)));
                     this._doAction(e, 'showPicker');

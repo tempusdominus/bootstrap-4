@@ -1,5 +1,5 @@
 /*@preserve
- * Tempus Dominus Bootstrap4 v5.0.0-alpha (https://tempusdominus.github.io/bootstrap-4/)
+ * Tempus Dominus Bootstrap4 v5.0.0-alpha6 (https://tempusdominus.github.io/bootstrap-4/)
  * Copyright 2016-2017 Jonathan Peterson
  * Licensed under MIT (https://github.com/tempusdominus/bootstrap-3/blob/master/LICENSE)
  */
@@ -60,10 +60,10 @@
       border-top: 6px solid white;
       bottom: -6px;
       left: 7px; }
-    .bootstrap-datetimepicker-widget.dropdown-menu.pull-right:before {
+    .bootstrap-datetimepicker-widget.dropdown-menu.float-right:before {
       left: auto;
       right: 6px; }
-    .bootstrap-datetimepicker-widget.dropdown-menu.pull-right:after {
+    .bootstrap-datetimepicker-widget.dropdown-menu.float-right:after {
       left: auto;
       right: 7px; }
   .bootstrap-datetimepicker-widget .list-unstyled {

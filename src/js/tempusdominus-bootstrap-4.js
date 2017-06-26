@@ -291,10 +291,10 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
             }
 
             this.widget.css({
-                top: `${vertical === 'top' ? 'auto' : position.top + this._element.outerHeight()}`,
-                bottom: `${vertical === 'top' ? parent.outerHeight() - (parent === this._element ? 0 : position.top) : 'auto'}`,
-                left: `${horizontal === 'left' ? parent === this._element ? 0 : position.left : 'auto'}`,
-                right: `${horizontal === 'left' ? 'auto' : parent.outerWidth() - this._element.outerWidth() - (parent === this._element ? 0 : position.left)}`
+                top: vertical === 'top' ? 'auto' : position.top + this._element.outerHeight() + 'px',
+                bottom: vertical === 'top' ? parent.outerHeight() - (parent === this._element ? 0 : position.top) + 'px' : 'auto',
+                left: horizontal === 'left' ? (parent === this._element ? 0 : position.left) + 'px' : 'auto',
+                right: horizontal === 'left' ? 'auto' : parent.outerWidth() - this._element.outerWidth() - (parent === this._element ? 0 : position.left) + 'px'
             });
         }
 
@@ -326,7 +326,7 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
         _updateMonths() {
             const monthsView = this.widget.find('.datepicker-months'),
                 monthsViewHeader = monthsView.find('th'),
-                months = monthsView.find('tbody').find('span');
+                months = monthsView.find('tbody').find('span'), self = this;
 
             monthsViewHeader.eq(0).find('span').attr('title', this._options.tooltips.prevYear);
             monthsViewHeader.eq(1).attr('title', this._options.tooltips.selectYear);
@@ -348,7 +348,7 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
             if (this._date.isSame(this._viewDate, 'y') && !this.unset) {
                 months.eq(this._date.month()).addClass('active');
             }
-            const self = this;
+
             months.each(function (index) {
                 if (!self._isValid(self._viewDate.clone().month(index), 'M')) {
                     $(this).addClass('disabled');

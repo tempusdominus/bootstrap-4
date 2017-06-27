@@ -818,7 +818,16 @@ tooltips: {
     prevDecade: 'Previous Decade',
     nextDecade: 'Next Decade',
     prevCentury: 'Previous Century',
-    nextCentury: 'Next Century'
+    nextCentury: 'Next Century',,
+	incrementHour: 'Increment Hour',
+    pickHour: 'Pick Hour',
+    decrementHour:'Decrement Hour',
+    incrementMinute: 'Increment Minute',
+    pickMinute: 'Pick Minute',
+    decrementMinute:'Decrement Minute',
+    incrementSecond: 'Increment Second',
+    pickSecond: 'Pick Second',
+    decrementSecond:'Decrement Second'
 }
 ```
 

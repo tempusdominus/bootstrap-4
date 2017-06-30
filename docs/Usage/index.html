@@ -145,6 +145,7 @@
             <li><a href="#min-view-mode">Min View Mode</a></li>
             <li><a href="#disabled-days-of-the-week">Disabled Days of the Week</a></li>
             <li><a href="#inline">Inline</a></li>
+            <li><a href="#multidate">Multidate</a></li>
         </ul>
     </div>
 </nav></div>
@@ -740,6 +741,57 @@
             });
         });
     &lt;/script&gt;
+&lt;/div&gt;
+</code></pre>
+
+<hr />
+<h3 id="multidate">Multidate</h3>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-group">
+                <div class="input-group date" id="datetimepicker14" data-target-input="nearest">
+                    <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker14"/>
+                    <span class="input-group-addon" data-target="#datetimepicker14" data-toggle="datetimepicker">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker14').datetimepicker({
+                    allowMultidate: true,
+                    multidateSeparator: ',',
+                    format: 'L' //this is here just to make the demo prettier.
+                });
+            });
+        </script>
+    </div>
+</div>
+
+<h4 id="code_12">Code</h4>
+<pre><code>&lt;div class=&quot;container&quot;&gt;
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-sm-6&quot;&gt;
+            &lt;div class=&quot;form-group&quot;&gt;
+                &lt;div class=&quot;input-group date&quot; id=&quot;datetimepicker14&quot; data-target-input=&quot;nearest&quot;&gt;
+                    &lt;input type=&quot;text&quot; class=&quot;form-control datetimepicker-input&quot; data-target=&quot;#datetimepicker14&quot;/&gt;
+                    &lt;span class=&quot;input-group-addon&quot; data-target=&quot;#datetimepicker14&quot; data-toggle=&quot;datetimepicker&quot;&gt;
+                        &lt;span class=&quot;glyphicon glyphicon-calendar&quot;&gt;&lt;/span&gt;
+                    &lt;/span&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;script type=&quot;text/javascript&quot;&gt;
+            $(function () {
+                $('#datetimepicker14').datetimepicker({
+                    allowMultidate: true,
+                    multidateSeparator: ','
+                });
+            });
+        &lt;/script&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 </code></pre></div>
         </div>

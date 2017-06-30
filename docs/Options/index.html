@@ -166,6 +166,8 @@
             <li><a href="#parseinputdate">parseInputDate</a></li>
             <li><a href="#tooltips">tooltips</a></li>
             <li><a href="#timezone">timeZone</a></li>
+            <li><a href="#allowmultidate">allowMultidate</a></li>
+            <li><a href="#multidateseparator">multidateSeparator</a></li>
         </ul>
     </div>
 </nav></div>
@@ -732,7 +734,16 @@ var parseInputDate = function(inputDate) {
     prevDecade: 'Previous Decade',
     nextDecade: 'Next Decade',
     prevCentury: 'Previous Century',
-    nextCentury: 'Next Century'
+    nextCentury: 'Next Century',,
+    incrementHour: 'Increment Hour',
+    pickHour: 'Pick Hour',
+    decrementHour:'Decrement Hour',
+    incrementMinute: 'Increment Minute',
+    pickMinute: 'Pick Minute',
+    decrementMinute:'Decrement Minute',
+    incrementSecond: 'Increment Second',
+    pickSecond: 'Pick Second',
+    decrementSecond:'Decrement Second'
 }
 </code></pre>
 
@@ -757,6 +768,33 @@ var parseInputDate = function(inputDate) {
 <h5 id="throws_8">Throws</h5>
 <ul>
 <li><code>TypeError</code> - if <code>tooltips</code> parameter is not an <code>string</code></li>
+</ul>
+<hr />
+<h3 id="allowmultidate">allowMultidate</h3>
+<pre><code>allowMultidate: false
+</code></pre>
+<p>Allows the setting of multiple dates.</p>
+<h4 id="allowmultidate_1">allowMultidate</h4>
+<p>Returns an <code>boolean</code> of <code>options.allowMultidate</code> </p>
+<h4 id="allowmultidate-allowmultidate">allowMultidate, [allowMultidate]</h4>
+<p>Takes an <code>boolean</code>.</p>
+<h5 id="throws_9">Throws</h5>
+<ul>
+<li><code>TypeError</code> - if <code>allowMultidate</code> parameter is not an <code>boolean</code></li>
+</ul>
+<hr />
+<h3 id="multidateseparator">multidateSeparator</h3>
+<pre><code>multidateSeparator: ','
+</code></pre>
+<p>Used with <code>allowMultidate</code>. E.g. <code>1/1/2017,1/2/2017</code></p>
+<h4 id="multidateseparator_1">multidateSeparator</h4>
+<p>Returns an <code>string</code> of <code>options.multidateSeparator</code> </p>
+<h4 id="multidateseparator-multidateseparator">multidateSeparator, [multidateSeparator]</h4>
+<p>Takes an <code>string</code> of a valid timezone.</p>
+<h5 id="throws_10">Throws</h5>
+<ul>
+<li><code>TypeError</code> - if <code>multidateSeparator</code> parameter is not an <code>string</code></li>
+<li><code>TypeError</code> - if <code>multidateSeparator</code> parameter is longer then 1 character</li>
 </ul></div>
         </div>
     </div>

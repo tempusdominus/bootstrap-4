@@ -639,3 +639,58 @@ lead: Basic usage and common examples
     </script>
 </div>
 ```
+
+----------------------
+
+### Multidate
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-group">
+                <div class="input-group date" id="datetimepicker14" data-target-input="nearest">
+                    <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker14"/>
+                    <span class="input-group-addon" data-target="#datetimepicker14" data-toggle="datetimepicker">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker14').datetimepicker({
+					allowMultidate: true,
+					multidateSeparator: ',',
+					format: 'L' //this is here just to make the demo prettier.
+				});
+            });
+        </script>
+    </div>
+</div>
+
+#### Code
+
+```
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-group">
+                <div class="input-group date" id="datetimepicker14" data-target-input="nearest">
+                    <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker14"/>
+                    <span class="input-group-addon" data-target="#datetimepicker14" data-toggle="datetimepicker">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker14').datetimepicker({
+					allowMultidate: true,
+					multidateSeparator: ','
+				});
+            });
+        </script>
+    </div>
+</div>
+```

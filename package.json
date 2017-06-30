@@ -71,7 +71,7 @@
     "type": "git",
     "url": "https://github.com/tempusdominus/bootstrap-4.git"
   },
-  "version": "5.0.0-alpha6",
+  "version": "5.0.0-alpha7",
   "files": [
     "build",
     "src/js/**/*.js",

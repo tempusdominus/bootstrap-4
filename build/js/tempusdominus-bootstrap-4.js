@@ -1822,7 +1822,7 @@ var TempusDominusBootstrap4 = function ($) {
         };
 
         TempusDominusBootstrap4.prototype._place = function _place(e) {
-            var self = e && e.data && e.data.picker,
+            var self = e && e.data && e.data.picker || this,
                 vertical = self._options.widgetPositioning.vertical,
                 horizontal = self._options.widgetPositioning.horizontal,
                 parent = void 0;

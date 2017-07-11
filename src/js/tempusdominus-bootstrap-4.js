@@ -230,7 +230,7 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
         }
 
         _place(e) {
-            let self = (e && e.data && e.data.picker), vertical = self._options.widgetPositioning.vertical,
+            let self = (e && e.data && e.data.picker) || this, vertical = self._options.widgetPositioning.vertical,
                 horizontal = self._options.widgetPositioning.horizontal,
                 parent;
             const position = (self.component || self._element).position(),

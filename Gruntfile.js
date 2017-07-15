@@ -174,6 +174,14 @@ module.exports = function (grunt) {
                 files: '<%= concat.bootstrap.src %>',
                 tasks: ['default']
             }
+        },
+        mkdocs: {
+            dist: {
+                src: '.',
+                options: {
+                    clean: true
+                }
+            }
         }
     });
 
@@ -183,6 +191,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-contrib-jasmine');
     grunt.loadNpmTasks('grunt-nuget');
+    grunt.loadNpmTasks('grunt-mkdocs');
 
     require('load-grunt-tasks')(grunt);
     grunt.registerTask('default', 'build:js');
@@ -204,14 +213,7 @@ module.exports = function (grunt) {
         grunt.file.copy('build/css/tempusdominus-bootstrap-4.css', 'src/docs/theme/css/tempusdominus-bootstrap-4.css');
     });
 
-    grunt.registerTask('docs', 'Generate docs', function () {
-        grunt.task.run(['copy']);
-
-        grunt.util.spawn({
-            cmd: 'mkdocs',
-            args: ['build', '--clean']
-        });
-    });
+    grunt.registerTask('docs', ['copy', 'mkdocs']);
 
     grunt.registerTask('release', function (version) {
         if (!version || version.split('.').length !== 3) {

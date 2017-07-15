@@ -51,6 +51,7 @@
     "grunt-env": "^0.4.4",
     "grunt-eslint": "^19.0.0",
     "grunt-jscs": "latest",
+    "grunt-mkdocs": "^0.2.3",
     "grunt-nuget": "^0.1.5",
     "grunt-sass": "2.0.0",
     "grunt-stamp": "^0.3.0",

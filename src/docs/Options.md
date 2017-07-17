@@ -2,9 +2,7 @@
 
 <div class="alert alert-info">
     <strong>Note</strong>
-    All options are accessed via the <code>data</code> attribute e.g. <code>$('#datetimepicker').datetimepicker(OPTION, ARGUMENT)</code>
-    
-    **TODO** should I move some of this to the component?
+    All options are accessed via the <code>data</code> attribute e.g. <code>$('#datetimepicker').datetimepicker('sideBySide', true)</code>
 </div>
 
 ### options

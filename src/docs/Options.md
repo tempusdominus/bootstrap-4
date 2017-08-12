@@ -2,7 +2,21 @@
 
 <div class="alert alert-info">
     <strong>Note</strong>
-    All options are accessed via the <code>data</code> attribute e.g. <code>$('#datetimepicker').datetimepicker('sideBySide', true)</code>
+   Initialize options as 
+   <code>$('#datetimepicker').datetimepicker({
+       sideBySide: true,
+       debug: true
+   })</code>
+</div>
+
+<div class="alert alert-info">
+    <strong>Note</strong>
+    To set options use <code>$('#datetimepicker').datetimepicker('sideBySide', true)</code>
+</div>
+
+<div class="alert alert-info">
+    <strong>Note</strong>
+    To get option value use <code>$('#datetimepicker').datetimepicker('sideBySide')</code>
 </div>
 
 ### options

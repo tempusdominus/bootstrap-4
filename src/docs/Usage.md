@@ -651,7 +651,7 @@ lead: Basic usage and common examples
                 <div class="input-group date" id="datetimepicker14" data-target-input="nearest">
                     <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker14"/>
                     <span class="input-group-addon" data-target="#datetimepicker14" data-toggle="datetimepicker">
-                        <span class="glyphicon glyphicon-calendar"></span>
+                        <span class="fa fa-calendar"></span>
                     </span>
                 </div>
             </div>
@@ -678,7 +678,7 @@ lead: Basic usage and common examples
                 <div class="input-group date" id="datetimepicker14" data-target-input="nearest">
                     <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker14"/>
                     <span class="input-group-addon" data-target="#datetimepicker14" data-toggle="datetimepicker">
-                        <span class="glyphicon glyphicon-calendar"></span>
+                        <span class="fa fa-calendar"></span>
                     </span>
                 </div>
             </div>
@@ -694,3 +694,32 @@ lead: Basic usage and common examples
     </div>
 </div>
 ```
+
+----------------------
+
+### Setting Options
+
+<div class="container">
+    <div class="col-sm-6">
+        <div class="form-group">
+            <div class="input-group date" id="datetimepicker15" data-target-input="nearest">
+                <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker15"/>
+                <span class="input-group-addon" data-target="#datetimepicker15" data-toggle="datetimepicker">
+                    <span class="fa fa-calendar"></span>
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-default" id="setOption">Set Option</button>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(function () {
+            $('#datetimepicker15').datetimepicker();
+            
+            $('#setOption').click(function () {
+                $('#datetimepicker15').datetimepicker('daysOfWeekDisabled', [0, 6]);
+            });
+        });
+    </script>
+</div>

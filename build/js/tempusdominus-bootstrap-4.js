@@ -763,7 +763,7 @@ var DateTimePicker = function ($) {
             this.currentViewMode = Math.max(MinViewModeNumber, this.currentViewMode);
 
             if (!this.unset) {
-                this._setValue(this._date);
+                this._setValue(this._dates[0], 0);
             }
         };
 
@@ -2644,24 +2644,35 @@ var TempusDominusBootstrap4 = function ($) {
         //static
 
 
+        TempusDominusBootstrap4._jQueryHandleThis = function _jQueryHandleThis(me, option, argument) {
+            var data = $(me).data(DateTimePicker.DATA_KEY);
+            if ((typeof option === 'undefined' ? 'undefined' : _typeof(option)) === 'object') {
+                $.extend({}, DateTimePicker.Default, option);
+            }
+
+            if (!data) {
+                data = new TempusDominusBootstrap4($(me), option);
+                $(me).data(DateTimePicker.DATA_KEY, data);
+            }
+
+            if (typeof option === 'string') {
+                if (data[option] === undefined) {
+                    throw new Error('No method named "' + option + '"');
+                }
+                if (argument === undefined) {
+                    return data[option]();
+                } else {
+                    return data[option](argument);
+                }
+            }
+        };
+
         TempusDominusBootstrap4._jQueryInterface = function _jQueryInterface(option, argument) {
+            if (this.length === 1) {
+                return TempusDominusBootstrap4._jQueryHandleThis(this[0], option, argument);
+            }
             return this.each(function () {
-                var data = $(this).data(DateTimePicker.DATA_KEY);
-                if ((typeof option === 'undefined' ? 'undefined' : _typeof(option)) === 'object') {
-                    $.extend({}, DateTimePicker.Default, option);
-                }
-
-                if (!data) {
-                    data = new TempusDominusBootstrap4($(this), option);
-                    $(this).data(DateTimePicker.DATA_KEY, data);
-                }
-
-                if (typeof option === 'string') {
-                    if (data[option] === undefined) {
-                        throw new Error('No method named "' + option + '"');
-                    }
-                    data[option](argument);
-                }
+                TempusDominusBootstrap4._jQueryHandleThis(this, option, argument);
             });
         };
 

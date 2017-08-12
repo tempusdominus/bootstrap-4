@@ -146,6 +146,7 @@
             <li><a href="#disabled-days-of-the-week">Disabled Days of the Week</a></li>
             <li><a href="#inline">Inline</a></li>
             <li><a href="#multidate">Multidate</a></li>
+            <li><a href="#setting-options">Setting Options</a></li>
         </ul>
     </div>
 </nav></div>
@@ -753,7 +754,7 @@
                 <div class="input-group date" id="datetimepicker14" data-target-input="nearest">
                     <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker14"/>
                     <span class="input-group-addon" data-target="#datetimepicker14" data-toggle="datetimepicker">
-                        <span class="glyphicon glyphicon-calendar"></span>
+                        <span class="fa fa-calendar"></span>
                     </span>
                 </div>
             </div>
@@ -778,7 +779,7 @@
                 &lt;div class=&quot;input-group date&quot; id=&quot;datetimepicker14&quot; data-target-input=&quot;nearest&quot;&gt;
                     &lt;input type=&quot;text&quot; class=&quot;form-control datetimepicker-input&quot; data-target=&quot;#datetimepicker14&quot;/&gt;
                     &lt;span class=&quot;input-group-addon&quot; data-target=&quot;#datetimepicker14&quot; data-toggle=&quot;datetimepicker&quot;&gt;
-                        &lt;span class=&quot;glyphicon glyphicon-calendar&quot;&gt;&lt;/span&gt;
+                        &lt;span class=&quot;fa fa-calendar&quot;&gt;&lt;/span&gt;
                     &lt;/span&gt;
                 &lt;/div&gt;
             &lt;/div&gt;
@@ -793,7 +794,34 @@
         &lt;/script&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</code></pre></div>
+</code></pre>
+
+<hr />
+<h3 id="setting-options">Setting Options</h3>
+<div class="container">
+    <div class="col-sm-6">
+        <div class="form-group">
+            <div class="input-group date" id="datetimepicker15" data-target-input="nearest">
+                <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker15"/>
+                <span class="input-group-addon" data-target="#datetimepicker15" data-toggle="datetimepicker">
+                    <span class="fa fa-calendar"></span>
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-default" id="setOption">Set Option</button>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(function () {
+            $('#datetimepicker15').datetimepicker();
+
+            $('#setOption').click(function () {
+                $('#datetimepicker15').datetimepicker('daysOfWeekDisabled', [0, 6]);
+            });
+        });
+    </script>
+</div></div>
         </div>
     </div>
 

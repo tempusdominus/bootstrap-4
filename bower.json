@@ -1,6 +1,6 @@
 {
   "name": "tempusdominus-bootstrap-4",
-  "version": "5.0.0-alpha7",
+  "version": "5.0.0-alpha8",
   "main": [
     "src/sass/tempusdominus-bootstrap-4-build.scss",
     "src/js/tempusdominus-bootstrap-4.js"

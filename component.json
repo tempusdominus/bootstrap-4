@@ -1,12 +1,12 @@
 {
   "name": "tempusdominus-bootstrap-4",
-  "version": "5.0.0-alpha8",
+  "version": "5.0.0-alpha9",
   "main": "build/js/tempusdominus-bootstrap-4.min.js",
   "scripts": [ "build/js/tempusdominus-bootstrap-4.min.js" ],
   "styles": [ "build/css/tempusdominus-bootstrap-4.min.css" ],
   "dependencies": {
     "jquery": ">=1.8.3",
     "moment": ">=2.10.5",
-    "tempusdominus-core": "5.0.0-alpha6"
+    "tempusdominus-core": "5.0.0-alpha9"
   }
 }

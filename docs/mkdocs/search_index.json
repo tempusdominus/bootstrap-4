@@ -2,7 +2,7 @@
     "docs": [
         {
             "location": "/",
-            "text": "Tempus Dominus is the successor to the very popular Eonasdan/bootstrap-datetimepicker. The plugin provide a robust date and time picker designed to integrate into your Bootstrap project.\n    \n\n    \n\n      \nDownload Tempus Dominus\n\n    \n\n    \nCurrently v5.0.0-alpha.6\n\n  \n\n\n\n\n\n  \n\n    \nGetting Started\n\n    \nUse the CDN or any of the supported package managers to quickly add our datepicker to your project. Be sure to take a glace at \nminimum setup guide\n\n\n    \n\n      \n\n        \nManaged dependencies\n\n        \nFor more customization or private projects see the\n\n        \n\n          \nInstallation Guide\n\n        \n\n      \n\n      \n\n        \nCDNJS\n\n        \nJust link to the CDNJS hosted files for easy installation",
+            "text": "Tempus Dominus is the successor to the very popular Eonasdan/bootstrap-datetimepicker. The plugin provide a robust date and time picker designed to integrate into your Bootstrap project.\n    \n\n    \n\n      \nDownload Tempus Dominus\n\n    \n\n    \nCurrently v5.0.0-alpha.9\n\n  \n\n\n\n\n\n  \n\n    \nGetting Started\n\n    \nUse the CDN or any of the supported package managers to quickly add our datepicker to your project. Be sure to take a glace at \nminimum setup guide\n\n\n    \n\n      \n\n        \nManaged dependencies\n\n        \nFor more customization or private projects see the\n\n        \n\n          \nInstallation Guide\n\n        \n\n      \n\n      \n\n        \nCDNJS\n\n        \nJust link to the CDNJS hosted files for easy installation",
             "title": "Tempus Dominus Bootstrap 4"
         },
         {

@@ -1,5 +1,5 @@
 /*@preserve
- * Tempus Dominus Bootstrap4 v5.0.0-alpha9 (https://tempusdominus.github.io/bootstrap-4/)
+ * Tempus Dominus Bootstrap4 v5.0.0-alpha10 (https://tempusdominus.github.io/bootstrap-4/)
  * Copyright 2016-2017 Jonathan Peterson
  * Licensed under MIT (https://github.com/tempusdominus/bootstrap-3/blob/master/LICENSE)
  */
@@ -1871,15 +1871,15 @@ var TempusDominusBootstrap4 = function ($) {
                 self.widget.removeClass('float-right');
             }
 
-            // find the first parent element that has a static css positioning
-            if (parent.css('position') !== 'static') {
+            // find the first parent element that has a relative css positioning
+            if (parent.css('position') !== 'relative') {
                 parent = parent.parents().filter(function () {
-                    return $(this).css('position') === 'static';
+                    return $(this).css('position') === 'relative';
                 }).first();
             }
 
             if (parent.length === 0) {
-                throw new Error('datetimepicker component should be placed within a static positioned container');
+                throw new Error('datetimepicker component should be placed within a relative positioned container');
             }
 
             self.widget.css({

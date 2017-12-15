@@ -25,9 +25,10 @@
     {%- endblock %}
 
     {%- block styles %}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.css" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://v4-alpha.getbootstrap.com/assets/css/docs.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://getbootstrap.com/assets/css/docs.min.css" />
+    <!--<link rel="stylesheet" href="https://v4-alpha.getbootstrap.com/assets/css/docs.min.css" />-->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css" />
     {%- for path in extra_css %}
     <link href="{{ path }}" rel="stylesheet">
     {%- endfor %}
@@ -39,10 +40,11 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
-            integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.4/moment-with-locales.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.14/moment-timezone-with-data-2012-2022.min.js"></script>
     {%- endblock %}
     {%- block scripts %}
     <script>var base_url = '{{ base_url }}';</script>
@@ -59,27 +61,24 @@
 
     {% include "nav.html" %}
     {% if not page.is_homepage %}
-    <div class="bd-pageheader">
-        <div class="container">
-            <h1>{{page.title}}</h1>
-            {% if page and page.meta.lead %}
-            <p class="lead">
-                {{page.meta.lead[0]}}
-            </p>
-            {% endif %}
-        </div>
-    </div>
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             {%- block content %}
-            <div class="col-12 col-md-3 push-md-9 bd-sidebar">{% include "toc.html" %}</div>
-            <div class="col-12 col-md-9 pull-md-3 bd-content" role="main">{% include "content.html" %}</div>
+            <div class="col-12 col-md-3 col-xl-2 bd-sidebar">{% include "toc.html" %}</div>
+            <div class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content" role="main">
+                <h1 class="bd-title">{{page.title}}</h1>
+                {% if page and page.meta.lead %}
+                <p class="bd-lead">
+                    {{page.meta.lead[0]}}
+                </p>
+                {% endif %}
+                {% include "content.html" %}
+            </div>
             {%- endblock %}
         </div>
     </div>
-
-    {% else %}
-    {% include "content.html" %}
+{% else %}
+{% include "content.html" %}
     {% endif %}
 
     {%- include "search-modal.html" %}

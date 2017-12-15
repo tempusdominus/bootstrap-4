@@ -10,7 +10,6 @@
 
 # Installation Guides
 * [CDN](#cdn)
-* [Bower](#bower-)
 * [Nuget](#nuget)
 * [Rails](#rails-)
 * [Angular](#angular-wrapper)
@@ -26,22 +25,6 @@
 
 ## Package Managers
 
-### [bower](http://bower.io) ![Bower version](https://badge.fury.io/bo/tempusdominus-core.png)
-
-Run the following command:
-```
-bower install tempusdominus-core#latest --save
-```
-
-Include necessary scripts and styles:
-```html
-<head>
-  <!-- ... -->
-  <script type="text/javascript" src="/bower_components/jquery/jquery.min.js"></script>
-  <script type="text/javascript" src="/bower_components/moment/min/moment.min.js"></script>
-  <script type="text/javascript" src="/bower_components/tempusdominus-core/build/js/core.min.js"></script>
-</head>
-```
 ### Nuget
 
 ### [Tempus.Dominus.Bootstrap.4](https://www.nuget.org/packages/Tempus.Dominus.Bootstrap.4/): ![NuGet version](https://badge.fury.io/nu/Tempus.Dominus.Bootstrap.4.png)
@@ -70,7 +53,7 @@ Need new wrapper for this version.
 
 ### Composer
 
-    $ composer require tempusdominus/bootstrap-4:5.0.0-alpha.6
+    $ composer require tempusdominus/bootstrap-4:5.0.0-alpha.10
 
 ## Manual
 

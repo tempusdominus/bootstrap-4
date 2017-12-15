@@ -7,6 +7,7 @@ lead: Basic usage and common examples
     All functions are accessed via the <code>$('#datetimepicker').datetimepicker(FUNCTION)</code>
 </div>
 
+
 ### Minimum Setup
 
 <div class="container">

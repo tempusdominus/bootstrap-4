@@ -15,9 +15,10 @@
     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#144287">
     <meta name="theme-color" content="#ffffff">
     <title>Events - Tempus Dominus - Bootstrap 4</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.css" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://v4-alpha.getbootstrap.com/assets/css/docs.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://getbootstrap.com/assets/css/docs.min.css" />
+    <!--<link rel="stylesheet" href="https://v4-alpha.getbootstrap.com/assets/css/docs.min.css" />-->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css" />
     <link href="../theme/css/base.css" rel="stylesheet">
     <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/github.min.css" rel="stylesheet">
     <link href="../theme/css/tempusdominus-bootstrap-4.css" rel="stylesheet">
@@ -26,10 +27,11 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
-            integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.4/moment-with-locales.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.14/moment-timezone-with-data-2012-2022.min.js"></script>
     <script>var base_url = '..';</script>
     <!--<script data-main="../mkdocs/js/search.js" src="../mkdocs/js/require.js"></script>-->
     <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.0/moment-with-locales.js"></script>
@@ -40,92 +42,87 @@
 
 <body>
 
-    <header class="navbar navbar-light navbar-toggleable-md bd-navbar">
-    <nav class="container">
-        <div class="d-flex justify-content-between hidden-lg-up">
-            <a class="navbar-brand" href="">Tempus Dominus - Bootstrap 4</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bd-main-nav" aria-controls="bd-main-nav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-        </div>
+    <header class="navbar navbar-expand navbar-dark flex-column flex-md-row bd-navbar">
+    <a class="navbar-brand" href=""><img src="/favicon-32x32.png" alt="home" /></a>
 
-        <div class="collapse navbar-collapse" id="bd-main-nav">
-            <ul class="nav navbar-nav">
-                
-                
-                <li class="nav-item ">
-                    <a class="nav-item nav-link" href="..">Tempus Dominus Bootstrap 4</a>
-                </li>
-                
-                
-                
-                <li class="nav-item ">
-                    <a class="nav-item nav-link" href="../Usage/">Usage</a>
-                </li>
-                
-                
-                
-                <li class="nav-item ">
-                    <a class="nav-item nav-link" href="../Installing/">Installing</a>
-                </li>
-                
-                
-                
-                <li class="nav-item ">
-                    <a class="nav-item nav-link" href="../Functions/">Functions</a>
-                </li>
-                
-                
-                
-                <li class="nav-item ">
-                    <a class="nav-item nav-link" href="../Options/">Options</a>
-                </li>
-                
-                
-                
-                <li class="nav-item active">
-                    <a class="nav-item nav-link" href="./">Events</a>
-                </li>
-                
-                
-                
-                <li class="nav-item ">
-                    <a class="nav-item nav-link" href="../Changelog/">Change Log</a>
-                </li>
-                
-                
-                
-                <li class="nav-item ">
-                    <a class="nav-item nav-link" href="../ContributorsGuide/">Dev Guide</a>
-                </li>
-                
-                
-                
-                <li class="nav-item ">
-                    <a class="nav-item nav-link" href="../Extras/">Extras</a>
-                </li>
-                
-                
-                
-                <li class="nav-item ">
-                    <a class="nav-item nav-link" href="../FAQ/">FAQs</a>
-                </li>
-                
-                
-            </ul>
-        </div>
-    </nav>
+    <div class="navbar-nav-scroll">
+        <ul class="navbar-nav bd-navbar-nav flex-row">
+            
+            
+            <li class="nav-item">
+                <a class="nav-link " href="..">Tempus Dominus Bootstrap 4</a>
+            </li>
+            
+            
+            
+            <li class="nav-item">
+                <a class="nav-link " href="../Usage/">Usage</a>
+            </li>
+            
+            
+            
+            <li class="nav-item">
+                <a class="nav-link " href="../Installing/">Installing</a>
+            </li>
+            
+            
+            
+            <li class="nav-item">
+                <a class="nav-link " href="../Functions/">Functions</a>
+            </li>
+            
+            
+            
+            <li class="nav-item">
+                <a class="nav-link " href="../Options/">Options</a>
+            </li>
+            
+            
+            
+            <li class="nav-item">
+                <a class="nav-link active" href="./">Events</a>
+            </li>
+            
+            
+            
+            <li class="nav-item">
+                <a class="nav-link " href="../Changelog/">Change Log</a>
+            </li>
+            
+            
+            
+            <li class="nav-item">
+                <a class="nav-link " href="../ContributorsGuide/">Dev Guide</a>
+            </li>
+            
+            
+            
+            <li class="nav-item">
+                <a class="nav-link " href="../Extras/">Extras</a>
+            </li>
+            
+            
+            
+            <li class="nav-item">
+                <a class="nav-link " href="../FAQ/">FAQs</a>
+            </li>
+            
+            
+        </ul>
+    </div>
+
+    <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
+        <li class="nav-item">
+            <a class="nav-link p-2" href="https://github.com/tempusdominus/bootstrap-4" target="_blank" rel="noopener" aria-label="GitHub">
+                <span class="fa fa-github"></span>
+            </a>
+        </li>
+    </ul>
 </header>
     
-    <div class="bd-pageheader">
-        <div class="container">
-            <h1>Events</h1>
-            
-        </div>
-    </div>
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-12 col-md-3 push-md-9 bd-sidebar"><nav class="bd-links" id="docsNavbarContent">
+            <div class="col-12 col-md-3 col-xl-2 bd-sidebar"><nav class="bd-links" id="docsNavbarContent">
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
             <li class="active bd-sidenav-active"><a href="#events">Events</a></li>
@@ -137,8 +134,10 @@
         </ul>
     </div>
 </nav></div>
-            <div class="col-12 col-md-9 pull-md-3 bd-content" role="main">
-
+            <div class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content" role="main">
+                <h1 class="bd-title">Events</h1>
+                
+                
 <h2 id="events">Events</h2>
 <h3 id="hidedatetimepicker">hide.datetimepicker</h3>
 <p>Fired when the widget is hidden.</p>
@@ -208,11 +207,11 @@
    change, //Change type as a momentjs format token. Type: string e.g. yyyy on year change
    viewDate //new viewDate. Type: moment object
 }
-</code></pre></div>
+</code></pre>
+            </div>
         </div>
     </div>
-
-    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+<div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">

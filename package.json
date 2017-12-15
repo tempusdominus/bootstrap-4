@@ -7,20 +7,20 @@
     "url": "https://github.com/tempusdominus/bootstrap-4/issues"
   },
   "dependencies": {
-    "bootstrap": "^4.0.0-alpha.6",
+    "bootstrap": "4.0.0-beta.2",
     "jquery": "^1.9.1 || ^2.0 || ^3.0",
-    "tether": "^1.4.0",
+    "popper.js": "1.13.0",
     "moment": "^2.17",
     "moment-timezone": "^0.5.11",
-    "tempusdominus-core": "5.0.0-alpha6"
+    "tempusdominus-core": "5.0.0-alpha10"
   },
   "peerDependenciesd": {
-    "bootstrap": "4.0.0-alpha.6",
+    "bootstrap": "4.0.0-beta.2",
     "jquery": "^1.9.1 || ^2.0 || ^3.0",
-    "tether": "^1.4.0",
+    "popper.js": "1.13.0",
     "moment": "^2.17",
     "moment-timezone": "^0.5.11",
-    "tempusdominus-core": "5.0.0-alpha6"
+    "tempusdominus-core": "5.0.0-alpha10"
   },
   "scripts": {
     "change-version": "node grunt/change-version.js",
@@ -37,7 +37,7 @@
     "update-shrinkwrap": "npm shrinkwrap --dev && shx mv ./npm-shrinkwrap.json ./grunt/npm-shrinkwrap.json",
     "test": "npm run eslint && grunt test"
   },
-  "description": "A date/time picker component designed to work with Bootstrap 3 and Momentjs. For usage, installation and demos see Project Site on GitHub",
+  "description": "A date/time picker component designed to work with Bootstrap 4 and Momentjs. For usage, installation and demos see Project Site on GitHub",
   "devDependencies": {
     "babel-plugin-transform-es2015-modules-strip": "^0.1.0",
     "babel-preset-es2015": "^6.16.0",
@@ -57,7 +57,7 @@
     "grunt-stamp": "^0.3.0",
     "grunt-string-replace": "latest",
     "load-grunt-tasks": "latest",
-    "tempusdominus-core": "^5.0.0-alpha9",
+    "tempusdominus-core": "^5.0.0-alpha10",
     "uglify-js": "^2.7.5"
   },
   "homepage": "https://tempusdominus.github.io/bootstrap-4/",
@@ -72,7 +72,7 @@
     "type": "git",
     "url": "https://github.com/tempusdominus/bootstrap-4.git"
   },
-  "version": "5.0.0-alpha9",
+  "version": "5.0.0-alpha10",
   "files": [
     "build",
     "src/js/**/*.js",

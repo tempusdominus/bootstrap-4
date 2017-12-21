@@ -34,7 +34,6 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.14/moment-timezone-with-data-2012-2022.min.js"></script>
     <script>var base_url = '..';</script>
     <!--<script data-main="../mkdocs/js/search.js" src="../mkdocs/js/require.js"></script>-->
-    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.0/moment-with-locales.js"></script>
     <script src="../theme/js/base.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
     <script src="../theme/js/tempusdominus-bootstrap-4.js"></script> 
@@ -43,7 +42,7 @@
 <body>
 
     <header class="navbar navbar-expand navbar-dark flex-column flex-md-row bd-navbar">
-    <a class="navbar-brand" href=""><img src="/favicon-32x32.png" alt="home" /></a>
+    <a class="navbar-brand" href="https://tempusdominus.github.io/bootstrap-4/"><img src="https://tempusdominus.github.io/bootstrap-4/favicon-32x32.png" alt="home" /></a>
 
     <div class="navbar-nav-scroll">
         <ul class="navbar-nav bd-navbar-nav flex-row">
@@ -191,6 +190,25 @@
     <strong>Note</strong>
     To get option value use <code>$('#datetimepicker').datetimepicker('sideBySide')</code>
 </div>
+
+<p>Global defaults can be get/set by <code>$.fn.datetimepicker.Constructor.Default</code></p>
+<p>e.g. To set icons to use Font Awesome 5</p>
+<pre><code>$.fn.datetimepicker.Constructor.Default = $.extend({}, $.fn.datetimepicker.Constructor.Default, {
+            icons: {
+                time: 'far fa-clock',
+                date: 'far fa-calendar',
+                up: 'far fa-arrow-up',
+                down: 'far fa-arrow-down',
+                previous: 'far fa-chevron-left',
+                next: 'far fa-chevron-right',
+                today: 'far fa-calendar-check-o',
+                clear: 'far fa-trash',
+                close: 'far fa-times'
+            } });
+</code></pre>
+
+<p>Do this <strong>before</strong> you init pickers.</p>
+<hr/>
 
 <h3 id="options_1">options</h3>
 <p>Returns the components current options object. Note that the changing the values of the returned object does not change the components actual configuration. Use <code>options(options)</code> to set the components options massively or the other methods for setting config options individually.</p>
@@ -374,15 +392,15 @@ Accepts: array of [date, moment, string]
 <hr />
 <h3 id="icons">icons</h3>
 <pre><code>Default: {
-            time: 'glyphicon glyphicon-time',
-            date: 'glyphicon glyphicon-calendar',
-            up: 'glyphicon glyphicon-chevron-up',
-            down: 'glyphicon glyphicon-chevron-down',
-            previous: 'glyphicon glyphicon-chevron-left',
-            next: 'glyphicon glyphicon-chevron-right',
-            today: 'glyphicon glyphicon-screenshot',
-            clear: 'glyphicon glyphicon-trash',
-            close: 'glyphicon glyphicon-remove'
+            time: 'fa fa-clock-o',
+            date: 'fa fa-calendar',
+            up: 'fa fa-arrow-up',
+            down: 'fa fa-arrow-down',
+            previous: 'fa fa-chevron-left',
+            next: 'fa fa-chevron-right',
+            today: 'fa fa-calendar-check-o',
+            clear: 'fa fa-delete',
+            close: 'fa fa-times'
         }
 Accepts: object with all or some of the parameters above
 </code></pre>

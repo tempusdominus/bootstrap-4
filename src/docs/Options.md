@@ -19,6 +19,29 @@
     To get option value use <code>$('#datetimepicker').datetimepicker('sideBySide')</code>
 </div>
 
+Global defaults can be get/set by <code>$.fn.datetimepicker.Constructor.Default</code>
+
+e.g. To set icons to use Font Awesome 5
+
+```
+$.fn.datetimepicker.Constructor.Default = $.extend({}, $.fn.datetimepicker.Constructor.Default, {
+            icons: {
+                time: 'far fa-clock',
+                date: 'far fa-calendar',
+                up: 'far fa-arrow-up',
+                down: 'far fa-arrow-down',
+                previous: 'far fa-chevron-left',
+                next: 'far fa-chevron-right',
+                today: 'far fa-calendar-check-o',
+                clear: 'far fa-trash',
+                close: 'far fa-times'
+            } });
+```
+
+Do this <strong>before</strong> you init pickers.
+
+<hr/>
+
 ### options
 
 Returns the components current options object. Note that the changing the values of the returned object does not change the components actual configuration. Use `options(options)` to set the components options massively or the other methods for setting config options individually.
@@ -295,15 +318,15 @@ Takes an `[` `string` or `Date` or `moment` `]` of values and allows the user to
 ### icons
 
 	Default: {
-                time: 'glyphicon glyphicon-time',
-                date: 'glyphicon glyphicon-calendar',
-                up: 'glyphicon glyphicon-chevron-up',
-                down: 'glyphicon glyphicon-chevron-down',
-                previous: 'glyphicon glyphicon-chevron-left',
-                next: 'glyphicon glyphicon-chevron-right',
-                today: 'glyphicon glyphicon-screenshot',
-                clear: 'glyphicon glyphicon-trash',
-                close: 'glyphicon glyphicon-remove'
+                time: 'fa fa-clock-o',
+                date: 'fa fa-calendar',
+                up: 'fa fa-arrow-up',
+                down: 'fa fa-arrow-down',
+                previous: 'fa fa-chevron-left',
+                next: 'fa fa-chevron-right',
+                today: 'fa fa-calendar-check-o',
+                clear: 'fa fa-delete',
+                close: 'fa fa-times'
             }
     Accepts: object with all or some of the parameters above
 

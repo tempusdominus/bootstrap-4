@@ -63,7 +63,7 @@ Need new wrapper for this version.
 ```html
 <script type="text/javascript" src="/path/to/jquery.js"></script>
 <script type="text/javascript" src="/path/to/moment.js"></script>
-<script type="text/javascript" src="/path/to/core.min.js"></script>
+<script type="text/javascript" src="/path/to/tempusdominus-bootstrap-4.min.js"></script>
 ```
 
 ## Knockout

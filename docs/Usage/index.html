@@ -15,7 +15,7 @@
     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#144287">
     <meta name="theme-color" content="#ffffff">
     <title>Usage - Tempus Dominus - Bootstrap 4</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
     <link rel="stylesheet" href="https://getbootstrap.com/assets/css/docs.min.css" />
     <!--<link rel="stylesheet" href="https://v4-alpha.getbootstrap.com/assets/css/docs.min.css" />-->
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css" />
@@ -28,8 +28,8 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.4/moment-with-locales.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.14/moment-timezone-with-data-2012-2022.min.js"></script>
     <script>var base_url = '..';</script>
@@ -163,9 +163,9 @@
             <div class="form-group">
                 <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
                     <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker1"/>
-                    <span class="input-group-addon" data-target="#datetimepicker1" data-toggle="datetimepicker">
-                        <span class="fa fa-calendar"></span>
-                    </span>
+                    <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -184,9 +184,9 @@
             &lt;div class=&quot;form-group&quot;&gt;
                 &lt;div class=&quot;input-group date&quot; id=&quot;datetimepicker1&quot; data-target-input=&quot;nearest&quot;&gt;
                     &lt;input type=&quot;text&quot; class=&quot;form-control datetimepicker-input&quot; data-target=&quot;#datetimepicker1&quot;/&gt;
-                    &lt;span class=&quot;input-group-addon&quot; data-target=&quot;#datetimepicker1&quot; data-toggle=&quot;datetimepicker&quot;&gt;
-                        &lt;span class=&quot;fa fa-calendar&quot;&gt;&lt;/span&gt;
-                    &lt;/span&gt;
+                    &lt;div class=&quot;input-group-append&quot; data-target=&quot;#datetimepicker1&quot; data-toggle=&quot;datetimepicker&quot;&gt;
+                        &lt;div class=&quot;input-group-text&quot;&gt;&lt;i class=&quot;fa fa-calendar&quot;&gt;&lt;/i&gt;&lt;/div&gt;
+                    &lt;/div&gt;
                 &lt;/div&gt;
             &lt;/div&gt;
         &lt;/div&gt;
@@ -207,9 +207,9 @@
             <div class="form-group">
                 <div class="input-group date" id="datetimepicker2" data-target-input="nearest">
                     <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker2"/>
-                    <span class="input-group-addon" data-target="#datetimepicker2" data-toggle="datetimepicker">
-                        <span class="fa fa-calendar"></span>
-                    </span>
+                    <div class="input-group-append" data-target="#datetimepicker2" data-toggle="datetimepicker">
+                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -230,9 +230,9 @@
             &lt;div class=&quot;form-group&quot;&gt;
                 &lt;div class=&quot;input-group date&quot; id=&quot;datetimepicker2&quot; data-target-input=&quot;nearest&quot;&gt;
                     &lt;input type=&quot;text&quot; class=&quot;form-control datetimepicker-input&quot; data-target=&quot;#datetimepicker2&quot;/&gt;
-                    &lt;span class=&quot;input-group-addon&quot; data-target=&quot;#datetimepicker2&quot; data-toggle=&quot;datetimepicker&quot;&gt;
-                        &lt;span class=&quot;fa fa-calendar&quot;&gt;&lt;/span&gt;
-                    &lt;/span&gt;
+                    &lt;div class=&quot;input-group-append&quot; data-target=&quot;#datetimepicker2&quot; data-toggle=&quot;datetimepicker&quot;&gt;
+                        &lt;div class=&quot;input-group-text&quot;&gt;&lt;i class=&quot;fa fa-calendar&quot;&gt;&lt;/i&gt;&lt;/div&gt;
+                    &lt;/div&gt;
                 &lt;/div&gt;
             &lt;/div&gt;
         &lt;/div&gt;
@@ -255,9 +255,9 @@
             <div class="form-group">
                 <div class="input-group date" id="datetimepicker3" data-target-input="nearest">
                     <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker3"/>
-                    <span class="input-group-addon" data-target="#datetimepicker3" data-toggle="datetimepicker">
-                        <span class="fa fa-time"></span>
-                    </span>
+                    <div class="input-group-append" data-target="#datetimepicker3" data-toggle="datetimepicker">
+                        <div class="input-group-text"><i class="fa fa-clock-o"></i></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -278,9 +278,9 @@
             &lt;div class=&quot;form-group&quot;&gt;
                 &lt;div class=&quot;input-group date&quot; id=&quot;datetimepicker3&quot; data-target-input=&quot;nearest&quot;&gt;
                     &lt;input type=&quot;text&quot; class=&quot;form-control datetimepicker-input&quot; data-target=&quot;#datetimepicker3&quot;/&gt;
-                    &lt;span class=&quot;input-group-addon&quot; data-target=&quot;#datetimepicker3&quot; data-toggle=&quot;datetimepicker&quot;&gt;
-                        &lt;span class=&quot;fa fa-time&quot;&gt;&lt;/span&gt;
-                    &lt;/span&gt;
+                    &lt;div class=&quot;input-group-append&quot; data-target=&quot;#datetimepicker3&quot; data-toggle=&quot;datetimepicker&quot;&gt;
+                        &lt;div class=&quot;input-group-text&quot;&gt;&lt;i class=&quot;fa fa-clock-o&quot;&gt;&lt;/i&gt;&lt;/div&gt;
+                    &lt;/div&gt;
                 &lt;/div&gt;
             &lt;/div&gt;
         &lt;/div&gt;
@@ -303,9 +303,9 @@
             <div class="form-group">
                 <div class="input-group date" id="datetimepicker4" data-target-input="nearest">
                     <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker4"/>
-                    <span class="input-group-addon" data-target="#datetimepicker4" data-toggle="datetimepicker">
-                        <span class="fa fa-calendar"></span>
-                    </span>
+                    <div class="input-group-append" data-target="#datetimepicker4" data-toggle="datetimepicker">
+                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -326,9 +326,9 @@
             &lt;div class=&quot;form-group&quot;&gt;
                 &lt;div class=&quot;input-group date&quot; id=&quot;datetimepicker4&quot; data-target-input=&quot;nearest&quot;&gt;
                     &lt;input type=&quot;text&quot; class=&quot;form-control datetimepicker-input&quot; data-target=&quot;#datetimepicker4&quot;/&gt;
-                    &lt;span class=&quot;input-group-addon&quot; data-target=&quot;#datetimepicker4&quot; data-toggle=&quot;datetimepicker&quot;&gt;
-                        &lt;span class=&quot;fa fa-calendar&quot;&gt;&lt;/span&gt;
-                    &lt;/span&gt;
+                    &lt;div class=&quot;input-group-append&quot; data-target=&quot;#datetimepicker4&quot; data-toggle=&quot;datetimepicker&quot;&gt;
+                        &lt;div class=&quot;input-group-text&quot;&gt;&lt;i class=&quot;fa fa-calendar&quot;&gt;&lt;/i&gt;&lt;/div&gt;
+                    &lt;/div&gt;
                 &lt;/div&gt;
             &lt;/div&gt;
         &lt;/div&gt;
@@ -382,9 +382,9 @@
             <div class="form-group">
                 <div class="input-group date" id="datetimepicker6" data-target-input="nearest">
                     <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker6"/>
-                    <span class="input-group-addon" data-target="#datetimepicker6" data-toggle="datetimepicker">
-                        <span class="fa fa-calendar"></span>
-                    </span>
+                    <div class="input-group-append" data-target="#datetimepicker6" data-toggle="datetimepicker">
+                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -410,9 +410,9 @@
             &lt;div class=&quot;form-group&quot;&gt;
                 &lt;div class=&quot;input-group date&quot; id=&quot;datetimepicker6&quot; data-target-input=&quot;nearest&quot;&gt;
                     &lt;input type=&quot;text&quot; class=&quot;form-control datetimepicker-input&quot; data-target=&quot;#datetimepicker6&quot;/&gt;
-                    &lt;span class=&quot;input-group-addon&quot; data-target=&quot;#datetimepicker6&quot; data-toggle=&quot;datetimepicker&quot;&gt;
-                        &lt;span class=&quot;fa fa-calendar&quot;&gt;&lt;/span&gt;
-                    &lt;/span&gt;
+                    &lt;div class=&quot;input-group-append&quot; data-target=&quot;#datetimepicker6&quot; data-toggle=&quot;datetimepicker&quot;&gt;
+                        &lt;div class=&quot;input-group-text&quot;&gt;&lt;i class=&quot;fa fa-calendar&quot;&gt;&lt;/i&gt;&lt;/div&gt;
+                    &lt;/div&gt;
                 &lt;/div&gt;
             &lt;/div&gt;
         &lt;/div&gt;
@@ -439,9 +439,9 @@
         <div class="form-group">
            <div class="input-group date" id="datetimepicker7" data-target-input="nearest">
                 <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker7"/>
-                <span class="input-group-addon" data-target="#datetimepicker7" data-toggle="datetimepicker">
-                    <span class="fa fa-calendar"></span>
-                </span>
+                <div class="input-group-append" data-target="#datetimepicker7" data-toggle="datetimepicker">
+                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                </div>
             </div>
         </div>
     </div>
@@ -449,9 +449,9 @@
         <div class="form-group">
            <div class="input-group date" id="datetimepicker8" data-target-input="nearest">
                 <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker8"/>
-                <span class="input-group-addon" data-target="#datetimepicker8" data-toggle="datetimepicker">
-                    <span class="fa fa-calendar"></span>
-                </span>
+                <div class="input-group-append" data-target="#datetimepicker8" data-toggle="datetimepicker">
+                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                </div>
             </div>
         </div>
     </div>
@@ -478,9 +478,9 @@
         &lt;div class=&quot;form-group&quot;&gt;
            &lt;div class=&quot;input-group date&quot; id=&quot;datetimepicker7&quot; data-target-input=&quot;nearest&quot;&gt;
                 &lt;input type=&quot;text&quot; class=&quot;form-control datetimepicker-input&quot; data-target=&quot;#datetimepicker7&quot;/&gt;
-                &lt;span class=&quot;input-group-addon&quot; data-target=&quot;#datetimepicker7&quot; data-toggle=&quot;datetimepicker&quot;&gt;
-                    &lt;span class=&quot;fa fa-calendar&quot;&gt;&lt;/span&gt;
-                &lt;/span&gt;
+                &lt;div class=&quot;input-group-append&quot; data-target=&quot;#datetimepicker7&quot; data-toggle=&quot;datetimepicker&quot;&gt;
+                    &lt;div class=&quot;input-group-text&quot;&gt;&lt;i class=&quot;fa fa-calendar&quot;&gt;&lt;/i&gt;&lt;/div&gt;
+                &lt;/div&gt;
             &lt;/div&gt;
         &lt;/div&gt;
     &lt;/div&gt;
@@ -488,9 +488,9 @@
         &lt;div class=&quot;form-group&quot;&gt;
            &lt;div class=&quot;input-group date&quot; id=&quot;datetimepicker8&quot; data-target-input=&quot;nearest&quot;&gt;
                 &lt;input type=&quot;text&quot; class=&quot;form-control datetimepicker-input&quot; data-target=&quot;#datetimepicker8&quot;/&gt;
-                &lt;span class=&quot;input-group-addon&quot; data-target=&quot;#datetimepicker8&quot; data-toggle=&quot;datetimepicker&quot;&gt;
-                    &lt;span class=&quot;fa fa-calendar&quot;&gt;&lt;/span&gt;
-                &lt;/span&gt;
+                &lt;div class=&quot;input-group-append&quot; data-target=&quot;#datetimepicker8&quot; data-toggle=&quot;datetimepicker&quot;&gt;
+                    &lt;div class=&quot;input-group-text&quot;&gt;&lt;i class=&quot;fa fa-calendar&quot;&gt;&lt;/i&gt;&lt;/div&gt;
+                &lt;/div&gt;
             &lt;/div&gt;
         &lt;/div&gt;
     &lt;/div&gt;
@@ -518,9 +518,9 @@
         <div class="form-group">
             <div class="input-group date" id="datetimepicker9" data-target-input="nearest">
                 <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker9"/>
-                <span class="input-group-addon" data-target="#datetimepicker9" data-toggle="datetimepicker">
-                    <span class="fa fa-calendar"></span>
-                </span>
+                <div class="input-group-append" data-target="#datetimepicker9" data-toggle="datetimepicker">
+                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                </div>
             </div>
         </div>
     </div>
@@ -544,9 +544,9 @@
         &lt;div class=&quot;form-group&quot;&gt;
             &lt;div class=&quot;input-group date&quot; id=&quot;datetimepicker9&quot; data-target-input=&quot;nearest&quot;&gt;
                 &lt;input type=&quot;text&quot; class=&quot;form-control datetimepicker-input&quot; data-target=&quot;#datetimepicker9&quot;/&gt;
-                &lt;span class=&quot;input-group-addon&quot; data-target=&quot;#datetimepicker9&quot; data-toggle=&quot;datetimepicker&quot;&gt;
-                    &lt;span class=&quot;fa fa-calendar&quot;&gt;&lt;/span&gt;
-                &lt;/span&gt;
+                &lt;div class=&quot;input-group-append&quot; data-target=&quot;#datetimepicker9&quot; data-toggle=&quot;datetimepicker&quot;&gt;
+                    &lt;div class=&quot;input-group-text&quot;&gt;&lt;i class=&quot;fa fa-calendar&quot;&gt;&lt;/i&gt;&lt;/div&gt;
+                &lt;/div&gt;
             &lt;/div&gt;
         &lt;/div&gt;
     &lt;/div&gt;
@@ -572,9 +572,9 @@
         <div class="form-group">
             <div class="input-group date" id="datetimepicker10" data-target-input="nearest">
                 <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker10"/>
-                <span class="input-group-addon" data-target="#datetimepicker10" data-toggle="datetimepicker">
-                    <span class="fa fa-calendar"></span>
-                </span>
+                <div class="input-group-append" data-target="#datetimepicker10" data-toggle="datetimepicker">
+                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                </div>
             </div>
         </div>
     </div>
@@ -593,9 +593,9 @@
         &lt;div class=&quot;form-group&quot;&gt;
             &lt;div class=&quot;input-group date&quot; id=&quot;datetimepicker10&quot; data-target-input=&quot;nearest&quot;&gt;
                 &lt;input type=&quot;text&quot; class=&quot;form-control datetimepicker-input&quot; data-target=&quot;#datetimepicker10&quot;/&gt;
-                &lt;span class=&quot;input-group-addon&quot; data-target=&quot;#datetimepicker10&quot; data-toggle=&quot;datetimepicker&quot;&gt;
-                    &lt;span class=&quot;fa fa-calendar&quot;&gt;&lt;/span&gt;
-                &lt;/span&gt;
+                &lt;div class=&quot;input-group-append&quot; data-target=&quot;#datetimepicker10&quot; data-toggle=&quot;datetimepicker&quot;&gt;
+                    &lt;div class=&quot;input-group-text&quot;&gt;&lt;i class=&quot;fa fa-calendar&quot;&gt;&lt;/i&gt;&lt;/div&gt;
+                &lt;/div&gt;
             &lt;/div&gt;
         &lt;/div&gt;
     &lt;/div&gt;
@@ -616,9 +616,9 @@
         <div class="form-group">
             <div class="input-group date" id="datetimepicker11" data-target-input="nearest">
                 <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker11"/>
-                <span class="input-group-addon" data-target="#datetimepicker11" data-toggle="datetimepicker">
-                    <span class="fa fa-calendar"></span>
-                </span>
+                <div class="input-group-append" data-target="#datetimepicker11" data-toggle="datetimepicker">
+                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                </div>
             </div>
         </div>
     </div>
@@ -638,9 +638,9 @@
         &lt;div class=&quot;form-group&quot;&gt;
             &lt;div class=&quot;input-group date&quot; id=&quot;datetimepicker11&quot; data-target-input=&quot;nearest&quot;&gt;
                 &lt;input type=&quot;text&quot; class=&quot;form-control datetimepicker-input&quot; data-target=&quot;#datetimepicker11&quot;/&gt;
-                &lt;span class=&quot;input-group-addon&quot; data-target=&quot;#datetimepicker11&quot; data-toggle=&quot;datetimepicker&quot;&gt;
-                    &lt;span class=&quot;fa fa-calendar&quot;&gt;&lt;/span&gt;
-                &lt;/span&gt;
+                &lt;div class=&quot;input-group-append&quot; data-target=&quot;#datetimepicker11&quot; data-toggle=&quot;datetimepicker&quot;&gt;
+                    &lt;div class=&quot;input-group-text&quot;&gt;&lt;i class=&quot;fa fa-calendar&quot;&gt;&lt;/i&gt;&lt;/div&gt;
+                &lt;/div&gt;
             &lt;/div&gt;
         &lt;/div&gt;
     &lt;/div&gt;
@@ -663,9 +663,9 @@
         <div class="form-group">
             <div class="input-group date" id="datetimepicker12" data-target-input="nearest">
                 <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker12"/>
-                <span class="input-group-addon" data-target="#datetimepicker12" data-toggle="datetimepicker">
-                    <span class="fa fa-calendar"></span>
-                </span>
+                <div class="input-group-append" data-target="#datetimepicker12" data-toggle="datetimepicker">
+                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                </div>
             </div>
         </div>
     </div>
@@ -684,9 +684,9 @@
         &lt;div class=&quot;form-group&quot;&gt;
             &lt;div class=&quot;input-group date&quot; id=&quot;datetimepicker12&quot; data-target-input=&quot;nearest&quot;&gt;
                 &lt;input type=&quot;text&quot; class=&quot;form-control datetimepicker-input&quot; data-target=&quot;#datetimepicker12&quot;/&gt;
-                &lt;span class=&quot;input-group-addon&quot; data-target=&quot;#datetimepicker12&quot; data-toggle=&quot;datetimepicker&quot;&gt;
-                    &lt;span class=&quot;fa fa-calendar&quot;&gt;&lt;/span&gt;
-                &lt;/span&gt;
+                &lt;div class=&quot;input-group-append&quot; data-target=&quot;#datetimepicker12&quot; data-toggle=&quot;datetimepicker&quot;&gt;
+                    &lt;div class=&quot;input-group-text&quot;&gt;&lt;i class=&quot;fa fa-calendar&quot;&gt;&lt;/i&gt;&lt;/div&gt;
+                &lt;/div&gt;
             &lt;/div&gt;
         &lt;/div&gt;
     &lt;/div&gt;
@@ -751,9 +751,9 @@
             <div class="form-group">
                 <div class="input-group date" id="datetimepicker14" data-target-input="nearest">
                     <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker14"/>
-                    <span class="input-group-addon" data-target="#datetimepicker14" data-toggle="datetimepicker">
-                        <span class="fa fa-calendar"></span>
-                    </span>
+                    <div class="input-group-append" data-target="#datetimepicker14" data-toggle="datetimepicker">
+                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -776,9 +776,9 @@
             &lt;div class=&quot;form-group&quot;&gt;
                 &lt;div class=&quot;input-group date&quot; id=&quot;datetimepicker14&quot; data-target-input=&quot;nearest&quot;&gt;
                     &lt;input type=&quot;text&quot; class=&quot;form-control datetimepicker-input&quot; data-target=&quot;#datetimepicker14&quot;/&gt;
-                    &lt;span class=&quot;input-group-addon&quot; data-target=&quot;#datetimepicker14&quot; data-toggle=&quot;datetimepicker&quot;&gt;
-                        &lt;span class=&quot;fa fa-calendar&quot;&gt;&lt;/span&gt;
-                    &lt;/span&gt;
+                    &lt;div class=&quot;input-group-append&quot; data-target=&quot;#datetimepicker14&quot; data-toggle=&quot;datetimepicker&quot;&gt;
+                        &lt;div class=&quot;input-group-text&quot;&gt;&lt;i class=&quot;fa fa-calendar&quot;&gt;&lt;/i&gt;&lt;/div&gt;
+                    &lt;/div&gt;
                 &lt;/div&gt;
             &lt;/div&gt;
         &lt;/div&gt;
@@ -801,9 +801,9 @@
         <div class="form-group">
             <div class="input-group date" id="datetimepicker15" data-target-input="nearest">
                 <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker15"/>
-                <span class="input-group-addon" data-target="#datetimepicker15" data-toggle="datetimepicker">
-                    <span class="fa fa-calendar"></span>
-                </span>
+                <div class="input-group-append" data-target="#datetimepicker15" data-toggle="datetimepicker">
+                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                </div>
             </div>
         </div>
         <div class="form-group">

@@ -820,6 +820,9 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
                 case 'clear':
                     this.clear();
                     break;
+                case 'close':
+                    this.hide();
+                    break;
                 case 'today':
                     {
                         const todaysDate = this.getMoment();

@@ -2,7 +2,7 @@
     "docs": [
         {
             "location": "/",
-            "text": "Tempus Dominus\n\n        \n\n          Tempus Dominus is the successor to the very popular Eonasdan/bootstrap-datetimepicker. \n          The plugin provide a robust date and time picker designed to integrate into your Bootstrap project.\n        \n\n        \n\n          \nGet started\n\n          \nDownload\n\n        \n\n        \n\n         Currently v5.0.0-alpha.10\n        \n\n      \n\n    \n\n  \n\n\n\n\n\n  \n\n    \n\n\n    \nInstallation\n\n    \nInclude Tempus Dominus's source Sass and JavaScript files via npm, Composer.\n\n\n\nCopy\nnpm install bootstrap@5.0.0-alpha.10\n\n\n    \n\n    \nRead installation docs\n\n  \n\n\n\n\n    \n\n\nCDNJS\n\n\n\n\nWhen you only need to include Tempus Dominus's compiled CSS or JS, you can use CDNJS.\nComing Soon\n\n\n\n\n\n\nExplore the docs",
+            "text": "Tempus Dominus\n\n        \n\n          Tempus Dominus is the successor to the very popular Eonasdan/bootstrap-datetimepicker. \n          The plugin provide a robust date and time picker designed to integrate into your Bootstrap project.\n        \n\n        \n\n          \nGet started\n\n          \nDownload\n\n        \n\n        \n\n         Currently v5.0.0-alpha.14\n        \n\n      \n\n    \n\n  \n\n\n\n\n\n    \n\n        \n\n        \nInstallation\n\n        \nInclude Tempus Dominus's source Sass and JavaScript files via npm\n\n        \n\n\n\nnpm i tempusdominus-bootstrap-4\n\n\n        \n\n        \n\n        \nRead installation docs\n\n    \n\n    \n\n        \n\n        \nCDNJS\n\n        \nWhen you only need to include Tempus Dominus's compiled CSS or JS, you can use CDNJS.\n\n        \n\n\n\n\nscript type=\ntext/javascript\n src=\nhttps://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/js/tempusdominus-bootstrap-4.min.js\n/script\n\n\nlink rel=\nstylesheet\n href=\nhttps://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/css/tempusdominus-bootstrap-4.min.css\n /\n\n\n\n        \n\n        \n\n        \nExplore the docs",
             "title": "Tempus Dominus Bootstrap 4"
         },
         {
@@ -152,7 +152,7 @@
         },
         {
             "location": "/Installing/",
-            "text": "This guide still needs a lot of work\n\n\n\n\nMinimal Requirements\n\n\n\n\njQuery\n\n\nMoment.js\n\n\nLocales: Moment's locale files are \nhere\n\n\n\n\nInstallation Guides\n\n\n\n\nCDN\n\n\nNuget\n\n\nRails\n\n\nAngular\n\n\nMeteor.js\n\n\nManual\n\n\n\n\nCDN\n\n\nhead\n\n  \nscript type=\ntext/javascript\n src=\nhttps://cdnjs.com/libraries/[fill-in].js\n/script\n\n\n/head\n\n\n\n\n\nPackage Managers\n\n\nNuget\n\n\nTempus.Dominus.Bootstrap.4\n: \n\n\nPM\n Install-Package Tempus.Dominus.Bootstrap.4\n\n\n\nhead\n\n  \nscript type=\ntext/javascript\n src=\n/scripts/jquery.min.js\n/script\n\n  \nscript type=\ntext/javascript\n src=\n/scripts/moment.min.js\n/script\n\n  \nscript type=\ntext/javascript\n src=\n/scripts/tempusdominus/tempusdominus-bootstrap-4.js\n/script\n\n\n/head\n\n\n\n\n\nRails\n\n\nNeed new wrapper for this version.\n\n\nAngular Wrapper\n\n\nNeed new wrapper for this version.\n\n\nMeteor.js\n\n\nNeed new wrapper for this version.\n\n\nComposer\n\n\n$ composer require tempusdominus/bootstrap-4:5.0.0-alpha.10\n\n\n\nManual\n\n\n\n\nAcquire \njQuery\n\n\nAcquire \nMoment.js\n\n\nAcquire \n\n\n\n\nscript type=\ntext/javascript\n src=\n/path/to/jquery.js\n/script\n\n\nscript type=\ntext/javascript\n src=\n/path/to/moment.js\n/script\n\n\nscript type=\ntext/javascript\n src=\n/path/to/tempusdominus-bootstrap-4.min.js\n/script\n\n\n\n\n\nKnockout\n\n\nNeed new wrapper for this version.",
+            "text": "This guide still needs a lot of work\n\n\n\n\nMinimal Requirements\n\n\n\n\njQuery\n\n\nMoment.js\n\n\nLocales: Moment's locale files are \nhere\n\n\n\n\nInstallation Guides\n\n\n\n\nCDN\n\n\nNuget\n\n\nRails\n\n\nAngular\n\n\nMeteor.js\n\n\nManual\n\n\n\n\nCDN\n\n\nhead\n\n  \nscript type=\ntext/javascript\n src=\nhttps://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/js/tempusdominus-bootstrap-4.min.js\n/script\n\n  \nlink rel=\nstylesheet\n href=\nhttps://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/css/tempusdominus-bootstrap-4.min.css\n /\n\n\n/head\n\n\n\n\n\nPackage Managers\n\n\nNuget\n\n\nTempus.Dominus.Bootstrap.4\n: \n\n\nPM\n Install-Package Tempus.Dominus.Bootstrap.4\n\n\n\nhead\n\n  \nscript type=\ntext/javascript\n src=\n/scripts/jquery.min.js\n/script\n\n  \nscript type=\ntext/javascript\n src=\n/scripts/moment.min.js\n/script\n\n  \nscript type=\ntext/javascript\n src=\n/scripts/tempusdominus/tempusdominus-bootstrap-4.js\n/script\n\n\n/head\n\n\n\n\n\nRails\n\n\nNeed new wrapper for this version.\n\n\nAngular Wrapper\n\n\nNeed new wrapper for this version.\n\n\nMeteor.js\n\n\nNeed new wrapper for this version.\n\n\nManual\n\n\n\n\nAcquire \njQuery\n\n\nAcquire \nMoment.js\n\n\nAcquire \n\n\n\n\nscript type=\ntext/javascript\n src=\n/path/to/jquery.js\n/script\n\n\nscript type=\ntext/javascript\n src=\n/path/to/moment.js\n/script\n\n\nscript type=\ntext/javascript\n src=\n/path/to/tempusdominus-bootstrap-4.min.js\n/script\n\n\n\n\n\nKnockout\n\n\nNeed new wrapper for this version.",
             "title": "Installing"
         },
         {
@@ -167,7 +167,7 @@
         },
         {
             "location": "/Installing/#cdn",
-            "text": "head \n   script type= text/javascript  src= https://cdnjs.com/libraries/[fill-in].js /script  /head",
+            "text": "head \n   script type= text/javascript  src= https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/js/tempusdominus-bootstrap-4.min.js /script \n   link rel= stylesheet  href= https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/css/tempusdominus-bootstrap-4.min.css  /  /head",
             "title": "CDN"
         },
         {
@@ -199,11 +199,6 @@
             "location": "/Installing/#meteorjs",
             "text": "Need new wrapper for this version.",
             "title": "Meteor.js"
-        },
-        {
-            "location": "/Installing/#composer",
-            "text": "$ composer require tempusdominus/bootstrap-4:5.0.0-alpha.10",
-            "title": "Composer"
         },
         {
             "location": "/Installing/#manual",

@@ -19,7 +19,8 @@
 ## CDN
 ```html
 <head>
-  <script type="text/javascript" src="https://cdnjs.com/libraries/[fill-in].js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/js/tempusdominus-bootstrap-4.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/css/tempusdominus-bootstrap-4.min.css" />
 </head>
 ```
 
@@ -50,10 +51,6 @@ Need new wrapper for this version.
 ### Meteor.js
 
 Need new wrapper for this version.
-
-### Composer
-
-    $ composer require tempusdominus/bootstrap-4:5.0.0-alpha.10
 
 ## Manual
 

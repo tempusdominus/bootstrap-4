@@ -16,38 +16,36 @@
           <a href="Installing/" class="btn btn-lg btn-outline-secondary">Download</a>
         </div>
         <p class="text-muted mb-0">
-         Currently v5.0.0-alpha.10
+         Currently v5.0.0-alpha.14
         </p>
       </div>
     </div>
   </div>
 </main>
-
-
 <div class="masthead-followup row m-0 border border-white">
-  <div class="col-12 col-md-6 p-3 p-md-5 bg-light border border-white">
-    <span class="fa fa-download"></span>
-
-    <h3>Installation</h3>
-    <p>Include Tempus Dominus's source Sass and JavaScript files via npm, Composer.</p>
-
-<div class="bd-clipboard"><button class="btn-clipboard" title="" data-original-title="Copy to clipboard">Copy</button></div><figure class="highlight"><pre><code class="language-sh" data-lang="sh">npm install bootstrap@5.0.0-alpha.10</code></pre></figure>
-
-    <hr class="half-rule">
-    <a class="btn btn-outline-primary" href="Installing/">Read installation docs</a>
-  </div>
-
-  <div class="col-12 col-md-6 p-3 p-md-5 bg-light border border-white">
-    <span class="fa fa-download"></span>
-
-<h3>CDNJS</h3>
-<p>
-When you only need to include Tempus Dominus's compiled CSS or JS, you can use CDNJS.
-Coming Soon
-</p>
-
-
-<hr class="half-rule">
-<a class="btn btn-outline-primary" href="/Functions">Explore the docs</a>
-  </div>
+	<div class="col-12 col-md-6 p-3 p-md-5 bg-light border border-white">
+		<span class="fa fa-download"></span>
+		<h3>Installation</h3>
+		<p>Include Tempus Dominus's source Sass and JavaScript files via npm</p>
+		<pre>
+<code>
+npm i tempusdominus-bootstrap-4
+</code>
+		</pre>
+		<hr class="half-rule"/>
+		<a class="btn btn-outline-primary" href="Installing/">Read installation docs</a>
+	</div>
+	<div class="col-12 col-md-6 p-3 p-md-5 bg-light border border-white">
+		<span class="fa fa-cloud-download"></span>
+		<h3>CDNJS</h3>
+		<p>When you only need to include Tempus Dominus's compiled CSS or JS, you can use CDNJS.</p>
+		<pre>
+<code>
+&lt;script type=&quot;text/javascript&quot; src=&quot;https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/js/tempusdominus-bootstrap-4.min.js&quot;&gt;&lt;/script&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/css/tempusdominus-bootstrap-4.min.css&quot; /&gt;
+</code>
+		</pre>
+		<hr class="half-rule"/>
+		<a class="btn btn-outline-primary" href="/Functions">Explore the docs</a>
+	 </div>
 </div>

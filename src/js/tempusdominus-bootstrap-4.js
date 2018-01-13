@@ -35,10 +35,9 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
 
         _init() {
             if (this._element.hasClass('input-group')) {
-                // in case there is more then one 'input-group-addon' Issue #48
                 const datepickerButton = this._element.find('.datepickerbutton');
                 if (datepickerButton.length === 0) {
-                    this.component = this._element.find('.input-group-append');
+                    this.component = this._element.find('[data-toggle="datetimepicker"]');
                 } else {
                     this.component = datepickerButton;
                 }

@@ -805,16 +805,31 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
                             }
                         }
                         this._setValue(lastPicked.clone().hours(hour), this._getLastPickedDateIndex());
-                        this._doAction(e, 'showPicker');
+                        if (!this._isEnabled('m') && !this._options.keepOpen && !this._options.inline) {
+                            this.hide();
+                        }
+                        else {
+                            this._doAction(e, 'showPicker');
+                        }
                         break;
                     }
                 case 'selectMinute':
                     this._setValue(lastPicked.clone().minutes(parseInt($(e.target).text(), 10)), this._getLastPickedDateIndex());
-                    this._doAction(e, 'showPicker');
+                    if (!this._isEnabled('s') && !this._options.keepOpen && !this._options.inline) {
+                        this.hide();
+                    }
+                    else {
+                        this._doAction(e, 'showPicker');
+                    }
                     break;
                 case 'selectSecond':
                     this._setValue(lastPicked.clone().seconds(parseInt($(e.target).text(), 10)), this._getLastPickedDateIndex());
-                    this._doAction(e, 'showPicker');
+                    if (!this._options.keepOpen && !this._options.inline) {
+                        this.hide();
+                    }
+                    else {
+                        this._doAction(e, 'showPicker');
+                    }
                     break;
                 case 'clear':
                     this.clear();

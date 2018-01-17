@@ -151,24 +151,32 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
             const row = [];
             if (this._options.buttons.showToday) {
                 row.push($('<td>').append($('<a>').attr({
+                    href: '#',
+                    tabindex: '-1',
                     'data-action': 'today',
                     'title': this._options.tooltips.today
                 }).append($('<span>').addClass(this._options.icons.today))));
             }
             if (!this._options.sideBySide && this._hasDate() && this._hasTime()) {
                 row.push($('<td>').append($('<a>').attr({
+                    href: '#',
+                    tabindex: '-1',
                     'data-action': 'togglePicker',
                     'title': this._options.tooltips.selectTime
                 }).append($('<span>').addClass(this._options.icons.time))));
             }
             if (this._options.buttons.showClear) {
                 row.push($('<td>').append($('<a>').attr({
+                    href: '#',
+                    tabindex: '-1',
                     'data-action': 'clear',
                     'title': this._options.tooltips.clear
                 }).append($('<span>').addClass(this._options.icons.clear))));
             }
             if (this._options.buttons.showClose) {
                 row.push($('<td>').append($('<a>').attr({
+                    href: '#',
+                    tabindex: '-1',
                     'data-action': 'close',
                     'title': this._options.tooltips.close
                 }).append($('<span>').addClass(this._options.icons.close))));

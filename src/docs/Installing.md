@@ -43,7 +43,12 @@
 
 ### Rails
 
-Need new wrapper for this version.
+Rails 5.1 Support - [Bootstrap 4 Datetime Picker Rails](https://github.com/Bialogs/bootstrap4-datetime-picker-rails)
+
+1. Add `gem 'bootstrap4-datetime-picker-rails'` to your `Gemfile`
+2. Execute `bundle`
+3. Add `//= require tempusdominus-bootstrap-4.js` to your `application.js`
+4. Add `@import "tempusdominus-bootstrap-4.css"` to your `application.scss`
 
 ### Angular Wrapper
 Need new wrapper for this version.
@@ -56,7 +61,7 @@ Need new wrapper for this version.
 
 1. Acquire [jQuery](http://jquery.com)
 2. Acquire [Moment.js](https://github.com/moment/moment)
-3. Acquire 
+3. Acquire
 ```html
 <script type="text/javascript" src="/path/to/jquery.js"></script>
 <script type="text/javascript" src="/path/to/moment.js"></script>

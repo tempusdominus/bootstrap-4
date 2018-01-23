@@ -240,8 +240,8 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
             let self = (e && e.data && e.data.picker) || this, vertical = self._options.widgetPositioning.vertical,
                 horizontal = self._options.widgetPositioning.horizontal,
                 parent;
-            const position = (self.component && self.component.lenght ? self.component : self._element).position(),
-                offset = (self.component && self.component.lenght ? self.component : self._element).offset();
+            const position = (self.component && self.component.length ? self.component : self._element).position(),
+                offset = (self.component && self.component.length ? self.component : self._element).offset();
             if (self._options.widgetParent) {
                 parent = self._options.widgetParent.append(self.widget);
             } else if (self._element.is('input')) {

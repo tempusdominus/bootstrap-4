@@ -1,6 +1,6 @@
 /*@preserve
- * Tempus Dominus Bootstrap4 v5.0.0-alpha14 (https://tempusdominus.github.io/bootstrap-4/)
- * Copyright 2016-2017 Jonathan Peterson
+ * Tempus Dominus Bootstrap4 v5.0.0-alpha15 (https://tempusdominus.github.io/bootstrap-4/)
+ * Copyright 2016-2018 Jonathan Peterson
  * Licensed under MIT (https://github.com/tempusdominus/bootstrap-3/blob/master/LICENSE)
  */
 
@@ -1632,10 +1632,9 @@ var TempusDominusBootstrap4 = function ($) {
 
         TempusDominusBootstrap4.prototype._init = function _init() {
             if (this._element.hasClass('input-group')) {
-                // in case there is more then one 'input-group-addon' Issue #48
                 var datepickerButton = this._element.find('.datepickerbutton');
                 if (datepickerButton.length === 0) {
-                    this.component = this._element.find('.input-group-append');
+                    this.component = this._element.find('[data-toggle="datetimepicker"]');
                 } else {
                     this.component = datepickerButton;
                 }
@@ -1749,24 +1748,32 @@ var TempusDominusBootstrap4 = function ($) {
             var row = [];
             if (this._options.buttons.showToday) {
                 row.push($('<td>').append($('<a>').attr({
+                    href: '#',
+                    tabindex: '-1',
                     'data-action': 'today',
                     'title': this._options.tooltips.today
                 }).append($('<span>').addClass(this._options.icons.today))));
             }
             if (!this._options.sideBySide && this._hasDate() && this._hasTime()) {
                 row.push($('<td>').append($('<a>').attr({
+                    href: '#',
+                    tabindex: '-1',
                     'data-action': 'togglePicker',
                     'title': this._options.tooltips.selectTime
                 }).append($('<span>').addClass(this._options.icons.time))));
             }
             if (this._options.buttons.showClear) {
                 row.push($('<td>').append($('<a>').attr({
+                    href: '#',
+                    tabindex: '-1',
                     'data-action': 'clear',
                     'title': this._options.tooltips.clear
                 }).append($('<span>').addClass(this._options.icons.clear))));
             }
             if (this._options.buttons.showClose) {
                 row.push($('<td>').append($('<a>').attr({
+                    href: '#',
+                    tabindex: '-1',
                     'data-action': 'close',
                     'title': this._options.tooltips.close
                 }).append($('<span>').addClass(this._options.icons.close))));
@@ -2405,19 +2412,34 @@ var TempusDominusBootstrap4 = function ($) {
                             }
                         }
                         this._setValue(lastPicked.clone().hours(hour), this._getLastPickedDateIndex());
-                        this._doAction(e, 'showPicker');
+                        if (!this._isEnabled('m') && !this._options.keepOpen && !this._options.inline) {
+                            this.hide();
+                        } else {
+                            this._doAction(e, 'showPicker');
+                        }
                         break;
                     }
                 case 'selectMinute':
                     this._setValue(lastPicked.clone().minutes(parseInt($(e.target).text(), 10)), this._getLastPickedDateIndex());
-                    this._doAction(e, 'showPicker');
+                    if (!this._isEnabled('s') && !this._options.keepOpen && !this._options.inline) {
+                        this.hide();
+                    } else {
+                        this._doAction(e, 'showPicker');
+                    }
                     break;
                 case 'selectSecond':
                     this._setValue(lastPicked.clone().seconds(parseInt($(e.target).text(), 10)), this._getLastPickedDateIndex());
-                    this._doAction(e, 'showPicker');
+                    if (!this._options.keepOpen && !this._options.inline) {
+                        this.hide();
+                    } else {
+                        this._doAction(e, 'showPicker');
+                    }
                     break;
                 case 'clear':
                     this.clear();
+                    break;
+                case 'close':
+                    this.hide();
                     break;
                 case 'today':
                     {

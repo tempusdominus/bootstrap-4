@@ -7,9 +7,9 @@
     "url": "https://github.com/tempusdominus/bootstrap-4/issues"
   },
   "dependencies": {
-    "bootstrap": "4.0.0-beta.3",
+    "bootstrap": "4.0.0",
     "jquery": "^1.9.1 || ^2.0 || ^3.0",
-    "popper.js": "1.13.0",
+    "popper.js": "^1.12.9",
     "moment": "^2.17",
     "moment-timezone": "^0.5.11"
   },

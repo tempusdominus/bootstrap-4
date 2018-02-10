@@ -813,7 +813,7 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
                             }
                         }
                         this._setValue(lastPicked.clone().hours(hour), this._getLastPickedDateIndex());
-                        if (!this._isEnabled('m') && !this._options.keepOpen && !this._options.inline) {
+                        if (!this._isEnabled('a') && !this._isEnabled('m') && !this._options.keepOpen && !this._options.inline) {
                             this.hide();
                         }
                         else {
@@ -823,7 +823,7 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
                     }
                 case 'selectMinute':
                     this._setValue(lastPicked.clone().minutes(parseInt($(e.target).text(), 10)), this._getLastPickedDateIndex());
-                    if (!this._isEnabled('s') && !this._options.keepOpen && !this._options.inline) {
+                    if (!this._isEnabled('a') && !this._isEnabled('s') && !this._options.keepOpen && !this._options.inline) {
                         this.hide();
                     }
                     else {
@@ -832,7 +832,7 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
                     break;
                 case 'selectSecond':
                     this._setValue(lastPicked.clone().seconds(parseInt($(e.target).text(), 10)), this._getLastPickedDateIndex());
-                    if (!this._options.keepOpen && !this._options.inline) {
+                    if (!this._isEnabled('a') && !this._options.keepOpen && !this._options.inline) {
                         this.hide();
                     }
                     else {

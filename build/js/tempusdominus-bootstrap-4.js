@@ -1836,8 +1836,8 @@ var TempusDominusBootstrap4 = function ($) {
                 vertical = self._options.widgetPositioning.vertical,
                 horizontal = self._options.widgetPositioning.horizontal,
                 parent = void 0;
-            var position = (self.component || self._element).position(),
-                offset = (self.component || self._element).offset();
+            var position = (self.component && self.component.length ? self.component : self._element).position(),
+                offset = (self.component && self.component.length ? self.component : self._element).offset();
             if (self._options.widgetParent) {
                 parent = self._options.widgetParent.append(self.widget);
             } else if (self._element.is('input')) {

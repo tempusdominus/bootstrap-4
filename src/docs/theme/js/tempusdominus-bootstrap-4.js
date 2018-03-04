@@ -1,5 +1,5 @@
 /*@preserve
- * Tempus Dominus Bootstrap4 v5.0.0-alpha16 (https://tempusdominus.github.io/bootstrap-4/)
+ * Tempus Dominus Bootstrap4 v5.0.0-alpha17 (https://tempusdominus.github.io/bootstrap-4/)
  * Copyright 2016-2018 Jonathan Peterson
  * Licensed under MIT (https://github.com/tempusdominus/bootstrap-3/blob/master/LICENSE)
  */
@@ -41,10 +41,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 var DateTimePicker = function ($, moment) {
     // ReSharper disable InconsistentNaming
     var NAME = 'datetimepicker',
-        VERSION = '5.0.0-alpha12',
+        VERSION = '5.0.0-alpha15',
         DATA_KEY = '' + NAME,
         EVENT_KEY = '.' + DATA_KEY,
-        EMIT_EVENT_KEY = DATA_KEY + '.',
         DATA_API_KEY = '.data-api',
         Selector = {
         DATA_TOGGLE: '[data-toggle="' + DATA_KEY + '"]'
@@ -60,10 +59,10 @@ var DateTimePicker = function ($, moment) {
         FOCUS: 'focus' + EVENT_KEY,
         CLICK_DATA_API: 'click' + EVENT_KEY + DATA_API_KEY,
         //emitted
-        UPDATE: EMIT_EVENT_KEY + 'update',
-        ERROR: EMIT_EVENT_KEY + 'error',
-        HIDE: EMIT_EVENT_KEY + 'hide',
-        SHOW: EMIT_EVENT_KEY + 'show'
+        UPDATE: 'update' + EVENT_KEY,
+        ERROR: 'error' + EVENT_KEY,
+        HIDE: 'hide' + EVENT_KEY,
+        SHOW: 'show' + EVENT_KEY
     },
         DatePickerModes = [{
         CLASS_NAME: 'days',
@@ -521,6 +520,9 @@ var DateTimePicker = function ($, moment) {
                     return this.actualFormat.indexOf('m') !== -1;
                 case 's':
                     return this.actualFormat.indexOf('s') !== -1;
+                case 'a':
+                case 'A':
+                    return this.actualFormat.toLowerCase().indexOf('a') !== -1;
                 default:
                     return false;
             }
@@ -2412,7 +2414,7 @@ var TempusDominusBootstrap4 = function ($) {
                             }
                         }
                         this._setValue(lastPicked.clone().hours(hour), this._getLastPickedDateIndex());
-                        if (!this._isEnabled('m') && !this._options.keepOpen && !this._options.inline) {
+                        if (!this._isEnabled('a') && !this._isEnabled('m') && !this._options.keepOpen && !this._options.inline) {
                             this.hide();
                         } else {
                             this._doAction(e, 'showPicker');
@@ -2421,7 +2423,7 @@ var TempusDominusBootstrap4 = function ($) {
                     }
                 case 'selectMinute':
                     this._setValue(lastPicked.clone().minutes(parseInt($(e.target).text(), 10)), this._getLastPickedDateIndex());
-                    if (!this._isEnabled('s') && !this._options.keepOpen && !this._options.inline) {
+                    if (!this._isEnabled('a') && !this._isEnabled('s') && !this._options.keepOpen && !this._options.inline) {
                         this.hide();
                     } else {
                         this._doAction(e, 'showPicker');
@@ -2429,7 +2431,7 @@ var TempusDominusBootstrap4 = function ($) {
                     break;
                 case 'selectSecond':
                     this._setValue(lastPicked.clone().seconds(parseInt($(e.target).text(), 10)), this._getLastPickedDateIndex());
-                    if (!this._options.keepOpen && !this._options.inline) {
+                    if (!this._isEnabled('a') && !this._options.keepOpen && !this._options.inline) {
                         this.hide();
                     } else {
                         this._doAction(e, 'showPicker');

@@ -16,6 +16,19 @@
             }
         });
 
+        grunt.config('string-replace.package-json-lock', {
+            files: { 'package-lock.json': 'package-lock.json' },
+            options: {
+                replacements: [
+                    {
+                        pattern: /"version": .*/,
+                        replacement: '"version": "' + version + '",'
+                    }
+                ]
+            }
+        });
+
+
         grunt.config('string-replace.bower-json', {
             files: { 'bower.json': 'bower.json' },
             options: {

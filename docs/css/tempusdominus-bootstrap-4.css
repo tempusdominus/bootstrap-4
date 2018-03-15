@@ -1,5 +1,5 @@
 /*@preserve
- * Tempus Dominus Bootstrap4 v5.0.0-alpha16 (https://tempusdominus.github.io/bootstrap-4/)
+ * Tempus Dominus Bootstrap4 v5.0.0-alpha18 (https://tempusdominus.github.io/bootstrap-4/)
  * Copyright 2016-2018 Jonathan Peterson
  * Licensed under MIT (https://github.com/tempusdominus/bootstrap-3/blob/master/LICENSE)
  */
@@ -126,7 +126,7 @@
         width: 145px; }
       .bootstrap-datetimepicker-widget table th.disabled, .bootstrap-datetimepicker-widget table th.disabled:hover {
         background: none;
-        color: #868e96;
+        color: #6c757d;
         cursor: not-allowed; }
       .bootstrap-datetimepicker-widget table th.prev::after {
         content: "Previous Month"; }
@@ -144,7 +144,7 @@
         font-size: .8em;
         height: 20px;
         line-height: 20px;
-        color: #868e96; }
+        color: #6c757d; }
       .bootstrap-datetimepicker-widget table td.day {
         height: 20px;
         line-height: 20px;
@@ -153,7 +153,7 @@
         background: #e9ecef;
         cursor: pointer; }
       .bootstrap-datetimepicker-widget table td.old, .bootstrap-datetimepicker-widget table td.new {
-        color: #868e96; }
+        color: #6c757d; }
       .bootstrap-datetimepicker-widget table td.today {
         position: relative; }
         .bootstrap-datetimepicker-widget table td.today:before {
@@ -174,7 +174,7 @@
         border-bottom-color: #fff; }
       .bootstrap-datetimepicker-widget table td.disabled, .bootstrap-datetimepicker-widget table td.disabled:hover {
         background: none;
-        color: #868e96;
+        color: #6c757d;
         cursor: not-allowed; }
       .bootstrap-datetimepicker-widget table td span {
         display: inline-block;
@@ -191,10 +191,10 @@
           color: #fff;
           text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25); }
         .bootstrap-datetimepicker-widget table td span.old {
-          color: #868e96; }
+          color: #6c757d; }
         .bootstrap-datetimepicker-widget table td span.disabled, .bootstrap-datetimepicker-widget table td span.disabled:hover {
           background: none;
-          color: #868e96;
+          color: #6c757d;
           cursor: not-allowed; }
   .bootstrap-datetimepicker-widget.usetwentyfour td.hour {
     height: 27px;

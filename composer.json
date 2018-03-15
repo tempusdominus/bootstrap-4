@@ -1,7 +1,7 @@
 {
   "name": "tempusdominus/bootstrap-4",
   "type": "component",
-  "version": "5.0.0-alpha17",
+  "version": "5.0.0-alpha18",
   "description": "Date/time picker widget based on twitter bootstrap",
   "keywords": [
     "bootstrap",
@@ -11,9 +11,9 @@
   "license": "MIT",
   "require": {
     "robloach/component-installer": "*",
-    "components/jquery": ">=1.9.1",
+    "components/jquery": ">=3.0.0",
     "moment": ">=2.10.5",
-    "tempusdominus-core": "5.0.0-alpha15"
+    "tempusdominus-core": "5.0.0-alpha17"
   },
   "extra": {
     "component": {

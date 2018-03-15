@@ -37,7 +37,9 @@
     <!--<script data-main="./mkdocs/js/search.js" src="./mkdocs/js/require.js"></script>-->
     <script src="./theme/js/base.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
-    <script src="./theme/js/tempusdominus-bootstrap-4.js"></script> 
+    <script src="./theme/js/tempusdominus-bootstrap-4.js"></script>
+    <script src="./search/require.js"></script>
+    <script src="./search/search.js"></script> 
 </head>
 
 <body class="bd-home" >
@@ -121,12 +123,12 @@
 </header>
     
 
-<p><main class="bd-masthead" id="content" role="main">
+<main class="bd-masthead" id="content" role="main">
   <div class="container">
     <div class="row align-items-center">
       <div class="col-6 mx-auto col-md-6 order-md-2">
         <!--img class="img-fluid mb-3 mb-md-0" src="/assets/img/bootstrap-stack.png" alt="" width="1024" height="860"-->
-        <img alt="Tempus Dominus" src="./android-chrome-256x256.png" />
+        ![Tempus Dominus](android-chrome-256x256.png)
       </div>
       <div class="col-md-6 order-md-1 text-center text-md-left pr-md-5">
         <h1 class="mb-3">Tempus Dominus</h1>
@@ -139,12 +141,13 @@
           <a href="Installing/" class="btn btn-lg btn-outline-secondary">Download</a>
         </div>
         <p class="text-muted mb-0">
-         Currently v5.0.0-alpha.16
+         Currently v5.0.0-alpha.18
         </p>
       </div>
     </div>
   </div>
 </main>
+
 <div class="masthead-followup row m-0 border border-white">
     <div class="col-12 col-md-6 p-3 p-md-5 bg-light border border-white">
         <span class="fa fa-download"></span>
@@ -164,14 +167,14 @@ npm i tempusdominus-bootstrap-4
         <p>When you only need to include Tempus Dominus's compiled CSS or JS, you can use CDNJS.</p>
         <pre>
 <code>
-&lt;script type=&quot;text/javascript&quot; src=&quot;https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha16/js/tempusdominus-bootstrap-4.min.js&quot;&gt;&lt;/script&gt;
-&lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha16/css/tempusdominus-bootstrap-4.min.css&quot; /&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha18/js/tempusdominus-bootstrap-4.min.js&quot;&gt;&lt;/script&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha18/css/tempusdominus-bootstrap-4.min.css&quot; /&gt;
 </code>
         </pre>
         <hr class="half-rule"/>
         <a class="btn btn-outline-primary" href="/Functions">Explore the docs</a>
      </div>
-</div></p>
+</div>
     <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">

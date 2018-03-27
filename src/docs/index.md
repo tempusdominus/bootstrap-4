@@ -2,8 +2,7 @@
   <div class="container">
     <div class="row align-items-center">
       <div class="col-6 mx-auto col-md-6 order-md-2">
-        <!--img class="img-fluid mb-3 mb-md-0" src="/assets/img/bootstrap-stack.png" alt="" width="1024" height="860"-->
-		![Tempus Dominus](android-chrome-256x256.png)
+        <img class="img-fluid mb-3 mb-md-0" src="android-chrome-256x256.png" alt="" width="256" height="256">
       </div>
       <div class="col-md-6 order-md-1 text-center text-md-left pr-md-5">
         <h1 class="mb-3">Tempus Dominus</h1>

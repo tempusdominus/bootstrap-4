@@ -1148,7 +1148,7 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
         if (!config._options.allowInputToggle) {
             return;
         }
-        TempusDominusBootstrap4._jQueryInterface.call($target, config, event);
+        TempusDominusBootstrap4._jQueryInterface.call($target, 'show', event);
     });
 
     $.fn[DateTimePicker.NAME] = TempusDominusBootstrap4._jQueryInterface;

@@ -11,7 +11,8 @@
 # Installation Guides
 * [CDN](#cdn)
 * [Nuget](#nuget)
-* [Rails](#rails-)
+* [Rails](#rails)
+* [Django](#django)
 * [Angular](#angular-wrapper)
 * [Meteor.js](#meteorjs)
 * [Manual](#manual)
@@ -49,6 +50,14 @@ Rails 5.1 Support - [Bootstrap 4 Datetime Picker Rails](https://github.com/Bialo
 2. Execute `bundle`
 3. Add `//= require tempusdominus-bootstrap-4.js` to your `application.js`
 4. Add `@import "tempusdominus-bootstrap-4.css"` to your `application.scss`
+
+### Django
+
+Python package for Django: [Django Tempus Dominus](https://pypi.org/project/django-tempus-dominus/)
+
+1. Install via pip: `pip install django-tempus-dominus`
+2. Widgets are provided for Date, DateTime, and Time.
+3. See the link above for full examples with Django Forms, Widgets, and Templates.
 
 ### Angular Wrapper
 Need new wrapper for this version.

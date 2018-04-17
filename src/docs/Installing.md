@@ -57,7 +57,7 @@ Python package for Django: [Django Tempus Dominus](https://pypi.org/project/djan
 
 1. Install via pip: `pip install django-tempus-dominus`
 2. Widgets are provided for Date, DateTime, and Time.
-3. See the link above for full examples with Django Forms, Widgets, and Templates.
+3. [Full examples are available with Django Forms, Widgets, and Templates](https://pypi.org/project/django-tempus-dominus/).
 
 ### Angular Wrapper
 Need new wrapper for this version.

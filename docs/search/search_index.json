@@ -2,7 +2,7 @@
     "docs": [
         {
             "location": "/",
-            "text": "Tempus Dominus\n\n        \n\n          Tempus Dominus is the successor to the very popular Eonasdan/bootstrap-datetimepicker. \n          The plugin provide a robust date and time picker designed to integrate into your Bootstrap project.\n        \n\n        \n\n          \nGet started\n\n          \nDownload\n\n        \n\n        \n\n         Currently v5.0.0-alpha.18\n        \n\n      \n\n    \n\n  \n\n\n\n\n\n\n    \n\n        \n\n        \nInstallation\n\n        \nInclude Tempus Dominus's source Sass and JavaScript files via npm\n\n        \n\n\n\nnpm i tempusdominus-bootstrap-4\n\n\n        \n\n        \n\n        \nRead installation docs\n\n    \n\n    \n\n        \n\n        \nCDNJS\n\n        \nWhen you only need to include Tempus Dominus's compiled CSS or JS, you can use CDNJS.\n\n        \n\n\n\n<script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>\n<script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.21.0/moment.min.js\"></script>\n<script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha18/js/tempusdominus-bootstrap-4.min.js\"></script>\n<link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha18/css/tempusdominus-bootstrap-4.min.css\" />\n\n\n        \n\n        \n\n        \nExplore the docs",
+            "text": "Tempus Dominus\n\n        \n\n          Tempus Dominus is the successor to the very popular Eonasdan/bootstrap-datetimepicker. \n          The plugin provide a robust date and time picker designed to integrate into your Bootstrap project.\n        \n\n        \n\n          \nGet started\n\n          \nDownload\n\n        \n\n        \n\n         Currently v5.0.0\n        \n\n      \n\n    \n\n  \n\n\n\n\n\n\n    \n\n        \n\n        \nInstallation\n\n        \nInclude Tempus Dominus's source Sass and JavaScript files via npm\n\n        \n\n\n\nnpm i tempusdominus-bootstrap-4\n\n\n        \n\n        \n\n        \nRead installation docs\n\n    \n\n    \n\n        \n\n        \nCDNJS\n\n        \nWhen you only need to include Tempus Dominus's compiled CSS or JS, you can use CDNJS.\n\n        \n\n\n\n<script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>\n<script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js\"></script>\n<script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0/js/tempusdominus-bootstrap-4.min.js\"></script>\n<link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0/css/tempusdominus-bootstrap-4.min.css\" />\n\n\n        \n\n        \n\n        \nExplore the docs",
             "title": "Tempus Dominus Bootstrap 4"
         },
         {
@@ -152,7 +152,7 @@
         },
         {
             "location": "/Installing/",
-            "text": "This guide still needs a lot of work\n\n\n\n\nMinimal Requirements\n\n\n\n\njQuery\n\n\nMoment.js\n\n\nLocales: Moment's locale files are \nhere\n\n\n\n\nInstallation Guides\n\n\n\n\nCDN\n\n\nNuget\n\n\nRails\n\n\nAngular\n\n\nMeteor.js\n\n\nManual\n\n\n\n\nCDN\n\n\n<head>\n  <script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/js/tempusdominus-bootstrap-4.min.js\"></script>\n  <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/css/tempusdominus-bootstrap-4.min.css\" />\n</head>\n\n\n\n\nPackage Managers\n\n\nNuget\n\n\nTempus.Dominus.Bootstrap.4\n: \n\n\nPM> Install-Package Tempus.Dominus.Bootstrap.4\n\n\n\n<head>\n  <script type=\"text/javascript\" src=\"/scripts/jquery.min.js\"></script>\n  <script type=\"text/javascript\" src=\"/scripts/moment.min.js\"></script>\n  <script type=\"text/javascript\" src=\"/scripts/tempusdominus/tempusdominus-bootstrap-4.js\"></script>\n</head>\n\n\n\n\nRails\n\n\nRails 5.1 Support - \nBootstrap 4 Datetime Picker Rails\n\n\n\n\nAdd \ngem 'bootstrap4-datetime-picker-rails'\n to your \nGemfile\n\n\nExecute \nbundle\n\n\nAdd \n//= require tempusdominus-bootstrap-4.js\n to your \napplication.js\n\n\nAdd \n@import \"tempusdominus-bootstrap-4.css\"\n to your \napplication.scss\n\n\n\n\nAngular Wrapper\n\n\nNeed new wrapper for this version.\n\n\nMeteor.js\n\n\nNeed new wrapper for this version.\n\n\nManual\n\n\n\n\nAcquire \njQuery\n\n\nAcquire \nMoment.js\n\n\nAcquire\n\n\n\n\n<script type=\"text/javascript\" src=\"/path/to/jquery.js\"></script>\n<script type=\"text/javascript\" src=\"/path/to/moment.js\"></script>\n<script type=\"text/javascript\" src=\"/path/to/tempusdominus-bootstrap-4.min.js\"></script>\n\n\n\n\nKnockout\n\n\nNeed new wrapper for this version.",
+            "text": "This guide still needs a lot of work\n\n\n\n\nMinimal Requirements\n\n\n\n\njQuery\n\n\nMoment.js\n\n\nLocales: Moment's locale files are \nhere\n\n\n\n\nInstallation Guides\n\n\n\n\nCDN\n\n\nRails\n\n\nDjango\n\n\nAngular\n\n\nMeteor.js\n\n\nManual\n\n\n\n\nCDN\n\n\n<head>\n  <script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/js/tempusdominus-bootstrap-4.min.js\"></script>\n  <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/css/tempusdominus-bootstrap-4.min.css\" />\n</head>\n\n\n\n\nPackage Managers\n\n\nRails\n\n\nRails 5.1 Support - \nBootstrap 4 Datetime Picker Rails\n\n\n\n\nAdd \ngem 'bootstrap4-datetime-picker-rails'\n to your \nGemfile\n\n\nExecute \nbundle\n\n\nAdd \n//= require tempusdominus-bootstrap-4.js\n to your \napplication.js\n\n\nAdd \n@import \"tempusdominus-bootstrap-4.css\"\n to your \napplication.scss\n\n\n\n\nDjango\n\n\nPython package for Django: \nDjango Tempus Dominus\n\n\n\n\nInstall via pip: \npip install django-tempus-dominus\n\n\nWidgets are provided for Date, DateTime, and Time.\n\n\nFull examples are available with Django Forms, Widgets, and Templates\n.\n\n\n\n\nAngular Wrapper\n\n\nNeed new wrapper for this version.\n\n\nMeteor.js\n\n\nNeed new wrapper for this version.\n\n\nManual\n\n\n\n\nAcquire \njQuery\n\n\nAcquire \nMoment.js\n\n\nAcquire\n\n\n\n\n<script type=\"text/javascript\" src=\"/path/to/jquery.js\"></script>\n<script type=\"text/javascript\" src=\"/path/to/moment.js\"></script>\n<script type=\"text/javascript\" src=\"/path/to/tempusdominus-bootstrap-4.min.js\"></script>\n\n\n\n\nKnockout\n\n\nNeed new wrapper for this version.",
             "title": "Installing"
         },
         {
@@ -162,7 +162,7 @@
         },
         {
             "location": "/Installing/#installation-guides",
-            "text": "CDN  Nuget  Rails  Angular  Meteor.js  Manual",
+            "text": "CDN  Rails  Django  Angular  Meteor.js  Manual",
             "title": "Installation Guides"
         },
         {
@@ -176,19 +176,14 @@
             "title": "Package Managers"
         },
         {
-            "location": "/Installing/#nuget",
-            "text": "",
-            "title": "Nuget"
-        },
-        {
-            "location": "/Installing/#tempusdominusbootstrap4",
-            "text": "PM> Install-Package Tempus.Dominus.Bootstrap.4  <head>\n  <script type=\"text/javascript\" src=\"/scripts/jquery.min.js\"></script>\n  <script type=\"text/javascript\" src=\"/scripts/moment.min.js\"></script>\n  <script type=\"text/javascript\" src=\"/scripts/tempusdominus/tempusdominus-bootstrap-4.js\"></script>\n</head>",
-            "title": "Tempus.Dominus.Bootstrap.4:"
-        },
-        {
             "location": "/Installing/#rails",
             "text": "Rails 5.1 Support -  Bootstrap 4 Datetime Picker Rails   Add  gem 'bootstrap4-datetime-picker-rails'  to your  Gemfile  Execute  bundle  Add  //= require tempusdominus-bootstrap-4.js  to your  application.js  Add  @import \"tempusdominus-bootstrap-4.css\"  to your  application.scss",
             "title": "Rails"
+        },
+        {
+            "location": "/Installing/#django",
+            "text": "Python package for Django:  Django Tempus Dominus   Install via pip:  pip install django-tempus-dominus  Widgets are provided for Date, DateTime, and Time.  Full examples are available with Django Forms, Widgets, and Templates .",
+            "title": "Django"
         },
         {
             "location": "/Installing/#angular-wrapper",

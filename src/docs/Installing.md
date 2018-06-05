@@ -10,7 +10,6 @@
 
 # Installation Guides
 * [CDN](#cdn)
-* [Nuget](#nuget)
 * [Rails](#rails)
 * [Django](#django)
 * [Angular](#angular-wrapper)
@@ -26,21 +25,6 @@
 ```
 
 ## Package Managers
-
-### Nuget
-
-### [Tempus.Dominus.Bootstrap.4](https://www.nuget.org/packages/Tempus.Dominus.Bootstrap.4/): ![NuGet version](https://badge.fury.io/nu/Tempus.Dominus.Bootstrap.4.png)
-
-    PM> Install-Package Tempus.Dominus.Bootstrap.4
-
-
-```html
-<head>
-  <script type="text/javascript" src="/scripts/jquery.min.js"></script>
-  <script type="text/javascript" src="/scripts/moment.min.js"></script>
-  <script type="text/javascript" src="/scripts/tempusdominus/tempusdominus-bootstrap-4.js"></script>
-</head>
-```
 
 ### Rails
 

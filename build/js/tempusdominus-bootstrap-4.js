@@ -1,5 +1,5 @@
 /*@preserve
- * Tempus Dominus Bootstrap4 v5.0.0-alpha18 (https://tempusdominus.github.io/bootstrap-4/)
+ * Tempus Dominus Bootstrap4 v5.0.0 (https://tempusdominus.github.io/bootstrap-4/)
  * Copyright 2016-2018 Jonathan Peterson
  * Licensed under MIT (https://github.com/tempusdominus/bootstrap-3/blob/master/LICENSE)
  */
@@ -38,13 +38,11 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 // ReSharper disable once InconsistentNaming
-var DateTimePicker = function ($) {
+var DateTimePicker = function ($, moment) {
     // ReSharper disable InconsistentNaming
     var NAME = 'datetimepicker',
-        VERSION = '5.0.0-alpha7',
         DATA_KEY = '' + NAME,
         EVENT_KEY = '.' + DATA_KEY,
-        EMIT_EVENT_KEY = DATA_KEY + '.',
         DATA_API_KEY = '.data-api',
         Selector = {
         DATA_TOGGLE: '[data-toggle="' + DATA_KEY + '"]'
@@ -60,11 +58,63 @@ var DateTimePicker = function ($) {
         FOCUS: 'focus' + EVENT_KEY,
         CLICK_DATA_API: 'click' + EVENT_KEY + DATA_API_KEY,
         //emitted
-        UPDATE: EMIT_EVENT_KEY + 'update',
-        ERROR: EMIT_EVENT_KEY + 'error',
-        HIDE: EMIT_EVENT_KEY + 'hide',
-        SHOW: EMIT_EVENT_KEY + 'show'
+        UPDATE: 'update' + EVENT_KEY,
+        ERROR: 'error' + EVENT_KEY,
+        HIDE: 'hide' + EVENT_KEY,
+        SHOW: 'show' + EVENT_KEY
     },
+        DatePickerModes = [{
+        CLASS_NAME: 'days',
+        NAV_FUNCTION: 'M',
+        NAV_STEP: 1
+    }, {
+        CLASS_NAME: 'months',
+        NAV_FUNCTION: 'y',
+        NAV_STEP: 1
+    }, {
+        CLASS_NAME: 'years',
+        NAV_FUNCTION: 'y',
+        NAV_STEP: 10
+    }, {
+        CLASS_NAME: 'decades',
+        NAV_FUNCTION: 'y',
+        NAV_STEP: 100
+    }],
+        KeyMap = {
+        'up': 38,
+        38: 'up',
+        'down': 40,
+        40: 'down',
+        'left': 37,
+        37: 'left',
+        'right': 39,
+        39: 'right',
+        'tab': 9,
+        9: 'tab',
+        'escape': 27,
+        27: 'escape',
+        'enter': 13,
+        13: 'enter',
+        'pageUp': 33,
+        33: 'pageUp',
+        'pageDown': 34,
+        34: 'pageDown',
+        'shift': 16,
+        16: 'shift',
+        'control': 17,
+        17: 'control',
+        'space': 32,
+        32: 'space',
+        't': 84,
+        84: 't',
+        'delete': 46,
+        46: 'delete'
+    },
+        ViewModes = ['times', 'days', 'months', 'years', 'decades'],
+        keyState = {},
+        keyPressHandled = {};
+
+    var MinViewModeNumber = 0,
         Default = {
         timeZone: '',
         format: false,
@@ -75,7 +125,7 @@ var DateTimePicker = function ($) {
         maxDate: false,
         useCurrent: true,
         collapse: true,
-        locale: window.moment.locale(),
+        locale: moment.locale(),
         defaultDate: false,
         disabledDates: false,
         enabledDates: false,
@@ -230,6 +280,9 @@ var DateTimePicker = function ($) {
                 return true;
             },
             enter: function enter() {
+                if (!this.widget) {
+                    return false;
+                }
                 this.hide();
                 return true;
             },
@@ -250,6 +303,9 @@ var DateTimePicker = function ($) {
                 return true;
             },
             t: function t() {
+                if (!this.widget) {
+                    return false;
+                }
                 this.date(this.getMoment());
                 return true;
             },
@@ -269,59 +325,8 @@ var DateTimePicker = function ($) {
         viewDate: false,
         allowMultidate: false,
         multidateSeparator: ','
-    },
-        DatePickerModes = [{
-        CLASS_NAME: 'days',
-        NAV_FUNCTION: 'M',
-        NAV_STEP: 1
-    }, {
-        CLASS_NAME: 'months',
-        NAV_FUNCTION: 'y',
-        NAV_STEP: 1
-    }, {
-        CLASS_NAME: 'years',
-        NAV_FUNCTION: 'y',
-        NAV_STEP: 10
-    }, {
-        CLASS_NAME: 'decades',
-        NAV_FUNCTION: 'y',
-        NAV_STEP: 100
-    }],
-        KeyMap = {
-        'up': 38,
-        38: 'up',
-        'down': 40,
-        40: 'down',
-        'left': 37,
-        37: 'left',
-        'right': 39,
-        39: 'right',
-        'tab': 9,
-        9: 'tab',
-        'escape': 27,
-        27: 'escape',
-        'enter': 13,
-        13: 'enter',
-        'pageUp': 33,
-        33: 'pageUp',
-        'pageDown': 34,
-        34: 'pageDown',
-        'shift': 16,
-        16: 'shift',
-        'control': 17,
-        17: 'control',
-        'space': 32,
-        32: 'space',
-        't': 84,
-        84: 't',
-        'delete': 46,
-        46: 'delete'
-    },
-        ViewModes = ['times', 'days', 'months', 'years', 'decades'],
-        keyState = {},
-        keyPressHandled = {};
+    };
 
-    var MinViewModeNumber = 0;
     // ReSharper restore InconsistentNaming
 
     // ReSharper disable once DeclarationHides
@@ -380,9 +385,9 @@ var DateTimePicker = function ($) {
             this._initFormatting();
 
             if (this.input !== undefined && this.input.is('input') && this.input.val().trim().length !== 0) {
-                this._setValue(this._parseInputDate(this.input.val().trim()));
+                this._setValue(this._parseInputDate(this.input.val().trim()), 0);
             } else if (this._options.defaultDate && this.input !== undefined && this.input.attr('placeholder') === undefined) {
-                this._setValue(this._options.defaultDate);
+                this._setValue(this._options.defaultDate, 0);
             }
             if (this._options.inline) {
                 this.show();
@@ -499,7 +504,7 @@ var DateTimePicker = function ($) {
         };
 
         DateTimePicker.prototype._hasTimeZone = function _hasTimeZone() {
-            return window.moment.tz !== undefined && this._options.timeZone !== undefined && this._options.timeZone !== null && this._options.timeZone !== '';
+            return moment.tz !== undefined && this._options.timeZone !== undefined && this._options.timeZone !== null && this._options.timeZone !== '';
         };
 
         DateTimePicker.prototype._isEnabled = function _isEnabled(granularity) {
@@ -520,6 +525,9 @@ var DateTimePicker = function ($) {
                     return this.actualFormat.indexOf('m') !== -1;
                 case 's':
                     return this.actualFormat.indexOf('s') !== -1;
+                case 'a':
+                case 'A':
+                    return this.actualFormat.toLowerCase().indexOf('a') !== -1;
                 default:
                     return false;
             }
@@ -553,7 +561,7 @@ var DateTimePicker = function ($) {
         };
 
         DateTimePicker.prototype._notifyEvent = function _notifyEvent(e) {
-            if (e.type === DateTimePicker.Event.CHANGE && ((e.date && e.date.isSame(e.oldDate)) || (!e.date && !e.oldDate))) {
+            if (e.type === DateTimePicker.Event.CHANGE && e.date && e.date.isSame(e.oldDate) || !e.date && !e.oldDate) {
                 return;
             }
             this._element.trigger(e);
@@ -638,7 +646,7 @@ var DateTimePicker = function ($) {
 
         DateTimePicker.prototype._parseInputDate = function _parseInputDate(inputDate) {
             if (this._options.parseInputDate === undefined) {
-                if (!window.moment.isMoment(inputDate)) {
+                if (!moment.isMoment(inputDate)) {
                     inputDate = this.getMoment(inputDate);
                 }
             } else {
@@ -690,7 +698,7 @@ var DateTimePicker = function ($) {
             }
 
             if (handler) {
-                if (handler.call(this.widget)) {
+                if (handler.call(this)) {
                     e.stopPropagation();
                     e.preventDefault();
                 }
@@ -782,13 +790,13 @@ var DateTimePicker = function ($) {
             var returnMoment = void 0;
 
             if (d === undefined || d === null) {
-                returnMoment = window.moment(); //TODO should this use format? and locale?
+                returnMoment = moment(); //TODO should this use format? and locale?
             } else if (this._hasTimeZone()) {
                 // There is a string to parse and a default time zone
                 // parse with the tz function which takes a default time zone if it is not in the format string
-                returnMoment = window.moment.tz(d, this.parseFormats, this._options.useStrict, this._options.timeZone);
+                returnMoment = moment.tz(d, this.parseFormats, this._options.locale, this._options.useStrict, this._options.timeZone);
             } else {
-                returnMoment = window.moment(d, this.parseFormats, this._options.useStrict);
+                returnMoment = moment(d, this.parseFormats, this._options.locale, this._options.useStrict);
             }
 
             if (this._hasTimeZone()) {
@@ -842,7 +850,7 @@ var DateTimePicker = function ($) {
                 }
             }
 
-            if (newDate !== null && typeof newDate !== 'string' && !window.moment.isMoment(newDate) && !(newDate instanceof Date)) {
+            if (newDate !== null && typeof newDate !== 'string' && !moment.isMoment(newDate) && !(newDate instanceof Date)) {
                 throw new TypeError('date() parameter must be one of [null, string, moment or Date]');
             }
 
@@ -850,9 +858,6 @@ var DateTimePicker = function ($) {
         };
 
         DateTimePicker.prototype.format = function format(newFormat) {
-            ///<summary>test su</summary>
-            ///<param name="newFormat">info about para</param>
-            ///<returns type="string|boolean">returns foo</returns>
             if (arguments.length === 0) {
                 return this._options.format;
             }
@@ -1093,9 +1098,11 @@ var DateTimePicker = function ($) {
                 return this._options.locale;
             }
 
-            if (!window.moment.localeData(_locale)) {
+            if (!moment.localeData(_locale)) {
                 throw new TypeError('locale() locale ' + _locale + ' is not loaded from moment locales!');
             }
+
+            this._options.locale = _locale;
 
             for (var i = 0; i < this._dates.length; i++) {
                 this._dates[i].locale(this._options.locale);
@@ -1465,7 +1472,7 @@ var DateTimePicker = function ($) {
                 return true;
             }
 
-            if (typeof newDate !== 'string' && !window.moment.isMoment(newDate) && !(newDate instanceof Date)) {
+            if (typeof newDate !== 'string' && !moment.isMoment(newDate) && !(newDate instanceof Date)) {
                 throw new TypeError('viewDate() parameter must be one of [string, moment or Date]');
             }
 
@@ -1497,16 +1504,6 @@ var DateTimePicker = function ($) {
             key: 'NAME',
             get: function get() {
                 return NAME;
-            }
-
-            /**
-             * @return {string}
-             */
-
-        }, {
-            key: 'VERSION',
-            get: function get() {
-                return VERSION;
             }
 
             /**
@@ -1572,6 +1569,9 @@ var DateTimePicker = function ($) {
             key: 'Default',
             get: function get() {
                 return Default;
+            },
+            set: function set(value) {
+                Default = value;
             }
         }, {
             key: 'ClassName',
@@ -1584,7 +1584,7 @@ var DateTimePicker = function ($) {
     }();
 
     return DateTimePicker;
-}(jQuery);
+}(jQuery, moment);
 
 //noinspection JSUnusedGlobalSymbols
 /* global DateTimePicker */
@@ -1988,12 +1988,12 @@ var TempusDominusBootstrap4 = function ($) {
                 yearsViewHeader.eq(2).addClass('disabled');
             }
 
-            html += '<span data-action="selectYear" class="year old">' + (startYear.year() - 1) + '</span>';
+            html += '<span data-action="selectYear" class="year old' + (!this._isValid(startYear, 'y') ? ' disabled' : '') + '">' + (startYear.year() - 1) + '</span>';
             while (!startYear.isAfter(endYear, 'y')) {
                 html += '<span data-action="selectYear" class="year' + (startYear.isSame(this._getLastPickedDate(), 'y') && !this.unset ? ' active' : '') + (!this._isValid(startYear, 'y') ? ' disabled' : '') + '">' + startYear.year() + '</span>';
                 startYear.add(1, 'y');
             }
-            html += '<span data-action="selectYear" class="year old">' + startYear.year() + '</span>';
+            html += '<span data-action="selectYear" class="year old' + (!this._isValid(startYear, 'y') ? ' disabled' : '') + '">' + startYear.year() + '</span>';
 
             yearsView.find('td').html(html);
         };
@@ -2751,7 +2751,7 @@ var TempusDominusBootstrap4 = function ($) {
         if (!config._options.allowInputToggle) {
             return;
         }
-        TempusDominusBootstrap4._jQueryInterface.call($target, config, event);
+        TempusDominusBootstrap4._jQueryInterface.call($target, 'show', event);
     });
 
     $.fn[DateTimePicker.NAME] = TempusDominusBootstrap4._jQueryInterface;

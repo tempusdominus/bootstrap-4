@@ -1,5 +1,3 @@
-lead: Basic usage and common examples
-
 # Bootstrap4 v5 Docs
 
 <div class="alert alert-info">

@@ -158,12 +158,13 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
                 }).append($('<span>').addClass(this._options.icons.today))));
             }
             if (!this._options.sideBySide && this._hasDate() && this._hasTime()) {
+                let title, icon;
                 if (this._options.viewMode === 'times') {
-                  title = this._options.tooltips.selectDate;
-                  icon = this._options.icons.date;
+                    title = this._options.tooltips.selectDate;
+                    icon = this._options.icons.date;
                 } else {
-                  title = this._options.tooltips.selectTime;
-                  icon = this._options.icons.time;
+                    title = this._options.tooltips.selectTime;
+                    icon = this._options.icons.time;
                 }
                 row.push($('<td>').append($('<a>').attr({
                     href: '#',

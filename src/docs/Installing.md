@@ -44,7 +44,8 @@ Python package for Django: [Django Tempus Dominus](https://pypi.org/project/djan
 3. [Full examples are available with Django Forms, Widgets, and Templates](https://pypi.org/project/django-tempus-dominus/).
 
 ### Angular Wrapper
-Need new wrapper for this version.
+
+Follow instructions at [ngx-tempusdominus-bootstrap](https://github.com/fetrarij/ngx-tempusdominus-bootstrap) 
 
 ### Meteor.js
 

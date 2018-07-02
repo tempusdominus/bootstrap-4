@@ -76,6 +76,7 @@
   "files": [
     "build",
     "src/js/**/*.js",
+    "src/scss/**/*.scss",
     "Gruntfile.js"
   ]
 }

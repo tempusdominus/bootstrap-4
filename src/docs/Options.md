@@ -426,7 +426,7 @@ Takes a `boolean` variable to set if the week numbers will appear to the left on
 ### viewMode
 
 	Default: 'days'
-    Accepts: 'decades','years','months','days'
+    Accepts: 'decades','years','months','days', 'times'
 
 The default view to display when the picker is shown.
 

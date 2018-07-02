@@ -46,44 +46,6 @@ module.exports = function (grunt) {
             },
             target: ['Gruntfile.js', 'src/js/*.js', 'test/*.js']
         },
-        env: {
-            paris: {
-                TZ: 'Europe/Paris' // sets env for phantomJS https://github.com/ariya/phantomjs/issues/10379#issuecomment-36058589
-            }
-        },
-        connect: {
-            server: {
-                options: {
-                    port: 8099
-                }
-            }
-        },
-        jasmine: {
-            customTemplate: {
-                src: 'src/js/*.js',
-                options: {
-                    specs: 'test/*Spec.js',
-                    helpers: 'test/*Helper.js',
-                    host: 'http://127.0.0.1:8099',
-                    vendor: [
-                        'node_modules/jquery/dist/jquery.min.js',
-                        'node_modules/moment/min/moment-with-locales.min.js',
-                        'node_modules/moment-timezone/moment-timezone.js'
-                    ],
-                    display: 'none',
-                    summary: 'true'
-                }
-            }
-        },
-        nugetpack: {
-            core: {
-                src: 'src/nuget/Tempus.Dominus.Core.nuspec',
-                dest: 'build/nuget',
-                options: {
-                    version: '<%= pkg.version %>'
-                }
-            }
-        },
         babel: {
             dev: {
                 options: {
@@ -186,10 +148,6 @@ module.exports = function (grunt) {
     });
 
     grunt.loadTasks('tasks');
-
-    grunt.loadNpmTasks('grunt-env');
-    grunt.loadNpmTasks('grunt-contrib-connect');
-    grunt.loadNpmTasks('grunt-contrib-jasmine');
     grunt.loadNpmTasks('grunt-nuget');
     grunt.loadNpmTasks('grunt-mkdocs');
 
@@ -205,9 +163,7 @@ module.exports = function (grunt) {
     grunt.registerTask('build:js', ['babel:dev', 'concat', 'eslint', 'babel:dist', 'stamp:bootstrap', 'uglify', 'copy']);
 
     grunt.registerTask('build:style', ['sass', 'stamp:css', 'copy']);
-
-    grunt.registerTask('test', ['build', 'env:paris', 'connect', 'jasmine']);
-
+    
     grunt.registerTask('copy', 'Generate docs', function () {
         grunt.file.copy('build/js/tempusdominus-bootstrap-4.js', 'src/docs/theme/js/tempusdominus-bootstrap-4.js');
         grunt.file.copy('build/css/tempusdominus-bootstrap-4.css', 'src/docs/theme/css/tempusdominus-bootstrap-4.css');

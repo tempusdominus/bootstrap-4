@@ -1,5 +1,5 @@
 /*@preserve
- * Tempus Dominus Bootstrap4 v5.0.0 (https://tempusdominus.github.io/bootstrap-4/)
+ * Tempus Dominus Bootstrap4 v5.0.1 (https://tempusdominus.github.io/bootstrap-4/)
  * Copyright 2016-2018 Jonathan Peterson
  * Licensed under MIT (https://github.com/tempusdominus/bootstrap-3/blob/master/LICENSE)
  */
@@ -66,6 +66,8 @@
     .bootstrap-datetimepicker-widget.dropdown-menu.float-right:after {
       left: auto;
       right: 7px; }
+    .bootstrap-datetimepicker-widget.dropdown-menu.wider {
+      width: 16rem; }
   .bootstrap-datetimepicker-widget .list-unstyled {
     margin: 0; }
   .bootstrap-datetimepicker-widget a[data-action] {

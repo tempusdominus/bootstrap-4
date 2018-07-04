@@ -1,3 +1,5 @@
+const sass = require('node-sass');
+
 module.exports = function (grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
@@ -97,6 +99,7 @@ module.exports = function (grunt) {
                 options: {
                     cleancss: true,
                     compress: true,
+                    implementation: sass,
                     includePaths: ['node_modules']
                 },
                 files: {
@@ -105,7 +108,8 @@ module.exports = function (grunt) {
             },
             development: {
                 options: {
-                    includePaths: ['node_modules']
+                    includePaths: ['node_modules'],
+                    implementation: sass
                 },
                 files: {
                     'build/css/<%= pkg.name %>.css': 'src/sass/<%= pkg.name %>-build.scss'
@@ -148,7 +152,6 @@ module.exports = function (grunt) {
     });
 
     grunt.loadTasks('tasks');
-    grunt.loadNpmTasks('grunt-nuget');
     grunt.loadNpmTasks('grunt-mkdocs');
 
     require('load-grunt-tasks')(grunt);
@@ -163,7 +166,7 @@ module.exports = function (grunt) {
     grunt.registerTask('build:js', ['babel:dev', 'concat', 'eslint', 'babel:dist', 'stamp:bootstrap', 'uglify', 'copy']);
 
     grunt.registerTask('build:style', ['sass', 'stamp:css', 'copy']);
-    
+
     grunt.registerTask('copy', 'Generate docs', function () {
         grunt.file.copy('build/js/tempusdominus-bootstrap-4.js', 'src/docs/theme/js/tempusdominus-bootstrap-4.js');
         grunt.file.copy('build/css/tempusdominus-bootstrap-4.css', 'src/docs/theme/css/tempusdominus-bootstrap-4.css');
@@ -179,8 +182,7 @@ module.exports = function (grunt) {
         grunt.task.run([
             'bump_version:' + version,
             'build:travis',
-            'docs'//,
-            //'nugetpack' //todo not ready
+            'docs'
         ]);
     });
 };

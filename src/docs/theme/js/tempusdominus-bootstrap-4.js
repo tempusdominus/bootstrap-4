@@ -1,5 +1,5 @@
 /*@preserve
- * Tempus Dominus Bootstrap4 v5.0.0 (https://tempusdominus.github.io/bootstrap-4/)
+ * Tempus Dominus Bootstrap4 v5.0.1 (https://tempusdominus.github.io/bootstrap-4/)
  * Copyright 2016-2018 Jonathan Peterson
  * Licensed under MIT (https://github.com/tempusdominus/bootstrap-3/blob/master/LICENSE)
  */
@@ -1754,12 +1754,21 @@ var TempusDominusBootstrap4 = function ($) {
                 }).append($('<span>').addClass(this._options.icons.today))));
             }
             if (!this._options.sideBySide && this._hasDate() && this._hasTime()) {
+                var title = void 0,
+                    icon = void 0;
+                if (this._options.viewMode === 'times') {
+                    title = this._options.tooltips.selectDate;
+                    icon = this._options.icons.date;
+                } else {
+                    title = this._options.tooltips.selectTime;
+                    icon = this._options.icons.time;
+                }
                 row.push($('<td>').append($('<a>').attr({
                     href: '#',
                     tabindex: '-1',
                     'data-action': 'togglePicker',
-                    'title': this._options.tooltips.selectTime
-                }).append($('<span>').addClass(this._options.icons.time))));
+                    'title': title
+                }).append($('<span>').addClass(icon))));
             }
             if (this._options.buttons.showClear) {
                 row.push($('<td>').append($('<a>').attr({
@@ -1814,13 +1823,13 @@ var TempusDominusBootstrap4 = function ($) {
                 content.append(toolbar);
             }
             if (this._hasDate()) {
-                content.append($('<li>').addClass(this._options.collapse && this._hasTime() ? 'collapse' : '').addClass(this._options.collapse && this._hasTime() && this._options.viewMode === 'time' ? '' : 'show').append(dateView));
+                content.append($('<li>').addClass(this._options.collapse && this._hasTime() ? 'collapse' : '').addClass(this._options.collapse && this._hasTime() && this._options.viewMode === 'times' ? '' : 'show').append(dateView));
             }
             if (this._options.toolbarPlacement === 'default') {
                 content.append(toolbar);
             }
             if (this._hasTime()) {
-                content.append($('<li>').addClass(this._options.collapse && this._hasDate() ? 'collapse' : '').addClass(this._options.collapse && this._hasDate() && this._options.viewMode === 'time' ? 'show' : '').append(timeView));
+                content.append($('<li>').addClass(this._options.collapse && this._hasDate() ? 'collapse' : '').addClass(this._options.collapse && this._hasDate() && this._options.viewMode === 'times' ? 'show' : '').append(timeView));
             }
             if (this._options.toolbarPlacement === 'bottom') {
                 content.append(toolbar);

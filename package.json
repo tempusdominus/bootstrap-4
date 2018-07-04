@@ -72,7 +72,7 @@
   "files": [
     "build",
     "src/js/**/*.js",
-    "src/scss/**/*.scss",
+    "src/sass/**/*.scss",
     "Gruntfile.js"
   ]
 }

@@ -49,6 +49,7 @@
     "grunt-jscs": "latest",
     "grunt-mkdocs": "^0.2.3",
     "grunt-sass": "3.0.0",
+    "grunt-sass-tilde-importer": "^1.0.2",
     "grunt-stamp": "^0.3.0",
     "grunt-string-replace": "latest",
     "load-grunt-tasks": "latest",

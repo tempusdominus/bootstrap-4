@@ -48,7 +48,8 @@
     <script>var base_url = '{{ base_url }}';</script>
     {%- for path in extra_javascript %}
     {% if 'search' in path %}
-    {% else %}<script src="{{ path }}"></script>
+    {% else %}
+    <script src="{{ path }}"></script>
     {% endif %}
     {%- endfor %}
     {%- endblock %}

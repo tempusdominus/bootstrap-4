@@ -7,16 +7,16 @@
     "url": "https://github.com/tempusdominus/bootstrap-4/issues"
   },
   "dependencies": {
-    "bootstrap": "4.x",
+    "bootstrap": ">=4.1.2",
     "jquery": "^3.0",
     "moment": "^2.22.2",
     "moment-timezone": "^0.5.11",
-    "popper.js": "^1.12.9"
+    "popper.js": "^1.14.3"
   },
   "peerDependencies": {
-    "bootstrap": "4.x",
+    "bootstrap": ">=4.1.2",
     "jquery": "^3.0",
-    "popper.js": "^1.12.9",
+    "popper.js": "^1.14.3",
     "moment": "^2.17",
     "moment-timezone": "^0.5.11",
     "tempusdominus-core": "5.0.0"

@@ -1,5 +1,4 @@
-const sass = require('node-sass');
-const tilde_importer = require('grunt-sass-tilde-importer');
+const sass = require('node-sass'), tildeImporter = require('grunt-sass-tilde-importer');
 
 module.exports = function (grunt) {
     grunt.initConfig({
@@ -101,7 +100,7 @@ module.exports = function (grunt) {
                     cleancss: true,
                     compress: true,
                     implementation: sass,
-                    importer: tilde_importer
+                    importer: tildeImporter
                 },
                 files: {
                     'build/css/<%= pkg.name %>.min.css': 'src/sass/<%= pkg.name %>-build.scss'
@@ -109,7 +108,7 @@ module.exports = function (grunt) {
             },
             development: {
                 options: {
-                    importer: tilde_importer,
+                    importer: tildeImporter,
                     implementation: sass
                 },
                 files: {

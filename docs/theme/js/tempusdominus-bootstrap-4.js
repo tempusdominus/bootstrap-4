@@ -1,5 +1,5 @@
 /*@preserve
- * Tempus Dominus Bootstrap4 v5.0.1 (https://tempusdominus.github.io/bootstrap-4/)
+ * Tempus Dominus Bootstrap4 v5.1.0 (https://tempusdominus.github.io/bootstrap-4/)
  * Copyright 2016-2018 Jonathan Peterson
  * Licensed under MIT (https://github.com/tempusdominus/bootstrap-3/blob/master/LICENSE)
  */
@@ -179,10 +179,7 @@ var DateTimePicker = function ($, moment) {
             showClear: false,
             showClose: false
         },
-        widgetPositioning: {
-            horizontal: 'auto',
-            vertical: 'auto'
-        },
+        widgetPositioning: 'auto',
         widgetParent: null,
         ignoreReadonly: false,
         keepOpen: false,
@@ -2242,7 +2239,7 @@ var TempusDominusBootstrap4 = function ($) {
                     {
                         var month = $(e.target).closest('tbody').find('span').index($(e.target));
                         this._viewDate.month(month);
-                        if (this.currentViewMode === DateTimePicker.MinViewModeNumber) {
+                        if (this.currentViewMode === this.MinViewModeNumber) {
                             this._setValue(lastPicked.clone().year(this._viewDate.year()).month(this._viewDate.month()), this._getLastPickedDateIndex());
                             if (!this._options.inline) {
                                 this.hide();
@@ -2258,7 +2255,7 @@ var TempusDominusBootstrap4 = function ($) {
                     {
                         var year = parseInt($(e.target).text(), 10) || 0;
                         this._viewDate.year(year);
-                        if (this.currentViewMode === DateTimePicker.MinViewModeNumber) {
+                        if (this.currentViewMode === this.MinViewModeNumber) {
                             this._setValue(lastPicked.clone().year(this._viewDate.year()), this._getLastPickedDateIndex());
                             if (!this._options.inline) {
                                 this.hide();
@@ -2274,7 +2271,7 @@ var TempusDominusBootstrap4 = function ($) {
                     {
                         var _year = parseInt($(e.target).data('selection'), 10) || 0;
                         this._viewDate.year(_year);
-                        if (this.currentViewMode === DateTimePicker.MinViewModeNumber) {
+                        if (this.currentViewMode === this.MinViewModeNumber) {
                             this._setValue(lastPicked.clone().year(this._viewDate.year()), this._getLastPickedDateIndex());
                             if (!this._options.inline) {
                                 this.hide();
@@ -2296,9 +2293,10 @@ var TempusDominusBootstrap4 = function ($) {
                             day.add(1, 'M');
                         }
 
-                        var selectDate = day.date(parseInt($(e.target).text(), 10));
+                        var selectDate = day.date(parseInt($(e.target).text(), 10)),
+                            index = 0;
                         if (this._options.allowMultidate) {
-                            var index = this._datesFormatted.indexOf(selectDate.format('YYYY-MM-DD'));
+                            index = this._datesFormatted.indexOf(selectDate.format('YYYY-MM-DD'));
                             if (index !== -1) {
                                 this._setValue(null, index); //deselect multidate
                             } else {

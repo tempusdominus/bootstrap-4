@@ -697,9 +697,9 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
                             day.add(1, 'M');
                         }
 
-                        var selectDate = day.date(parseInt($(e.target).text(), 10));
+                        var selectDate = day.date(parseInt($(e.target).text(), 10)), index = 0;
                         if (this._options.allowMultidate) {
-                            var index = this._datesFormatted.indexOf(selectDate.format('YYYY-MM-DD'));
+                            index = this._datesFormatted.indexOf(selectDate.format('YYYY-MM-DD'));
                             if (index !== -1) {
                                 this._setValue(null, index); //deselect multidate
                             } else {

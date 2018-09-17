@@ -179,7 +179,10 @@ var DateTimePicker = function ($, moment) {
             showClear: false,
             showClose: false
         },
-        widgetPositioning: 'auto',
+        widgetPositioning: {
+            horizontal: 'auto',
+            vertical: 'auto'
+        },
         widgetParent: null,
         ignoreReadonly: false,
         keepOpen: false,

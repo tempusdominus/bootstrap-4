@@ -13,7 +13,7 @@
     "robloach/component-installer": "*",
     "components/jquery": ">=3.0.0",
     "moment/moment": ">=2.10.5",
-    "tempusdominus/core": "5.0.0-alpha17"
+    "tempusdominus/core": "5.0.*"
   },
   "extra": {
     "component": {

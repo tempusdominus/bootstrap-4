@@ -19,7 +19,7 @@
     "popper.js": "^1.14.3",
     "moment": "^2.17",
     "moment-timezone": "^0.5.11",
-    "tempusdominus-core": "5.0.0"
+    "tempusdominus-core": "5.0.3"
   },
   "scripts": {
     "change-version": "node grunt/change-version.js",
@@ -53,8 +53,8 @@
     "grunt-stamp": "^0.3.0",
     "grunt-string-replace": "latest",
     "load-grunt-tasks": "latest",
-    "node-sass": "^4.9.0",
-    "tempusdominus-core": "^5.0.2",
+    "node-sass": "^4.9.3",
+    "tempusdominus-core": "^5.0.3",
     "uglify-js": "^2.7.5"
   },
   "homepage": "https://tempusdominus.github.io/bootstrap-4/",

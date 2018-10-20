@@ -843,6 +843,7 @@ tooltips: {
     today: 'Go to today',
     clear: 'Clear selection',
     close: 'Close the picker',
+    selectTime: 'Select Time',
     selectMonth: 'Select Month',
     prevMonth: 'Previous Month',
     nextMonth: 'Next Month',

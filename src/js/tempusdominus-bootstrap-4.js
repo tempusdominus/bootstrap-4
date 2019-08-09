@@ -215,7 +215,7 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
                 if (this._options.toolbarPlacement === 'top') {
                     template.append(toolbar);
                 }
-                template.append($('<div>').addClass('row').append(dateView.addClass('col-md-6')).append(timeView.addClass('col-md-6')));
+                template.append($('<div>').addClass('row').append(dateView.addClass(this._options.dateViewBreakPoint)).append(timeView.addClass(this._options.timeViewBreakPoint)));
                 if (this._options.toolbarPlacement === 'bottom' || this._options.toolbarPlacement === 'default') {
                     template.append(toolbar);
                 }

@@ -1,6 +1,6 @@
 /*@preserve
  * Tempus Dominus Bootstrap4 v5.1.2 (https://tempusdominus.github.io/bootstrap-4/)
- * Copyright 2016-2018 Jonathan Peterson
+ * Copyright 2016-2020 Jonathan Peterson
  * Licensed under MIT (https://github.com/tempusdominus/bootstrap-3/blob/master/LICENSE)
  */
 
@@ -1595,7 +1595,7 @@ var TempusDominusBootstrap4 = function ($) {
         }
         $selector = $(selector);
         if ($selector.length === 0) {
-            return $selector;
+            return $element;
         }
 
         if (!$selector.data(DateTimePicker.DATA_KEY)) {

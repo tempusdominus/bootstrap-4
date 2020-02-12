@@ -16,7 +16,7 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
             }
             $selector = $(selector);
             if ($selector.length === 0) {
-                return $selector;
+                return $element;
             }
 
             if (!$selector.data(DateTimePicker.DATA_KEY)) {

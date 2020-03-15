@@ -561,7 +561,7 @@ var DateTimePicker = function ($, moment) {
         };
 
         DateTimePicker.prototype._notifyEvent = function _notifyEvent(e) {
-            if (e.type === DateTimePicker.Event.CHANGE && (e.date && e.date.isSame(e.oldDate)) || !e.date && !e.oldDate) {
+            if (e.type === DateTimePicker.Event.CHANGE && ((e.date && e.date.isSame(e.oldDate)) || !e.date && !e.oldDate)) {
                 return;
             }
             this._element.trigger(e);

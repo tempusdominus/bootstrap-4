@@ -449,6 +449,7 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
                 endDecadeYear = startDecade.year() + 11;
                 minDateDecade = this._options.minDate && this._options.minDate.isAfter(startDecade, 'y') && this._options.minDate.year() <= endDecadeYear;
                 maxDateDecade = this._options.maxDate && this._options.maxDate.isAfter(startDecade, 'y') && this._options.maxDate.year() <= endDecadeYear;
+                // TODO: TypeError: Cannot read property 'isAfter' of undefined
                 html += `<span data-action="selectDecade" class="decade${this._getLastPickedDate().isAfter(startDecade) && this._getLastPickedDate().year() <= endDecadeYear ? ' active' : ''}${!this._isValid(startDecade, 'y') && !minDateDecade && !maxDateDecade ? ' disabled' : ''}" data-selection="${startDecade.year() + 6}">${startDecade.year()}</span>`;
                 startDecade.add(10, 'y');
             }
@@ -910,6 +911,7 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
 
             this._notifyEvent({
                 type: DateTimePicker.Event.HIDE,
+                // TODO: TypeError: Cannot read property 'clone' of undefined
                 date: this._getLastPickedDate().clone()
             });
 

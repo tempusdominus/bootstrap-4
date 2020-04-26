@@ -359,7 +359,8 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
             }
 
             months.removeClass('active');
-            if (this._getLastPickedDate().isSame(this._viewDate, 'y') && !this.unset) {
+            const lastPickedDate = this._getLastPickedDate();
+            if (lastPickedDate && lastPickedDate.isSame(this._viewDate, 'y') && !this.unset) {
                 months.eq(this._getLastPickedDate().month()).addClass('active');
             }
 

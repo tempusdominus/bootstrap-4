@@ -2112,7 +2112,9 @@ var TempusDominusBootstrap4 = function ($) {
       var monthsView = this.widget.find('.datepicker-months'),
           monthsViewHeader = monthsView.find('th'),
           months = monthsView.find('tbody').find('span'),
-          self = this;
+          self = this,
+          lastPickedDate = this._getLastPickedDate();
+
       monthsViewHeader.eq(0).find('span').attr('title', this._options.tooltips.prevYear);
       monthsViewHeader.eq(1).attr('title', this._options.tooltips.selectYear);
       monthsViewHeader.eq(2).find('span').attr('title', this._options.tooltips.nextYear);
@@ -2130,7 +2132,7 @@ var TempusDominusBootstrap4 = function ($) {
 
       months.removeClass('active');
 
-      if (this._getLastPickedDate().isSame(this._viewDate, 'y') && !this.unset) {
+      if (lastPickedDate && lastPickedDate.isSame(this._viewDate, 'y') && !this.unset) {
         months.eq(this._getLastPickedDate().month()).addClass('active');
       }
 

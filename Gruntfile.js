@@ -63,7 +63,7 @@ module.exports = function (grunt) {
                     compact: false,
                     'presets': [
                         [
-                            'es2015',
+                            '@babel/preset-env',
                             {
                                 'modules': false,
                                 'loose': true

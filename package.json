@@ -1,8 +1,11 @@
 {
   "license": "MIT",
-  "main": "build/js/tempusdominus-bootstrap-4.js",
-  "name": "tempusdominus-bootstrap-4",
+  "main": "build/js/tempusdominus-bootstrap.js",
+  "name": "tempusdominus-bootstrap",
   "author": "Jonathan Peterson",
+  "contributors": [
+    "Anton Bagdatyev (Tonix)"
+  ],
   "bugs": {
     "url": "https://github.com/tempusdominus/bootstrap-4/issues"
   },

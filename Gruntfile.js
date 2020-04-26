@@ -168,8 +168,8 @@ module.exports = function (grunt) {
     grunt.registerTask('build:style', ['sass', 'stamp:css', 'copy']);
 
     grunt.registerTask('copy', 'Generate docs', function () {
-        grunt.file.copy('build/js/tempusdominus-bootstrap-4.js', 'src/docs/theme/js/tempusdominus-bootstrap-4.js');
-        grunt.file.copy('build/css/tempusdominus-bootstrap-4.css', 'src/docs/theme/css/tempusdominus-bootstrap-4.css');
+        grunt.file.copy('build/js/tempusdominus-bootstrap.js', 'src/docs/theme/js/tempusdominus-bootstrap.js');
+        grunt.file.copy('build/css/tempusdominus-bootstrap.css', 'src/docs/theme/css/tempusdominus-bootstrap.css');
     });
 
     grunt.registerTask('docs', ['copy', 'mkdocs']);

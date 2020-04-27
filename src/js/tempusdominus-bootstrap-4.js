@@ -340,7 +340,8 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
         _updateMonths() {
             const monthsView = this.widget.find('.datepicker-months'),
                 monthsViewHeader = monthsView.find('th'),
-                months = monthsView.find('tbody').find('span'), self = this;
+                months = monthsView.find('tbody').find('span'), self = this,
+                lastPickedDate = this._getLastPickedDate();
 
             monthsViewHeader.eq(0).find('span').attr('title', this._options.tooltips.prevYear);
             monthsViewHeader.eq(1).attr('title', this._options.tooltips.selectYear);
@@ -359,8 +360,8 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
             }
 
             months.removeClass('active');
-            if (this._getLastPickedDate().isSame(this._viewDate, 'y') && !this.unset) {
-                months.eq(this._getLastPickedDate().month()).addClass('active');
+            if (lastPickedDate && lastPickedDate.isSame(this._viewDate, 'y') && !this.unset) {
+                months.eq(lastPickedDate.month()).addClass('active');
             }
 
             months.each(function (index) {
@@ -417,7 +418,8 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
                 decadesViewHeader = decadesView.find('th'),
                 yearCaps = this._getStartEndYear(100, this._viewDate.year()),
                 startDecade = this._viewDate.clone().year(yearCaps[0]),
-                endDecade = this._viewDate.clone().year(yearCaps[1]);
+                endDecade = this._viewDate.clone().year(yearCaps[1]),
+                lastPickedDate = this._getLastPickedDate();
             let minDateDecade = false,
                 maxDateDecade = false,
                 endDecadeYear,
@@ -448,8 +450,7 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
                 endDecadeYear = startDecade.year() + 11;
                 minDateDecade = this._options.minDate && this._options.minDate.isAfter(startDecade, 'y') && this._options.minDate.year() <= endDecadeYear;
                 maxDateDecade = this._options.maxDate && this._options.maxDate.isAfter(startDecade, 'y') && this._options.maxDate.year() <= endDecadeYear;
-                // TODO: TypeError: Cannot read property 'isAfter' of undefined
-                html += `<span data-action="selectDecade" class="decade${this._getLastPickedDate().isAfter(startDecade) && this._getLastPickedDate().year() <= endDecadeYear ? ' active' : ''}${!this._isValid(startDecade, 'y') && !minDateDecade && !maxDateDecade ? ' disabled' : ''}" data-selection="${startDecade.year() + 6}">${startDecade.year()}</span>`;
+                html += `<span data-action="selectDecade" class="decade${lastPickedDate && lastPickedDate.isAfter(startDecade) && lastPickedDate.year() <= endDecadeYear ? ' active' : ''}${!this._isValid(startDecade, 'y') && !minDateDecade && !maxDateDecade ? ' disabled' : ''}" data-selection="${startDecade.year() + 6}">${startDecade.year()}</span>`;
                 startDecade.add(10, 'y');
             }
             html += `<span data-action="selectDecade" class="decade old" data-selection="${startDecade.year() + 6}">${startDecade.year()}</span>`;
@@ -908,17 +909,17 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
             this.widget.remove();
             this.widget = false;
 
+            const lastPickedDate = this._getLastPickedDate();
             this._notifyEvent({
                 type: DateTimePicker.Event.HIDE,
-                // TODO: TypeError: Cannot read property 'clone' of undefined
-                date: this._getLastPickedDate().clone()
+                date: lastPickedDate ? lastPickedDate.clone() : void 0
             });
 
             if (this.input !== undefined) {
                 this.input.blur();
             }
 
-            this._viewDate = this._getLastPickedDate().clone();
+            this._viewDate = lastPickedDate ? lastPickedDate.clone() : void 0;
         }
 
         show() {

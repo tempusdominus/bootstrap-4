@@ -38,9 +38,9 @@
     "uglify-docs": "uglifyjs --compress warnings=false --mangle --comments '/^!/' --output docs/assets/js/docs.min.js docs/assets/js/vendor/*.js docs/assets/js/src/application.js",
     "update-shrinkwrap": "npm shrinkwrap --dev && shx mv ./npm-shrinkwrap.json ./grunt/npm-shrinkwrap.json",
     "test": "npm run eslint && grunt test",
-    "publish-patch": "grunt && npm version patch && npm publish && git push && git push --tags",
-    "publish-minor": "grunt && npm version minor && npm publish && git push && git push --tags",
-    "publish-major": "grunt && npm version major && npm publish && git push && git push --tags"
+    "publish-patch": "grunt && npm version patch --force -m \"v%s\" && npm publish && git push && git push --tags",
+    "publish-minor": "grunt && npm version minor --force -m \"v%s\" && npm publish && git push && git push --tags",
+    "publish-major": "grunt && npm version major --force -m \"v%s\" && npm publish && git push && git push --tags"
   },
   "description": "A date/time picker component designed to work with Bootstrap 4 and Momentjs. For usage, installation and demos see Project Site on GitHub",
   "devDependencies": {
@@ -75,7 +75,7 @@
     "type": "git",
     "url": "https://github.com/tempusdominus/bootstrap-4.git"
   },
-  "version": "5.4.0",
+  "version": "5.4.1",
   "files": [
     "build",
     "src/js/**/*.js",

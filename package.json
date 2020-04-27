@@ -37,7 +37,10 @@
     "uglify": "uglifyjs --compress warnings=false --mangle --output build/js/tempusdominus-bootstrap-3.min.js build/js/tempusdominus-bootstrap-3.js",
     "uglify-docs": "uglifyjs --compress warnings=false --mangle --comments '/^!/' --output docs/assets/js/docs.min.js docs/assets/js/vendor/*.js docs/assets/js/src/application.js",
     "update-shrinkwrap": "npm shrinkwrap --dev && shx mv ./npm-shrinkwrap.json ./grunt/npm-shrinkwrap.json",
-    "test": "npm run eslint && grunt test"
+    "test": "npm run eslint && grunt test",
+    "publish-patch": "grunt && npm version patch && npm publish && git push && git push --tags",
+    "publish-minor": "grunt && npm version minor && npm publish && git push && git push --tags",
+    "publish-major": "grunt && npm version major && npm publish && git push && git push --tags"
   },
   "description": "A date/time picker component designed to work with Bootstrap 4 and Momentjs. For usage, installation and demos see Project Site on GitHub",
   "devDependencies": {

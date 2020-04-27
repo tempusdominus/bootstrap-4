@@ -1,5 +1,5 @@
 /*@preserve
- * Tempus Dominus Bootstrap4 v5.2.0 (https://tempusdominus.github.io/bootstrap-4/)
+ * Tempus Dominus Bootstrap4 v5.3.1 (https://tempusdominus.github.io/bootstrap-4/)
  * Copyright 2016-2020 Jonathan Peterson
  * Licensed under MIT (https://github.com/tempusdominus/bootstrap-3/blob/master/LICENSE)
  */
@@ -2133,7 +2133,7 @@ var TempusDominusBootstrap4 = function ($) {
       months.removeClass('active');
 
       if (lastPickedDate && lastPickedDate.isSame(this._viewDate, 'y') && !this.unset) {
-        months.eq(this._getLastPickedDate().month()).addClass('active');
+        months.eq(lastPickedDate.month()).addClass('active');
       }
 
       months.each(function (index) {
@@ -2190,7 +2190,8 @@ var TempusDominusBootstrap4 = function ($) {
           decadesViewHeader = decadesView.find('th'),
           yearCaps = this._getStartEndYear(100, this._viewDate.year()),
           startDecade = this._viewDate.clone().year(yearCaps[0]),
-          endDecade = this._viewDate.clone().year(yearCaps[1]);
+          endDecade = this._viewDate.clone().year(yearCaps[1]),
+          lastPickedDate = this._getLastPickedDate();
 
       var minDateDecade = false,
           maxDateDecade = false,
@@ -2220,7 +2221,7 @@ var TempusDominusBootstrap4 = function ($) {
         endDecadeYear = startDecade.year() + 11;
         minDateDecade = this._options.minDate && this._options.minDate.isAfter(startDecade, 'y') && this._options.minDate.year() <= endDecadeYear;
         maxDateDecade = this._options.maxDate && this._options.maxDate.isAfter(startDecade, 'y') && this._options.maxDate.year() <= endDecadeYear;
-        html += "<span data-action=\"selectDecade\" class=\"decade" + (this._getLastPickedDate().isAfter(startDecade) && this._getLastPickedDate().year() <= endDecadeYear ? ' active' : '') + (!this._isValid(startDecade, 'y') && !minDateDecade && !maxDateDecade ? ' disabled' : '') + "\" data-selection=\"" + (startDecade.year() + 6) + "\">" + startDecade.year() + "</span>";
+        html += "<span data-action=\"selectDecade\" class=\"decade" + (lastPickedDate && lastPickedDate.isAfter(startDecade) && lastPickedDate.year() <= endDecadeYear ? ' active' : '') + (!this._isValid(startDecade, 'y') && !minDateDecade && !maxDateDecade ? ' disabled' : '') + "\" data-selection=\"" + (startDecade.year() + 6) + "\">" + startDecade.year() + "</span>";
         startDecade.add(10, 'y');
       }
 
@@ -2790,16 +2791,18 @@ var TempusDominusBootstrap4 = function ($) {
       this.widget.remove();
       this.widget = false;
 
+      var lastPickedDate = this._getLastPickedDate();
+
       this._notifyEvent({
         type: DateTimePicker.Event.HIDE,
-        date: this._getLastPickedDate().clone()
+        date: lastPickedDate ? lastPickedDate.clone() : void 0
       });
 
       if (this.input !== undefined) {
         this.input.blur();
       }
 
-      this._viewDate = this._getLastPickedDate().clone();
+      this._viewDate = lastPickedDate ? lastPickedDate.clone() : void 0;
     };
 
     _proto2.show = function show() {

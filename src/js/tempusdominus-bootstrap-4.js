@@ -592,13 +592,14 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
 
         _fillTime() {
             let toggle, newDate;
-            const timeComponents = this.widget.find('.timepicker span[data-time-component]');
+            const timeComponents = this.widget.find('.timepicker span[data-time-component]'),
+                lastPickedDate = this._getLastPickedDate();
 
             if (!this.use24Hours) {
                 toggle = this.widget.find('.timepicker [data-action=togglePeriod]');
-                newDate = this._getLastPickedDate().clone().add(this._getLastPickedDate().hours() >= 12 ? -12 : 12, 'h');
+                newDate = lastPickedDate ? lastPickedDate.clone().add(lastPickedDate.hours() >= 12 ? -12 : 12, 'h') : void 0;
 
-                toggle.text(this._getLastPickedDate().format('A'));
+                lastPickedDate && toggle.text(lastPickedDate.format('A'));
 
                 if (this._isValid(newDate, 'h')) {
                     toggle.removeClass('disabled');
@@ -606,9 +607,9 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
                     toggle.addClass('disabled');
                 }
             }
-            timeComponents.filter('[data-time-component=hours]').text(this._getLastPickedDate().format(`${this.use24Hours ? 'HH' : 'hh'}`));
-            timeComponents.filter('[data-time-component=minutes]').text(this._getLastPickedDate().format('mm'));
-            timeComponents.filter('[data-time-component=seconds]').text(this._getLastPickedDate().format('ss'));
+            lastPickedDate && timeComponents.filter('[data-time-component=hours]').text(lastPickedDate.format(`${this.use24Hours ? 'HH' : 'hh'}`));
+            lastPickedDate && timeComponents.filter('[data-time-component=minutes]').text(lastPickedDate.format('mm'));
+            lastPickedDate && timeComponents.filter('[data-time-component=seconds]').text(lastPickedDate.format('ss'));
 
             this._fillHours();
             this._fillMinutes();

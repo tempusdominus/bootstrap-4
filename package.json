@@ -39,9 +39,9 @@
     "update-shrinkwrap": "npm shrinkwrap --dev && shx mv ./npm-shrinkwrap.json ./grunt/npm-shrinkwrap.json",
     "test": "npm run eslint && grunt test",
     "build": "grunt && grunt build:travis",
-    "publish-patch": "npm run build && git add . && npm version patch --force -m \"v%s\" && npm publish && git push && git push --tags",
-    "publish-minor": "npm run build && git add . && npm version minor --force -m \"v%s\" && npm publish && git push && git push --tags",
-    "publish-major": "npm run build && git add . && npm version major --force -m \"v%s\" && npm publish && git push && git push --tags"
+    "publish-patch": "npm version patch && npm run build && git add . && git commit -am \"Next patch version\" && npm publish && git push && git push --tags",
+    "publish-minor": "npm version minor && npm run build && git add . && git commit -am \"Next minor version\" && npm publish && git push && git push --tags",
+    "publish-major": "npm version major && npm run build && git add . && git commit -am \"Next major version\" && npm publish && git push && git push --tags"
   },
   "description": "A date/time picker component designed to work with Bootstrap 4 and Momentjs. For usage, installation and demos see Project Site on GitHub",
   "devDependencies": {

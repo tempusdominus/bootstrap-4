@@ -1,5 +1,5 @@
 /*@preserve
- * Tempus Dominus Bootstrap4 v5.7.0 (https://tempusdominus.github.io/bootstrap-4/)
+ * Tempus Dominus Bootstrap4 v5.8.0 (https://tempusdominus.github.io/bootstrap-4/)
  * Copyright 2016-2020 Jonathan Peterson
  * Licensed under MIT (https://github.com/tempusdominus/bootstrap-3/blob/master/LICENSE)
  */
@@ -655,7 +655,7 @@ var DateTimePicker = function ($, moment) {
     };
 
     _proto._isValid = function _isValid(targetMoment, granularity) {
-      if (!targetMoment.isValid()) {
+      if (!targetMoment || !targetMoment.isValid()) {
         return false;
       }
 

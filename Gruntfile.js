@@ -88,7 +88,7 @@ module.exports = function (grunt) {
             },
             bootstrap: {
                 src: [
-                    'node_modules/tempusdominus-core/src/js/tempusdominus-core.js',
+                    'node_modules/tempusdominus/src/js/tempusdominus.js',
                     'src/js/<%= pkg.name %>.js'
                 ],
                 dest: 'build/js/<%= pkg.name %>.js'

@@ -13,7 +13,6 @@
     "bootstrap": "^4.4.1",
     "jquery": "^3.5.0",
     "moment": "^2.24.0",
-    "moment-timezone": "^0.5.28",
     "popper.js": "^1.16.1"
   },
   "peerDependencies": {
@@ -22,7 +21,7 @@
     "popper.js": "^1.14.3",
     "moment": "^2.17",
     "moment-timezone": "^0.5.11",
-    "tempusdominus-core": "^5.0.3"
+    "tempusdominus": "^5.1.0"
   },
   "scripts": {
     "change-version": "node grunt/change-version.js",
@@ -39,14 +38,15 @@
     "update-shrinkwrap": "npm shrinkwrap --dev && shx mv ./npm-shrinkwrap.json ./grunt/npm-shrinkwrap.json",
     "test": "npm run eslint && grunt test",
     "build": "grunt && grunt build:travis",
-    "publish-patch": "npm version patch && npm run build && git add . && git commit -am \"Next patch version\" && npm publish && git push && git push --tags",
-    "publish-minor": "npm version minor && npm run build && git add . && git commit -am \"Next minor version\" && npm publish && git push && git push --tags",
-    "publish-major": "npm version major && npm run build && git add . && git commit -am \"Next major version\" && npm publish && git push && git push --tags"
+    "git-add-cm": "git add . && git commit -am",
+    "publish-patch": "npm version patch && npm run build && ((npm run git-add-cm -- \"Next patch version\" 2>/dev/null) || echo) && npm publish && git push && git push --tags",
+    "publish-minor": "npm version minor && npm run build && ((npm run git-add-cm -- \"Next minor version\" 2>/dev/null) || echo) && npm publish && git push && git push --tags",
+    "publish-major": "npm version major && npm run build && ((npm run git-add-cm -- \"Next major version\" 2>/dev/null) || echo) && npm publish && git push && git push --tags"
   },
   "description": "A date/time picker component designed to work with Bootstrap 4 and Momentjs. For usage, installation and demos see Project Site on GitHub",
   "devDependencies": {
-    "@babel/core": "^7.9.0",
-    "@babel/preset-env": "^7.9.5",
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
     "babel-plugin-transform-es2015-modules-strip": "^0.1.1",
     "grunt": "^1.1.0",
     "grunt-babel": "^8.0.0",
@@ -60,8 +60,9 @@
     "grunt-stamp": "^0.3.0",
     "grunt-string-replace": "^1.3.1",
     "load-grunt-tasks": "^5.1.0",
+    "moment-timezone": "^0.5.28",
     "node-sass": "^4.14.0",
-    "tempusdominus-core": "^5.0.3",
+    "tempusdominus": "^5.6.0",
     "uglify-js": "^3.9.1"
   },
   "homepage": "https://tempusdominus.github.io/bootstrap-4/",

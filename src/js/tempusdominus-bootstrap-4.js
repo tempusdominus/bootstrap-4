@@ -529,7 +529,7 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
             daysView.find('tbody').empty().append(html);
             $('body').removeClass('tempusdominus-bootstrap-datetimepicker-widget-day-click');
             $('html').removeClass('tempusdominus-bootstrap-datetimepicker-widget-day-click');
-            $('body').remove('.tempusdominus-bootstrap-datetimepicker-widget-day-click-glass-panel');
+            $('body').find('.tempusdominus-bootstrap-datetimepicker-widget-day-click-glass-panel').remove();
 
             this._updateMonths();
 

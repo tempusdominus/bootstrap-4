@@ -2319,7 +2319,7 @@ var TempusDominusBootstrap4 = function ($) {
       daysView.find('tbody').empty().append(html);
       $('body').removeClass('tempusdominus-bootstrap-datetimepicker-widget-day-click');
       $('html').removeClass('tempusdominus-bootstrap-datetimepicker-widget-day-click');
-      $('body').remove('.tempusdominus-bootstrap-datetimepicker-widget-day-click-glass-panel');
+      $('body').find('.tempusdominus-bootstrap-datetimepicker-widget-day-click-glass-panel').remove();
 
       this._updateMonths();
 

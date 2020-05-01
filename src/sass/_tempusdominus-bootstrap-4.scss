@@ -15,6 +15,20 @@ body.tempusdominus-bootstrap-datetimepicker-widget-day-click * {
   cursor: pointer !important;
 }
 
+body.tempusdominus-bootstrap-datetimepicker-widget-day-click {
+  position: relative;
+}
+
+.tempusdominus-bootstrap-datetimepicker-widget-day-click-glass-panel {
+  position: absolute;
+  z-index: 999999999999;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  cursor: pointer !important;
+}
+
 .bootstrap-datetimepicker-widget {
     list-style: none;
 

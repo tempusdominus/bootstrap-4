@@ -525,7 +525,9 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
                 currentDate.add(1, 'd');
             }
 
+            $('body').addClass('tempusdominus-bootstrap-datetimepicker-widget-day-click');
             daysView.find('tbody').empty().append(html);
+            $('body').removeClass('tempusdominus-bootstrap-datetimepicker-widget-day-click');
 
             this._updateMonths();
 

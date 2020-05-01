@@ -10,7 +10,8 @@ $bs-datetimepicker-secondary-border-color-rgba: rgba(0, 0, 0, 0.2) !default;
 $bs-datetimepicker-primary-border-color: white !default;
 $bs-datetimepicker-text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25) !default;
 
-html.tempusdominus-bootstrap-datetimepicker-widget-day-click, body.tempusdominus-bootstrap-datetimepicker-widget-day-click {
+html.tempusdominus-bootstrap-datetimepicker-widget-day-click, body.tempusdominus-bootstrap-datetimepicker-widget-day-click,
+body.tempusdominus-bootstrap-datetimepicker-widget-day-click * {
   cursor: pointer !important;
 }
 

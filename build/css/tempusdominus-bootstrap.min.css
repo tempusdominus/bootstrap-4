@@ -1,5 +1,5 @@
 /*@preserve
- * Tempus Dominus Bootstrap4 v5.12.0 (https://tempusdominus.github.io/bootstrap-4/)
+ * Tempus Dominus Bootstrap4 v5.13.0 (https://tempusdominus.github.io/bootstrap-4/)
  * Copyright 2016-2020 Jonathan Peterson
  * Licensed under MIT (https://github.com/tempusdominus/bootstrap-3/blob/master/LICENSE)
  */
@@ -16,6 +16,18 @@
 
 html.tempusdominus-bootstrap-datetimepicker-widget-day-click, body.tempusdominus-bootstrap-datetimepicker-widget-day-click,
 body.tempusdominus-bootstrap-datetimepicker-widget-day-click * {
+  cursor: pointer !important; }
+
+body.tempusdominus-bootstrap-datetimepicker-widget-day-click {
+  position: relative; }
+
+.tempusdominus-bootstrap-datetimepicker-widget-day-click-glass-panel {
+  position: absolute;
+  z-index: 999999999999;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   cursor: pointer !important; }
 
 .bootstrap-datetimepicker-widget {

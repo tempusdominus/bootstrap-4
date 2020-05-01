@@ -1,5 +1,5 @@
 /*@preserve
- * Tempus Dominus Bootstrap4 v5.12.0 (https://tempusdominus.github.io/bootstrap-4/)
+ * Tempus Dominus Bootstrap4 v5.13.0 (https://tempusdominus.github.io/bootstrap-4/)
  * Copyright 2016-2020 Jonathan Peterson
  * Licensed under MIT (https://github.com/tempusdominus/bootstrap-3/blob/master/LICENSE)
  */
@@ -2313,11 +2313,13 @@ var TempusDominusBootstrap4 = function ($) {
         currentDate.add(1, 'd');
       }
 
+      $('body').append('<div class="tempusdominus-bootstrap-datetimepicker-widget-day-click-glass-panel"></div>');
       $('html').addClass('tempusdominus-bootstrap-datetimepicker-widget-day-click');
       $('body').addClass('tempusdominus-bootstrap-datetimepicker-widget-day-click');
       daysView.find('tbody').empty().append(html);
       $('body').removeClass('tempusdominus-bootstrap-datetimepicker-widget-day-click');
       $('html').removeClass('tempusdominus-bootstrap-datetimepicker-widget-day-click');
+      $('body').remove('.tempusdominus-bootstrap-datetimepicker-widget-day-click-glass-panel');
 
       this._updateMonths();
 

@@ -12,7 +12,7 @@
   "dependencies": {
     "bootstrap": "^4.4.1",
     "jquery": "^3.5.0",
-    "moment": "^2.25.1",
+    "moment": "~2.24.0",
     "popper.js": "^1.16.1"
   },
   "peerDependencies": {

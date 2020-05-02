@@ -2313,13 +2313,11 @@ var TempusDominusBootstrap4 = function ($) {
         currentDate.add(1, 'd');
       }
 
-      $('body').append('<div class="tempusdominus-bootstrap-datetimepicker-widget-day-click-glass-panel"></div>');
-      $('html').addClass('tempusdominus-bootstrap-datetimepicker-widget-day-click');
       $('body').addClass('tempusdominus-bootstrap-datetimepicker-widget-day-click');
+      $('body').append('<div class="tempusdominus-bootstrap-datetimepicker-widget-day-click-glass-panel"></div>');
       daysView.find('tbody').empty().append(html);
-      $('body').removeClass('tempusdominus-bootstrap-datetimepicker-widget-day-click');
-      $('html').removeClass('tempusdominus-bootstrap-datetimepicker-widget-day-click');
       $('body').find('.tempusdominus-bootstrap-datetimepicker-widget-day-click-glass-panel').remove();
+      $('body').removeClass('tempusdominus-bootstrap-datetimepicker-widget-day-click');
 
       this._updateMonths();
 

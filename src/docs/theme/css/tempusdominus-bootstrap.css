@@ -14,12 +14,12 @@
   clip: rect(0, 0, 0, 0);
   border: 0; }
 
-html.tempusdominus-bootstrap-datetimepicker-widget-day-click, body.tempusdominus-bootstrap-datetimepicker-widget-day-click,
+body.tempusdominus-bootstrap-datetimepicker-widget-day-click,
 body.tempusdominus-bootstrap-datetimepicker-widget-day-click * {
   cursor: pointer !important; }
 
 body.tempusdominus-bootstrap-datetimepicker-widget-day-click {
-  position: relative; }
+  position: relative !important; }
 
 .tempusdominus-bootstrap-datetimepicker-widget-day-click-glass-panel {
   position: absolute;
@@ -29,6 +29,9 @@ body.tempusdominus-bootstrap-datetimepicker-widget-day-click {
   right: 0;
   bottom: 0;
   cursor: pointer !important; }
+
+.bootstrap-datetimepicker-widget .datepicker-days tbody td {
+  cursor: pointer; }
 
 .bootstrap-datetimepicker-widget {
   list-style: none; }

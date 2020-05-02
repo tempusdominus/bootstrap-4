@@ -1,5 +1,5 @@
 /*@preserve
- * Tempus Dominus Bootstrap4 v5.15.1 (https://tempusdominus.github.io/bootstrap-4/)
+ * Tempus Dominus Bootstrap4 v5.15.2 (https://tempusdominus.github.io/bootstrap-4/)
  * Copyright 2016-2020 Jonathan Peterson
  * Licensed under MIT (https://github.com/tempusdominus/bootstrap-3/blob/master/LICENSE)
  */
@@ -35,7 +35,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 // ReSharper disable once InconsistentNaming
 var DateTimePicker = function ($, moment) {
-  // ReSharper disable InconsistentNaming
+  function escapeRegExp(text) {
+    return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
+  } // ReSharper disable InconsistentNaming
+
+
   var trim = function trim(str) {
     return str.replace(/(^\s+)|(\s+$)/g, '');
   },
@@ -438,13 +442,15 @@ var DateTimePicker = function ($, moment) {
           this._dates = [];
           this._datesFormatted = [];
         } else {
-          outpValue = this._element.data('date') + ",";
-          outpValue = outpValue.replace(oldDate.format(this.actualFormat) + ",", '').replace(',,', '').replace(/,\s*$/, '');
+          outpValue = "" + this._element.data('date') + this._options.multidateSeparator;
+          outpValue = outpValue.replace("" + oldDate.format(this.actualFormat) + this._options.multidateSeparator, '').replace("" + this._options.multidateSeparator + this._options.multidateSeparator, '').replace(new RegExp(escapeRegExp(this._options.multidateSeparator) + "\\s*$"), '');
 
           this._dates.splice(index, 1);
 
           this._datesFormatted.splice(index, 1);
         }
+
+        outpValue = trim(outpValue);
 
         if (this.input !== undefined) {
           this.input.val(outpValue);
@@ -484,7 +490,7 @@ var DateTimePicker = function ($, moment) {
             outpValue += "" + this._dates[i].format(this.actualFormat) + this._options.multidateSeparator;
           }
 
-          outpValue = outpValue.replace(/,\s*$/, '');
+          outpValue = outpValue.replace(new RegExp(this._options.multidateSeparator + "\\s*$"), '');
         } else {
           outpValue = this._dates[index].format(this.actualFormat);
         }

@@ -724,6 +724,9 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
                         }
                         const newDate = lastPicked.clone().add(1, 'h');
                         if (this._isValid(newDate, 'h')) {
+                            if (this._getLastPickedDateIndex() < 0) {
+                                this.date(newDate);
+                            }
                             this._setValue(newDate, this._getLastPickedDateIndex());
                         }
                         break;
@@ -735,6 +738,9 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
                         }
                         const newDate = lastPicked.clone().add(this._options.stepping, 'm');
                         if (this._isValid(newDate, 'm')) {
+                            if (this._getLastPickedDateIndex() < 0) {
+                                this.date(newDate);
+                            }
                             this._setValue(newDate, this._getLastPickedDateIndex());
                         }
                         break;
@@ -746,6 +752,9 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
                         }
                         const newDate = lastPicked.clone().add(1, 's');
                         if (this._isValid(newDate, 's')) {
+                            if (this._getLastPickedDateIndex() < 0) {
+                                this.date(newDate);
+                            }
                             this._setValue(newDate, this._getLastPickedDateIndex());
                         }
                         break;
@@ -757,6 +766,9 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
                         }
                         const newDate = lastPicked.clone().subtract(1, 'h');
                         if (this._isValid(newDate, 'h')) {
+                            if (this._getLastPickedDateIndex() < 0) {
+                                this.date(newDate);
+                            }
                             this._setValue(newDate, this._getLastPickedDateIndex());
                         }
                         break;
@@ -768,6 +780,9 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
                         }
                         const newDate = lastPicked.clone().subtract(this._options.stepping, 'm');
                         if (this._isValid(newDate, 'm')) {
+                            if (this._getLastPickedDateIndex() < 0) {
+                                this.date(newDate);
+                            }
                             this._setValue(newDate, this._getLastPickedDateIndex());
                         }
                         break;
@@ -779,6 +794,9 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
                         }
                         const newDate = lastPicked.clone().subtract(1, 's');
                         if (this._isValid(newDate, 's')) {
+                            if (this._getLastPickedDateIndex() < 0) {
+                                this.date(newDate);
+                            }
                             this._setValue(newDate, this._getLastPickedDateIndex());
                         }
                         break;

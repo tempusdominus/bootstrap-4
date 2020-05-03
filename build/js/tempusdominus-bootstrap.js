@@ -618,8 +618,18 @@ var DateTimePicker = function ($, moment) {
       return dataOptions;
     };
 
+    _proto._format = function _format() {
+      return this._options.format || 'YYYY-MM-DD HH:mm';
+    };
+
+    _proto._areSameDates = function _areSameDates(a, b) {
+      var format = this._format();
+
+      return a && b && (a.isSame(b) || moment(a.format(format)).isSame(b.format(format)));
+    };
+
     _proto._notifyEvent = function _notifyEvent(e) {
-      if (e.type === DateTimePicker.Event.CHANGE && e.date && e.date.isSame(e.oldDate) || !e.date && !e.oldDate) {
+      if (e.type === DateTimePicker.Event.CHANGE && (e.date && this._areSameDates(e.date, e.oldDate) || !e.date && !e.oldDate)) {
         return;
       }
 

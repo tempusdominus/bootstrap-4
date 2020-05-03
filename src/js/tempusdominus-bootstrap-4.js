@@ -719,6 +719,9 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
                     }
                 case 'incrementHours':
                     {
+                        if (!lastPicked) {
+                          break;
+                        }
                         const newDate = lastPicked.clone().add(1, 'h');
                         if (this._isValid(newDate, 'h')) {
                             this._setValue(newDate, this._getLastPickedDateIndex());
@@ -727,6 +730,9 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
                     }
                 case 'incrementMinutes':
                     {
+                        if (!lastPicked) {
+                          break;
+                        }
                         const newDate = lastPicked.clone().add(this._options.stepping, 'm');
                         if (this._isValid(newDate, 'm')) {
                             this._setValue(newDate, this._getLastPickedDateIndex());
@@ -735,6 +741,9 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
                     }
                 case 'incrementSeconds':
                     {
+                        if (!lastPicked) {
+                          break;
+                        }
                         const newDate = lastPicked.clone().add(1, 's');
                         if (this._isValid(newDate, 's')) {
                             this._setValue(newDate, this._getLastPickedDateIndex());
@@ -743,6 +752,9 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
                     }
                 case 'decrementHours':
                     {
+                        if (!lastPicked) {
+                          break;
+                        }
                         const newDate = lastPicked.clone().subtract(1, 'h');
                         if (this._isValid(newDate, 'h')) {
                             this._setValue(newDate, this._getLastPickedDateIndex());
@@ -751,6 +763,9 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
                     }
                 case 'decrementMinutes':
                     {
+                        if (!lastPicked) {
+                          break;
+                        }
                         const newDate = lastPicked.clone().subtract(this._options.stepping, 'm');
                         if (this._isValid(newDate, 'm')) {
                             this._setValue(newDate, this._getLastPickedDateIndex());
@@ -759,6 +774,9 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
                     }
                 case 'decrementSeconds':
                     {
+                        if (!lastPicked) {
+                          break;
+                        }
                         const newDate = lastPicked.clone().subtract(1, 's');
                         if (this._isValid(newDate, 's')) {
                             this._setValue(newDate, this._getLastPickedDateIndex());

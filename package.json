@@ -38,7 +38,7 @@
     "update-shrinkwrap": "npm shrinkwrap --dev && shx mv ./npm-shrinkwrap.json ./grunt/npm-shrinkwrap.json",
     "test": "npm run eslint && grunt test",
     "watch": "./node_modules/.bin/onchange './src/js/**' './src/sass/**' -- npm run build",
-    "build": "grunt && grunt build:travis",
+    "build": "grunt build:travis",
     "git-add-cm": "git add . && git commit -am",
     "publish-patch": "npm version patch && npm run build && ((npm run git-add-cm -- \"Next patch version\" 2>/dev/null) || echo) && npm publish && git push && git push --tags",
     "publish-minor": "npm version minor && npm run build && ((npm run git-add-cm -- \"Next minor version\" 2>/dev/null) || echo) && npm publish && git push && git push --tags",
@@ -48,14 +48,19 @@
   "devDependencies": {
     "@babel/core": "^7.9.6",
     "@babel/preset-env": "^7.9.6",
+    "autoprefixer": "^9.7.6",
     "babel-plugin-transform-es2015-modules-strip": "^0.1.1",
     "grunt": "^1.1.0",
     "grunt-babel": "^8.0.0",
     "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-cssmin": "^3.0.0",
+    "grunt-contrib-sass": "^1.0.0",
     "grunt-contrib-uglify": "^4.0.1",
     "grunt-contrib-watch": "^1.1.0",
     "grunt-eslint": "^22.0.0",
     "grunt-mkdocs": "^1.0.1",
+    "grunt-node-sass": "^1.0.1",
+    "grunt-postcss": "^0.9.0",
     "grunt-sass": "^3.1.0",
     "grunt-sass-tilde-importer": "^1.0.2",
     "grunt-stamp": "^0.3.0",
@@ -85,5 +90,8 @@
     "src/js/**/*.js",
     "src/sass/**/*.scss",
     "Gruntfile.js"
+  ],
+  "browserslist": [
+    "> .05%"
   ]
 }

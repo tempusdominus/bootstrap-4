@@ -1,6 +1,6 @@
-/*@preserve
+/*!@preserve
  * Tempus Dominus Bootstrap4 v5.15.2 (https://tempusdominus.github.io/bootstrap-4/)
- * Copyright 2016-2020 Jonathan Peterson
+ * Copyright 2016-2020 Jonathan Peterson and contributors
  * Licensed under MIT (https://github.com/tempusdominus/bootstrap-3/blob/master/LICENSE)
  */
 

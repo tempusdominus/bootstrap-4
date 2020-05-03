@@ -1,5 +1,5 @@
 /*!@preserve
- * Tempus Dominus Bootstrap4 v5.16.0 (https://tempusdominus.github.io/bootstrap-4/)
+ * Tempus Dominus Bootstrap4 v5.16.1 (https://tempusdominus.github.io/bootstrap-4/)
  * Copyright 2016-2020 Jonathan Peterson and contributors
  * Licensed under MIT (https://github.com/tempusdominus/bootstrap-3/blob/master/LICENSE)
  */
@@ -863,7 +863,13 @@ var DateTimePicker = function ($, moment) {
     };
 
     _proto._getLastPickedDate = function _getLastPickedDate() {
-      return this._dates[this._getLastPickedDateIndex()];
+      var lastPickedDate = this._dates[this._getLastPickedDateIndex()];
+
+      if (!lastPickedDate && this._options.allowMultidate) {
+        lastPickedDate = moment(new Date());
+      }
+
+      return lastPickedDate;
     };
 
     _proto._getLastPickedDateIndex = function _getLastPickedDateIndex() {
@@ -2583,9 +2589,17 @@ var TempusDominusBootstrap4 = function ($) {
 
         case 'incrementHours':
           {
+            if (!lastPicked) {
+              break;
+            }
+
             var newDate = lastPicked.clone().add(1, 'h');
 
             if (this._isValid(newDate, 'h')) {
+              if (this._getLastPickedDateIndex() < 0) {
+                this.date(newDate);
+              }
+
               this._setValue(newDate, this._getLastPickedDateIndex());
             }
 
@@ -2594,9 +2608,17 @@ var TempusDominusBootstrap4 = function ($) {
 
         case 'incrementMinutes':
           {
+            if (!lastPicked) {
+              break;
+            }
+
             var _newDate = lastPicked.clone().add(this._options.stepping, 'm');
 
             if (this._isValid(_newDate, 'm')) {
+              if (this._getLastPickedDateIndex() < 0) {
+                this.date(_newDate);
+              }
+
               this._setValue(_newDate, this._getLastPickedDateIndex());
             }
 
@@ -2605,9 +2627,17 @@ var TempusDominusBootstrap4 = function ($) {
 
         case 'incrementSeconds':
           {
+            if (!lastPicked) {
+              break;
+            }
+
             var _newDate2 = lastPicked.clone().add(1, 's');
 
             if (this._isValid(_newDate2, 's')) {
+              if (this._getLastPickedDateIndex() < 0) {
+                this.date(_newDate2);
+              }
+
               this._setValue(_newDate2, this._getLastPickedDateIndex());
             }
 
@@ -2616,9 +2646,17 @@ var TempusDominusBootstrap4 = function ($) {
 
         case 'decrementHours':
           {
+            if (!lastPicked) {
+              break;
+            }
+
             var _newDate3 = lastPicked.clone().subtract(1, 'h');
 
             if (this._isValid(_newDate3, 'h')) {
+              if (this._getLastPickedDateIndex() < 0) {
+                this.date(_newDate3);
+              }
+
               this._setValue(_newDate3, this._getLastPickedDateIndex());
             }
 
@@ -2627,9 +2665,17 @@ var TempusDominusBootstrap4 = function ($) {
 
         case 'decrementMinutes':
           {
+            if (!lastPicked) {
+              break;
+            }
+
             var _newDate4 = lastPicked.clone().subtract(this._options.stepping, 'm');
 
             if (this._isValid(_newDate4, 'm')) {
+              if (this._getLastPickedDateIndex() < 0) {
+                this.date(_newDate4);
+              }
+
               this._setValue(_newDate4, this._getLastPickedDateIndex());
             }
 
@@ -2638,9 +2684,17 @@ var TempusDominusBootstrap4 = function ($) {
 
         case 'decrementSeconds':
           {
+            if (!lastPicked) {
+              break;
+            }
+
             var _newDate5 = lastPicked.clone().subtract(1, 's');
 
             if (this._isValid(_newDate5, 's')) {
+              if (this._getLastPickedDateIndex() < 0) {
+                this.date(_newDate5);
+              }
+
               this._setValue(_newDate5, this._getLastPickedDateIndex());
             }
 

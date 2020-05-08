@@ -1,5 +1,5 @@
 /*!@preserve
- * Tempus Dominus Bootstrap4 v5.16.1 (https://tempusdominus.github.io/bootstrap-4/)
+ * Tempus Dominus Bootstrap4 v5.16.2 (https://tempusdominus.github.io/bootstrap-4/)
  * Copyright 2016-2020 Jonathan Peterson and contributors
  * Licensed under MIT (https://github.com/tempusdominus/bootstrap-3/blob/master/LICENSE)
  */
@@ -625,7 +625,7 @@ var DateTimePicker = function ($, moment) {
     _proto._areSameDates = function _areSameDates(a, b) {
       var format = this._format();
 
-      return a && b && (a.isSame(b) || moment(a.format(format)).isSame(b.format(format)));
+      return a && b && (a.isSame(b) || moment(a.format(format), format).isSame(moment(b.format(format), format)));
     };
 
     _proto._notifyEvent = function _notifyEvent(e) {

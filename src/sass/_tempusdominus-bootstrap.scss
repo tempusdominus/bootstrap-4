@@ -9,6 +9,8 @@ $bs-datetimepicker-secondary-border-color: #ccc !default;
 $bs-datetimepicker-secondary-border-color-rgba: rgba(0, 0, 0, 0.2) !default;
 $bs-datetimepicker-primary-border-color: white !default;
 $bs-datetimepicker-text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25) !default;
+$bs-datetimepicker-buttons-color: #007bff;
+$bs-datetimepicker-buttons-color-dark: #0056b3;
 
 body.tempusdominus-bootstrap-datetimepicker-widget-day-click,
 body.tempusdominus-bootstrap-datetimepicker-widget-day-click * {
@@ -360,9 +362,17 @@ body.tempusdominus-bootstrap-datetimepicker-widget-day-click {
             line-height: 27px;
         }
     }
-}
+
+    .timepicker .timepicker-picker a.btn {
+      color: $bs-datetimepicker-buttons-color;
+      color: var(--blue, #{$bs-datetimepicker-buttons-color});
+    }
+    .timepicker .timepicker-picker a.btn:hover {
+      color: $bs-datetimepicker-buttons-color-dark;
+    }
+
+  }
 
 .input-group [data-toggle="datetimepicker"] {
     cursor: pointer;
 }
-

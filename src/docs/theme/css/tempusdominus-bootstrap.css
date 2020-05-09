@@ -220,6 +220,11 @@ body.tempusdominus-bootstrap-datetimepicker-widget-day-click {
   .bootstrap-datetimepicker-widget.usetwentyfour td.hour {
     height: 27px;
     line-height: 27px; }
+  .bootstrap-datetimepicker-widget .timepicker .timepicker-picker a.btn {
+    color: #007bff;
+    color: var(--blue, #007bff); }
+  .bootstrap-datetimepicker-widget .timepicker .timepicker-picker a.btn:hover {
+    color: #0056b3; }
 
 .input-group [data-toggle="datetimepicker"] {
   cursor: pointer; }

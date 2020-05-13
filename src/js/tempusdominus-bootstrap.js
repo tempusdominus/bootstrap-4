@@ -1172,9 +1172,12 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
     * ------------------------------------------------------------------------
     */
     $(document).on(DateTimePicker.Event.CLICK_DATA_API, DateTimePicker.Selector.DATA_TOGGLE, function () {
-        const $target = getSelectorFromElement($(this));
+        const $originalTarget = $(this), $target = getSelectorFromElement($originalTarget), config = $target.data(DateTimePicker.DATA_KEY);
         if ($target.length === 0) {
             return;
+        }
+        if (config._options.allowInputToggle && $originalTarget.is('input[data-toggle="datetimepicker"]')) {
+          return;
         }
         TempusDominusBootstrap4._jQueryInterface.call($target, 'toggle');
     }).on(DateTimePicker.Event.CHANGE, `.${DateTimePicker.ClassName.INPUT}`, function (event) {

@@ -1,5 +1,5 @@
 /*!@preserve
- * Tempus Dominus Bootstrap4 v5.17.0 (https://tempusdominus.github.io/bootstrap-4/)
+ * Tempus Dominus Bootstrap4 v5.17.1 (https://tempusdominus.github.io/bootstrap-4/)
  * Copyright 2016-2020 Jonathan Peterson and contributors
  * Licensed under MIT (https://github.com/tempusdominus/bootstrap-3/blob/master/LICENSE)
  */
@@ -3129,9 +3129,15 @@ var TempusDominusBootstrap4 = function ($) {
 
 
   $(document).on(DateTimePicker.Event.CLICK_DATA_API, DateTimePicker.Selector.DATA_TOGGLE, function () {
-    var $target = getSelectorFromElement($(this));
+    var $originalTarget = $(this),
+        $target = getSelectorFromElement($originalTarget),
+        config = $target.data(DateTimePicker.DATA_KEY);
 
     if ($target.length === 0) {
+      return;
+    }
+
+    if (config._options.allowInputToggle && $originalTarget.is('input[data-toggle="datetimepicker"]')) {
       return;
     }
 

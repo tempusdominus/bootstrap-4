@@ -1,5 +1,5 @@
 /*!@preserve
- * Tempus Dominus Bootstrap4 v5.17.1 (https://tempusdominus.github.io/bootstrap-4/)
+ * Tempus Dominus Bootstrap4 v5.17.2 (https://tempusdominus.github.io/bootstrap-4/)
  * Copyright 2016-2020 Jonathan Peterson and contributors
  * Licensed under MIT (https://github.com/tempusdominus/bootstrap-3/blob/master/LICENSE)
  */
@@ -139,7 +139,7 @@ var DateTimePicker = function ($, moment) {
       previous: 'fa fa-chevron-left',
       next: 'fa fa-chevron-right',
       today: 'fa fa-calendar-check-o',
-      clear: 'fa fa-delete',
+      clear: 'fa fa-trash',
       close: 'fa fa-times'
     },
     tooltips: {
@@ -433,17 +433,18 @@ var DateTimePicker = function ($, moment) {
     };
 
     _proto._setValue = function _setValue(targetMoment, index) {
-      var oldDate = this.unset ? null : this._dates[index];
+      var oldDate = this.unset ? null : this._dates[index],
+          isClear = !targetMoment && typeof index === 'undefined';
       var outpValue = ''; // case of calling setValue(null or false)
 
       if (!targetMoment) {
-        if (!this._options.allowMultidate || this._dates.length === 1) {
+        if (!this._options.allowMultidate || this._dates.length === 1 || isClear) {
           this.unset = true;
           this._dates = [];
           this._datesFormatted = [];
         } else {
           outpValue = "" + this._element.data('date') + this._options.multidateSeparator;
-          outpValue = outpValue.replace("" + oldDate.format(this.actualFormat) + this._options.multidateSeparator, '').replace("" + this._options.multidateSeparator + this._options.multidateSeparator, '').replace(new RegExp(escapeRegExp(this._options.multidateSeparator) + "\\s*$"), '');
+          outpValue = oldDate && outpValue.replace("" + oldDate.format(this.actualFormat) + this._options.multidateSeparator, '').replace("" + this._options.multidateSeparator + this._options.multidateSeparator, '').replace(new RegExp(escapeRegExp(this._options.multidateSeparator) + "\\s*$"), '') || '';
 
           this._dates.splice(index, 1);
 

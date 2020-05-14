@@ -10,7 +10,7 @@
     "url": "https://github.com/tempusdominus/bootstrap-4/issues"
   },
   "dependencies": {
-    "bootstrap": "^4.4.1",
+    "bootstrap": "^4.5.0",
     "jquery": "^3.5.1",
     "moment": "~2.24.0",
     "popper.js": "^1.16.1"
@@ -69,8 +69,8 @@
     "moment-timezone": "^0.5.28",
     "node-sass": "^4.14.1",
     "onchange": "^7.0.2",
-    "tempusdominus": "^5.7.4",
-    "uglify-js": "^3.9.1"
+    "tempusdominus": "^5.7.5",
+    "uglify-js": "^3.9.3"
   },
   "homepage": "https://tempusdominus.github.io/bootstrap-4/",
   "keywords": [

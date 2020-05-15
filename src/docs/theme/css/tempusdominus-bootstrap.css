@@ -39,7 +39,7 @@ body.tempusdominus-bootstrap-datetimepicker-widget-day-click {
     display: block;
     margin: 2px 0;
     padding: 4px;
-    width: 14rem; }
+    width: auto; }
     @media (min-width: 576px) {
       .bootstrap-datetimepicker-widget.dropdown-menu.timepicker-sbs {
         width: 38em; } }
@@ -165,7 +165,8 @@ body.tempusdominus-bootstrap-datetimepicker-widget-day-click {
         font-size: .8em;
         height: 20px;
         line-height: 20px;
-        color: #6c757d; }
+        color: #6c757d;
+        cursor: default; }
       .bootstrap-datetimepicker-widget table td.day {
         height: 20px;
         line-height: 20px;

@@ -1,5 +1,5 @@
 /*!@preserve
- * Tempus Dominus Bootstrap4 v5.18.0 (https://tempusdominus.github.io/bootstrap-4/)
+ * Tempus Dominus Bootstrap4 v5.18.1 (https://tempusdominus.github.io/bootstrap-4/)
  * Copyright 2016-2020 Jonathan Peterson and contributors
  * Licensed under MIT (https://github.com/tempusdominus/bootstrap-3/blob/master/LICENSE)
  */
@@ -37,6 +37,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 var DateTimePicker = function ($, moment) {
   function escapeRegExp(text) {
     return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
+  }
+
+  function isValidDate(date) {
+    return Object.prototype.toString.call(date) === '[object Date]' && !isNaN(date.getTime());
+  }
+
+  function isValidDateTimeStr(str) {
+    return isValidDate(new Date(str));
   } // ReSharper disable InconsistentNaming
 
 
@@ -408,8 +416,11 @@ var DateTimePicker = function ($, moment) {
       this._viewDate = this.getMoment().clone();
       $.extend(true, this._options, this._dataToOptions());
       this.options(this._options);
+      this.isInitFormatting = true;
 
       this._initFormatting();
+
+      this.isInitFormatting = false;
 
       if (this.input !== undefined && this.input.is('input') && this.input.val().trim().length !== 0) {
         this._setValue(this._parseInputDate(this.input.val().trim()), 0);
@@ -837,7 +848,7 @@ var DateTimePicker = function ($, moment) {
       var format = this._options.format || 'L LT',
           self = this;
       this.actualFormat = format.replace(/(\[[^\[]*])|(\\)?(LTS|LT|LL?L?L?|l{1,4})/g, function (formatInput) {
-        return self._dates[0].localeData().longDateFormat(formatInput) || formatInput; //todo taking the first date should be ok
+        return (self.isInitFormatting && self._options.date === null ? moment() : self._dates[0]).localeData().longDateFormat(formatInput) || formatInput; //todo taking the first date should be ok
       });
       this.parseFormats = this._options.extraFormats ? this._options.extraFormats.slice() : [];
 
@@ -952,6 +963,10 @@ var DateTimePicker = function ($, moment) {
 
       if (newDate !== null && typeof newDate !== 'string' && !moment.isMoment(newDate) && !(newDate instanceof Date)) {
         throw new TypeError('date() parameter must be one of [null, string, moment or Date]');
+      }
+
+      if (typeof newDate === 'string' && isValidDateTimeStr(newDate)) {
+        newDate = new Date(newDate);
       }
 
       this._setValue(newDate === null ? null : this._parseInputDate(newDate), index);

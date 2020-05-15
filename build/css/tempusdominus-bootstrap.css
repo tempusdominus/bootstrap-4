@@ -39,7 +39,9 @@ body.tempusdominus-bootstrap-datetimepicker-widget-day-click {
     display: block;
     margin: 2px 0;
     padding: 4px;
-    width: auto; }
+    width: 14rem; }
+    .bootstrap-datetimepicker-widget.dropdown-menu.tempusdominus-bootstrap-datetimepicker-widget-with-calendar-weeks {
+      width: 16rem; }
     @media (min-width: 576px) {
       .bootstrap-datetimepicker-widget.dropdown-menu.timepicker-sbs {
         width: 38em; } }

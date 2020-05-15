@@ -157,7 +157,7 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
                     'title': this._options.tooltips.today
                 }).append($('<span>').addClass(this._options.icons.today))));
             }
-            if (!this._options.sideBySide && this._hasDate() && this._hasTime()) {
+            if (!this._options.sideBySide && this._options.collapse && this._hasDate() && this._hasTime()) {
                 let title, icon;
                 if (this._options.viewMode === 'times') {
                     title = this._options.tooltips.selectDate;
@@ -193,7 +193,7 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
         }
 
         _getTemplate() {
-            const template = $('<div>').addClass('bootstrap-datetimepicker-widget dropdown-menu'),
+            const template = $('<div>').addClass(`bootstrap-datetimepicker-widget dropdown-menu ${this._options.calendarWeeks ? 'tempusdominus-bootstrap-datetimepicker-widget-with-calendar-weeks' : ''}`.trim()),
                 dateView = $('<div>').addClass('datepicker').append(this._getDatePickerTemplate()),
                 timeView = $('<div>').addClass('timepicker').append(this._getTimePickerTemplate()),
                 content = $('<ul>').addClass('list-unstyled'),

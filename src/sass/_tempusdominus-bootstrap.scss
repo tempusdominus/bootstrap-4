@@ -44,7 +44,11 @@ body.tempusdominus-bootstrap-datetimepicker-widget-day-click {
         display: block;
         margin: 2px 0;
         padding: 4px;
-        width: auto;
+        width: 14rem;
+        
+        &.tempusdominus-bootstrap-datetimepicker-widget-with-calendar-weeks {
+          width: 16rem;
+        }
 
         &.timepicker-sbs {
             @media (min-width: map-get($grid-breakpoints, 'sm')) {

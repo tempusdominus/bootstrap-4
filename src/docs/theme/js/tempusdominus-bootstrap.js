@@ -1,5 +1,5 @@
 /*!@preserve
- * Tempus Dominus Bootstrap4 v5.19.0 (https://tempusdominus.github.io/bootstrap-4/)
+ * Tempus Dominus Bootstrap4 v5.19.1 (https://tempusdominus.github.io/bootstrap-4/)
  * Copyright 2016-2020 Jonathan Peterson and contributors
  * Licensed under MIT (https://github.com/tempusdominus/bootstrap-3/blob/master/LICENSE)
  */
@@ -388,6 +388,8 @@ var DateTimePicker = function ($, moment) {
       this.parseFormats = null;
       this.currentViewMode = null;
       this.MinViewModeNumber = 0;
+      this.isInitFormatting = false;
+      this.isInit = false;
       this.isDateUpdateThroughDateOptionFromClientCode = false;
 
       this._int();
@@ -401,6 +403,8 @@ var DateTimePicker = function ($, moment) {
 
     //private
     _proto._int = function _int() {
+      this.isInit = true;
+
       var targetInput = this._element.data('target-input');
 
       if (this._element.is('input')) {
@@ -433,6 +437,8 @@ var DateTimePicker = function ($, moment) {
       if (this._options.inline) {
         this.show();
       }
+
+      this.isInit = false;
     };
 
     _proto._update = function _update() {
@@ -448,12 +454,13 @@ var DateTimePicker = function ($, moment) {
     _proto._setValue = function _setValue(targetMoment, index) {
       var oldDate = this.unset ? null : this._dates[index],
           isClear = !targetMoment && typeof index === 'undefined',
-          isDateUpdateThroughDateOptionFromClientCode = this.isDateUpdateThroughDateOptionFromClientCode;
+          isDateUpdateThroughDateOptionFromClientCode = this.isDateUpdateThroughDateOptionFromClientCode,
+          isNotAllowedProgrammaticUpdate = !this.isInit && this._options.updateOnlyThroughDateOption && !isDateUpdateThroughDateOptionFromClientCode;
       var outpValue = '',
           isInvalid = false; // case of calling setValue(null or false)
 
       if (!targetMoment) {
-        if (this._options.updateOnlyThroughDateOption && !isDateUpdateThroughDateOptionFromClientCode) {
+        if (isNotAllowedProgrammaticUpdate) {
           this._notifyEvent({
             type: DateTimePicker.Event.CHANGE,
             date: targetMoment,
@@ -513,7 +520,7 @@ var DateTimePicker = function ($, moment) {
       }
 
       if (this._isValid(targetMoment)) {
-        if (this._options.updateOnlyThroughDateOption && !isDateUpdateThroughDateOptionFromClientCode) {
+        if (isNotAllowedProgrammaticUpdate) {
           this._notifyEvent({
             type: DateTimePicker.Event.CHANGE,
             date: targetMoment.clone(),

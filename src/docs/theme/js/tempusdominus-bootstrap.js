@@ -1,5 +1,5 @@
 /*!@preserve
- * Tempus Dominus Bootstrap4 v5.19.1 (https://tempusdominus.github.io/bootstrap-4/)
+ * Tempus Dominus Bootstrap4 v5.20.0 (https://tempusdominus.github.io/bootstrap-4/)
  * Copyright 2016-2020 Jonathan Peterson and contributors
  * Licensed under MIT (https://github.com/tempusdominus/bootstrap-3/blob/master/LICENSE)
  */
@@ -467,7 +467,8 @@ var DateTimePicker = function ($, moment) {
             oldDate: oldDate,
             isClear: isClear,
             isInvalid: isInvalid,
-            isDateUpdateThroughDateOptionFromClientCode: isDateUpdateThroughDateOptionFromClientCode
+            isDateUpdateThroughDateOptionFromClientCode: isDateUpdateThroughDateOptionFromClientCode,
+            isInit: this.isInit
           });
 
           return;
@@ -501,7 +502,8 @@ var DateTimePicker = function ($, moment) {
           oldDate: oldDate,
           isClear: isClear,
           isInvalid: isInvalid,
-          isDateUpdateThroughDateOptionFromClientCode: isDateUpdateThroughDateOptionFromClientCode
+          isDateUpdateThroughDateOptionFromClientCode: isDateUpdateThroughDateOptionFromClientCode,
+          isInit: this.isInit
         });
 
         this._update();
@@ -527,7 +529,8 @@ var DateTimePicker = function ($, moment) {
             oldDate: oldDate,
             isClear: isClear,
             isInvalid: isInvalid,
-            isDateUpdateThroughDateOptionFromClientCode: isDateUpdateThroughDateOptionFromClientCode
+            isDateUpdateThroughDateOptionFromClientCode: isDateUpdateThroughDateOptionFromClientCode,
+            isInit: this.isInit
           });
 
           return;
@@ -566,7 +569,8 @@ var DateTimePicker = function ($, moment) {
           oldDate: oldDate,
           isClear: isClear,
           isInvalid: isInvalid,
-          isDateUpdateThroughDateOptionFromClientCode: isDateUpdateThroughDateOptionFromClientCode
+          isDateUpdateThroughDateOptionFromClientCode: isDateUpdateThroughDateOptionFromClientCode,
+          isInit: this.isInit
         });
       } else {
         isInvalid = true;
@@ -583,7 +587,8 @@ var DateTimePicker = function ($, moment) {
             oldDate: oldDate,
             isClear: isClear,
             isInvalid: isInvalid,
-            isDateUpdateThroughDateOptionFromClientCode: isDateUpdateThroughDateOptionFromClientCode
+            isDateUpdateThroughDateOptionFromClientCode: isDateUpdateThroughDateOptionFromClientCode,
+            isInit: this.isInit
           });
         }
 

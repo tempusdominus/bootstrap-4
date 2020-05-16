@@ -3123,7 +3123,13 @@ var TempusDominusBootstrap4 = function ($) {
         if (argument === undefined) {
           return data[option]();
         } else {
-          return data[option](argument);
+          if (option === 'date') {
+            data.isDateUpdateThroughDateOptionFromClientCode = true;
+          }
+
+          var ret = data[option](argument);
+          data.isDateUpdateThroughDateOptionFromClientCode = false;
+          return ret;
         }
       }
     };

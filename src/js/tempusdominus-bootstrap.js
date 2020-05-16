@@ -1150,7 +1150,12 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
                     return data[option]();
                 }
                 else {
-                    return data[option](argument);
+                    if (option === 'date') {
+                        data.isDateUpdateThroughDateOptionFromClientCode = true;
+                    }
+                    const ret = data[option](argument);
+                    data.isDateUpdateThroughDateOptionFromClientCode = false;
+                    return ret;
                 }
             }
         }

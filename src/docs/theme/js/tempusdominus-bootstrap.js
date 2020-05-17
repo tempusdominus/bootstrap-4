@@ -1,5 +1,5 @@
 /*!@preserve
- * Tempus Dominus Bootstrap4 v5.20.0 (https://tempusdominus.github.io/bootstrap-4/)
+ * Tempus Dominus Bootstrap4 v5.20.1 (https://tempusdominus.github.io/bootstrap-4/)
  * Copyright 2016-2020 Jonathan Peterson and contributors
  * Licensed under MIT (https://github.com/tempusdominus/bootstrap-3/blob/master/LICENSE)
  */
@@ -123,7 +123,69 @@ var DateTimePicker = function ($, moment) {
   },
       ViewModes = ['times', 'days', 'months', 'years', 'decades'],
       keyState = {},
-      keyPressHandled = {};
+      keyPressHandled = {},
+      optionsSortMap = {
+    timeZone: -39,
+    format: -38,
+    dayViewHeaderFormat: -37,
+    extraFormats: -36,
+    stepping: -35,
+    minDate: -34,
+    maxDate: -33,
+    useCurrent: -32,
+    collapse: -31,
+    locale: -30,
+    defaultDate: -29,
+    disabledDates: -28,
+    enabledDates: -27,
+    icons: -26,
+    tooltips: -25,
+    useStrict: -24,
+    sideBySide: -23,
+    daysOfWeekDisabled: -22,
+    calendarWeeks: -21,
+    viewMode: -20,
+    toolbarPlacement: -19,
+    buttons: -18,
+    widgetPositioning: -17,
+    widgetParent: -16,
+    ignoreReadonly: -15,
+    keepOpen: -14,
+    focusOnShow: -13,
+    inline: -12,
+    keepInvalid: -11,
+    keyBinds: -10,
+    debug: -9,
+    allowInputToggle: -8,
+    disabledTimeIntervals: -7,
+    disabledHours: -6,
+    enabledHours: -5,
+    viewDate: -4,
+    allowMultidate: -3,
+    multidateSeparator: -2,
+    updateOnlyThroughDateOption: -1,
+    date: 1
+  };
+
+  function optionsSortFn(optionKeyA, optionKeyB) {
+    if (optionsSortMap[optionKeyA] && optionsSortMap[optionKeyB]) {
+      if (optionsSortMap[optionKeyA] < 0 && optionsSortMap[optionKeyB] < 0) {
+        return Math.abs(optionsSortMap[optionKeyB]) - Math.abs(optionsSortMap[optionKeyA]);
+      } else if (optionsSortMap[optionKeyA] < 0) {
+        return -1;
+      } else if (optionsSortMap[optionKeyB] < 0) {
+        return 1;
+      }
+
+      return optionsSortMap[optionKeyA] - optionsSortMap[optionKeyB];
+    } else if (optionsSortMap[optionKeyA]) {
+      return optionsSortMap[optionKeyA];
+    } else if (optionsSortMap[optionKeyB]) {
+      return optionsSortMap[optionKeyB];
+    }
+
+    return 0;
+  }
 
   var Default = {
     timeZone: '',
@@ -391,6 +453,8 @@ var DateTimePicker = function ($, moment) {
       this.isInitFormatting = false;
       this.isInit = false;
       this.isDateUpdateThroughDateOptionFromClientCode = false;
+      this.hasInitDate = false;
+      this.initDate = void 0;
 
       this._int();
     }
@@ -421,12 +485,18 @@ var DateTimePicker = function ($, moment) {
       this._dates[0] = this.getMoment();
       this._viewDate = this.getMoment().clone();
       $.extend(true, this._options, this._dataToOptions());
+      this.hasInitDate = false;
+      this.initDate = void 0;
       this.options(this._options);
       this.isInitFormatting = true;
 
       this._initFormatting();
 
       this.isInitFormatting = false;
+
+      if (this.hasInitDate) {
+        this.date(this.initDate);
+      }
 
       if (this.input !== undefined && this.input.is('input') && this.input.val().trim().length !== 0) {
         this._setValue(this._parseInputDate(this.input.val().trim()), 0);
@@ -988,9 +1058,18 @@ var DateTimePicker = function ($, moment) {
       }
 
       $.extend(true, this._options, newOptions);
-      var self = this;
-      $.each(this._options, function (key, value) {
+      var self = this,
+          optionsKeys = Object.keys(this._options).sort(optionsSortFn);
+      $.each(optionsKeys, function (i, key) {
+        var value = self._options[key];
+
         if (self[key] !== undefined) {
+          if (self.isInit && key === 'date') {
+            self.hasInitDate = true;
+            self.initDate = value;
+            return;
+          }
+
           self[key](value);
         }
       });

@@ -1,5 +1,5 @@
 /*!@preserve
- * Tempus Dominus Bootstrap4 v5.20.2 (https://tempusdominus.github.io/bootstrap-4/)
+ * Tempus Dominus Bootstrap4 v5.20.3 (https://tempusdominus.github.io/bootstrap-4/)
  * Copyright 2016-2020 Jonathan Peterson and contributors
  * Licensed under MIT (https://github.com/tempusdominus/bootstrap-3/blob/master/LICENSE)
  */
@@ -1037,13 +1037,34 @@ var DateTimePicker = function ($, moment) {
       return this.widget ? this.hide() : this.show();
     };
 
+    _proto.readonly = function readonly(_readonly) {
+      if (arguments.length === 0) {
+        return this._options.readonly;
+      }
+
+      if (typeof _readonly !== 'boolean') {
+        throw new TypeError('readonly() expects a boolean parameter');
+      }
+
+      this._options.readonly = _readonly;
+
+      if (this.input !== undefined) {
+        this.input.prop('readonly', this._options.readonly);
+      }
+
+      if (this.widget) {
+        this.hide();
+        this.show();
+      }
+    };
+
     _proto.ignoreReadonly = function ignoreReadonly(_ignoreReadonly) {
       if (arguments.length === 0) {
         return this._options.ignoreReadonly;
       }
 
       if (typeof _ignoreReadonly !== 'boolean') {
-        throw new TypeError('ignoreReadonly () expects a boolean parameter');
+        throw new TypeError('ignoreReadonly() expects a boolean parameter');
       }
 
       this._options.ignoreReadonly = _ignoreReadonly;

@@ -256,6 +256,7 @@ var DateTimePicker = function ($, moment) {
       vertical: 'auto'
     },
     widgetParent: null,
+    readonly: false,
     ignoreReadonly: false,
     keepOpen: false,
     focusOnShow: true,
@@ -2148,6 +2149,10 @@ var TempusDominusBootstrap4 = function ($) {
 
       if (this.use24Hours) {
         template.addClass('usetwentyfour');
+      }
+
+      if (this.input !== undefined && this.input.prop('readonly') || this._options.readonly) {
+        template.addClass('bootstrap-datetimepicker-widget-readonly');
       }
 
       if (this._isEnabled('s') && !this.use24Hours) {

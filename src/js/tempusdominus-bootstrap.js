@@ -206,6 +206,9 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
             if (this.use24Hours) {
                 template.addClass('usetwentyfour');
             }
+            if ((this.input !== undefined && this.input.prop('readonly')) || this._options.readonly) {
+                template.addClass('bootstrap-datetimepicker-widget-readonly');
+            }
             if (this._isEnabled('s') && !this.use24Hours) {
                 template.addClass('wider');
             }

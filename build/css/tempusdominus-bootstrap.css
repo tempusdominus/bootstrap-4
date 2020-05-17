@@ -228,6 +228,19 @@ body.tempusdominus-bootstrap-datetimepicker-widget-day-click {
     color: var(--blue, #007bff); }
   .bootstrap-datetimepicker-widget .timepicker .timepicker-picker a.btn:hover {
     color: #0056b3; }
+  .bootstrap-datetimepicker-widget.bootstrap-datetimepicker-widget-readonly table td.day, .bootstrap-datetimepicker-widget.bootstrap-datetimepicker-widget-readonly table td.hour, .bootstrap-datetimepicker-widget.bootstrap-datetimepicker-widget-readonly table td.minute, .bootstrap-datetimepicker-widget.bootstrap-datetimepicker-widget-readonly table td.second,
+  .bootstrap-datetimepicker-widget.bootstrap-datetimepicker-widget-readonly table td [data-action="incrementHours"], .bootstrap-datetimepicker-widget.bootstrap-datetimepicker-widget-readonly table td [data-action="incrementMinutes"], .bootstrap-datetimepicker-widget.bootstrap-datetimepicker-widget-readonly table td [data-action="incrementSeconds"],
+  .bootstrap-datetimepicker-widget.bootstrap-datetimepicker-widget-readonly table td [data-action="decrementHours"], .bootstrap-datetimepicker-widget.bootstrap-datetimepicker-widget-readonly table td [data-action="decrementMinutes"], .bootstrap-datetimepicker-widget.bootstrap-datetimepicker-widget-readonly table td [data-action="decrementSeconds"],
+  .bootstrap-datetimepicker-widget.bootstrap-datetimepicker-widget-readonly table td [data-action="showHours"], .bootstrap-datetimepicker-widget.bootstrap-datetimepicker-widget-readonly table td [data-action="showMinutes"], .bootstrap-datetimepicker-widget.bootstrap-datetimepicker-widget-readonly table td [data-action="showSeconds"],
+  .bootstrap-datetimepicker-widget.bootstrap-datetimepicker-widget-readonly table td [data-action="togglePeriod"] {
+    pointer-events: none;
+    cursor: default; }
+    .bootstrap-datetimepicker-widget.bootstrap-datetimepicker-widget-readonly table td.day:hover, .bootstrap-datetimepicker-widget.bootstrap-datetimepicker-widget-readonly table td.hour:hover, .bootstrap-datetimepicker-widget.bootstrap-datetimepicker-widget-readonly table td.minute:hover, .bootstrap-datetimepicker-widget.bootstrap-datetimepicker-widget-readonly table td.second:hover,
+    .bootstrap-datetimepicker-widget.bootstrap-datetimepicker-widget-readonly table td [data-action="incrementHours"]:hover, .bootstrap-datetimepicker-widget.bootstrap-datetimepicker-widget-readonly table td [data-action="incrementMinutes"]:hover, .bootstrap-datetimepicker-widget.bootstrap-datetimepicker-widget-readonly table td [data-action="incrementSeconds"]:hover,
+    .bootstrap-datetimepicker-widget.bootstrap-datetimepicker-widget-readonly table td [data-action="decrementHours"]:hover, .bootstrap-datetimepicker-widget.bootstrap-datetimepicker-widget-readonly table td [data-action="decrementMinutes"]:hover, .bootstrap-datetimepicker-widget.bootstrap-datetimepicker-widget-readonly table td [data-action="decrementSeconds"]:hover,
+    .bootstrap-datetimepicker-widget.bootstrap-datetimepicker-widget-readonly table td [data-action="showHours"]:hover, .bootstrap-datetimepicker-widget.bootstrap-datetimepicker-widget-readonly table td [data-action="showMinutes"]:hover, .bootstrap-datetimepicker-widget.bootstrap-datetimepicker-widget-readonly table td [data-action="showSeconds"]:hover,
+    .bootstrap-datetimepicker-widget.bootstrap-datetimepicker-widget-readonly table td [data-action="togglePeriod"]:hover {
+      background: none; }
 
 .input-group [data-toggle="datetimepicker"] {
   cursor: pointer; }

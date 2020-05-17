@@ -375,6 +375,21 @@ body.tempusdominus-bootstrap-datetimepicker-widget-day-click {
     .timepicker .timepicker-picker a.btn:hover {
       color: $bs-datetimepicker-buttons-color-dark;
     }
+
+    &.bootstrap-datetimepicker-widget-readonly {
+      table td.day, table td.hour, table td.minute, table td.second,
+      table td [data-action="incrementHours"], table td [data-action="incrementMinutes"], table td [data-action="incrementSeconds"],
+      table td [data-action="decrementHours"], table td [data-action="decrementMinutes"], table td [data-action="decrementSeconds"],
+      table td [data-action="showHours"], table td [data-action="showMinutes"], table td [data-action="showSeconds"],
+      table td [data-action="togglePeriod"] {
+        pointer-events: none;
+        cursor: default;
+
+        &:hover {
+          background: none;
+        }
+      }
+    }
 }
 
 .input-group [data-toggle="datetimepicker"] {

@@ -3333,7 +3333,7 @@ var TempusDominusBootstrap4 = function ($) {
   }).on(DateTimePicker.Event.CHANGE, "." + DateTimePicker.ClassName.INPUT, function (event) {
     var $target = getSelectorFromElement($(this));
 
-    if ($target.length === 0) {
+    if ($target.length === 0 || event.isInit) {
       return;
     }
 

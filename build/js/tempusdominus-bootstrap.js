@@ -1,5 +1,5 @@
 /*!@preserve
- * Tempus Dominus Bootstrap4 v5.20.4 (https://tempusdominus.github.io/bootstrap-4/)
+ * Tempus Dominus Bootstrap4 v5.20.5 (https://tempusdominus.github.io/bootstrap-4/)
  * Copyright 2016-2020 Jonathan Peterson and contributors
  * Licensed under MIT (https://github.com/tempusdominus/bootstrap-3/blob/master/LICENSE)
  */
@@ -456,6 +456,7 @@ var DateTimePicker = function ($, moment) {
       this.isDateUpdateThroughDateOptionFromClientCode = false;
       this.hasInitDate = false;
       this.initDate = void 0;
+      this._notifyChangeEventContext = void 0;
 
       this._int();
     }
@@ -765,11 +766,18 @@ var DateTimePicker = function ($, moment) {
     };
 
     _proto._notifyEvent = function _notifyEvent(e) {
-      if (e.type === DateTimePicker.Event.CHANGE && (e.date && this._areSameDates(e.date, e.oldDate) || !e.isClear && !e.date && !e.oldDate)) {
-        return;
+      if (e.type === DateTimePicker.Event.CHANGE) {
+        this._notifyChangeEventContext = this._notifyChangeEventContext || 0;
+        this._notifyChangeEventContext++;
+
+        if (e.date && this._areSameDates(e.date, e.oldDate) || !e.isClear && !e.date && !e.oldDate || this._notifyChangeEventContext > 1) {
+          return;
+        }
       }
 
       this._element.trigger(e);
+
+      this._notifyChangeEventContext = void 0;
     };
 
     _proto._viewUpdate = function _viewUpdate(e) {

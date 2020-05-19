@@ -1855,8 +1855,12 @@ var DateTimePicker = function ($, moment) {
 
       this._viewDate = this._parseInputDate(newDate);
 
-      this._viewUpdate();
+      this._update();
+
+      this._viewUpdate(DatePickerModes[this.currentViewMode] && DatePickerModes[this.currentViewMode].NAV_FUNCTION);
     };
+
+    _proto._fillDate = function _fillDate() {};
 
     _proto.allowMultidate = function allowMultidate(_allowMultidate) {
       if (typeof _allowMultidate !== 'boolean') {
@@ -2454,6 +2458,8 @@ var TempusDominusBootstrap4 = function ($) {
     };
 
     _proto2._fillDate = function _fillDate() {
+      _DateTimePicker.prototype._fillDate.call(this);
+
       var daysView = this.widget.find('.datepicker-days'),
           daysViewHeader = daysView.find('th'),
           html = [];

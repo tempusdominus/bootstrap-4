@@ -462,6 +462,7 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
         }
 
         _fillDate() {
+            super._fillDate();
             const daysView = this.widget.find('.datepicker-days'),
                 daysViewHeader = daysView.find('th'),
                 html = [];

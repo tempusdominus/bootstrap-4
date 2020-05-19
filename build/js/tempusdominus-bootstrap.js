@@ -1,5 +1,5 @@
 /*!@preserve
- * Tempus Dominus Bootstrap4 v5.20.5 (https://tempusdominus.github.io/bootstrap-4/)
+ * Tempus Dominus Bootstrap4 v5.20.6 (https://tempusdominus.github.io/bootstrap-4/)
  * Copyright 2016-2020 Jonathan Peterson and contributors
  * Licensed under MIT (https://github.com/tempusdominus/bootstrap-3/blob/master/LICENSE)
  */
@@ -524,12 +524,18 @@ var DateTimePicker = function ($, moment) {
     };
 
     _proto._setValue = function _setValue(targetMoment, index) {
-      var oldDate = this.unset ? null : this._dates[index],
-          isClear = !targetMoment && typeof index === 'undefined',
+      var noIndex = typeof index === 'undefined',
+          isClear = !targetMoment && noIndex,
           isDateUpdateThroughDateOptionFromClientCode = this.isDateUpdateThroughDateOptionFromClientCode,
           isNotAllowedProgrammaticUpdate = !this.isInit && this._options.updateOnlyThroughDateOption && !isDateUpdateThroughDateOptionFromClientCode;
       var outpValue = '',
-          isInvalid = false; // case of calling setValue(null or false)
+          isInvalid = false,
+          oldDate = this.unset ? null : this._dates[index];
+
+      if (!oldDate && !this.unset && noIndex && isClear) {
+        oldDate = this._dates[this._dates.length - 1];
+      } // case of calling setValue(null or false)
+
 
       if (!targetMoment) {
         if (isNotAllowedProgrammaticUpdate) {

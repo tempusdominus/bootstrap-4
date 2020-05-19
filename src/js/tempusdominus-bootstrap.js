@@ -956,14 +956,14 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
             const lastPickedDate = this._getLastPickedDate();
             this._notifyEvent({
                 type: DateTimePicker.Event.HIDE,
-                date: lastPickedDate ? lastPickedDate.clone() : void 0
+                date: this.unset ? null : (lastPickedDate ? lastPickedDate.clone() : void 0)
             });
 
             if (this.input !== undefined) {
                 this.input.blur();
             }
 
-            this._viewDate = lastPickedDate ? lastPickedDate.clone() : void 0;
+            this._viewDate = lastPickedDate ? lastPickedDate.clone() : moment();
         }
 
         show() {

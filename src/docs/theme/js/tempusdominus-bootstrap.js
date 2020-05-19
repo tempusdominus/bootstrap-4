@@ -1,5 +1,5 @@
 /*!@preserve
- * Tempus Dominus Bootstrap4 v5.20.8 (https://tempusdominus.github.io/bootstrap-4/)
+ * Tempus Dominus Bootstrap4 v5.20.9 (https://tempusdominus.github.io/bootstrap-4/)
  * Copyright 2016-2020 Jonathan Peterson and contributors
  * Licensed under MIT (https://github.com/tempusdominus/bootstrap-3/blob/master/LICENSE)
  */
@@ -496,14 +496,14 @@ var DateTimePicker = function ($, moment) {
 
       this.isInitFormatting = false;
 
-      if (this.hasInitDate) {
-        this.date(this.initDate);
-      }
-
       if (this.input !== undefined && this.input.is('input') && this.input.val().trim().length !== 0) {
         this._setValue(this._parseInputDate(this.input.val().trim()), 0);
       } else if (this._options.defaultDate && this.input !== undefined && this.input.attr('placeholder') === undefined) {
         this._setValue(this._options.defaultDate, 0);
+      }
+
+      if (this.hasInitDate) {
+        this.date(this.initDate);
       }
 
       if (this._options.inline) {
@@ -876,8 +876,12 @@ var DateTimePicker = function ($, moment) {
       return true;
     };
 
-    _proto._parseInputDate = function _parseInputDate(inputDate) {
-      if (this._options.parseInputDate === undefined) {
+    _proto._parseInputDate = function _parseInputDate(inputDate, _temp) {
+      var _ref = _temp === void 0 ? {} : _temp,
+          _ref$isPickerShow = _ref.isPickerShow,
+          isPickerShow = _ref$isPickerShow === void 0 ? false : _ref$isPickerShow;
+
+      if (this._options.parseInputDate === undefined || isPickerShow) {
         if (!moment.isMoment(inputDate)) {
           inputDate = this.getMoment(inputDate);
         }

@@ -992,7 +992,9 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
                     return;
                 }
                 if (this.input.val() !== undefined && this.input.val().trim().length !== 0) {
-                    this._setValue(this._parseInputDate(this.input.val().trim()), 0);
+                    this._setValue(this._parseInputDate(this.input.val().trim(), {
+                        isPickerShow: true
+                    }), 0);
                 } else if (this.unset && this._options.useCurrent) {
                     currentMoment = this.getMoment();
                     if (typeof this._options.useCurrent === 'string') {

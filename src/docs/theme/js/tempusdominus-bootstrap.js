@@ -3115,7 +3115,9 @@ var TempusDominusBootstrap4 = function ($) {
         }
 
         if (this.input.val() !== undefined && this.input.val().trim().length !== 0) {
-          this._setValue(this._parseInputDate(this.input.val().trim()), 0);
+          this._setValue(this._parseInputDate(this.input.val().trim(), {
+            isPickerShow: true
+          }), 0);
         } else if (this.unset && this._options.useCurrent) {
           currentMoment = this.getMoment();
 

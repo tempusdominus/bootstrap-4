@@ -1,5 +1,5 @@
 /*!@preserve
- * Tempus Dominus Bootstrap4 v5.20.9 (https://tempusdominus.github.io/bootstrap-4/)
+ * Tempus Dominus Bootstrap4 v5.20.10 (https://tempusdominus.github.io/bootstrap-4/)
  * Copyright 2016-2020 Jonathan Peterson and contributors
  * Licensed under MIT (https://github.com/tempusdominus/bootstrap-3/blob/master/LICENSE)
  */
@@ -987,7 +987,7 @@ var DateTimePicker = function ($, moment) {
       var format = this._options.format || 'L LT',
           self = this;
       this.actualFormat = format.replace(/(\[[^\[]*])|(\\)?(LTS|LT|LL?L?L?|l{1,4})/g, function (formatInput) {
-        return (self.isInitFormatting && self._options.date === null ? moment() : self._dates[0]).localeData().longDateFormat(formatInput) || formatInput; //todo taking the first date should be ok
+        return (self.isInitFormatting && self._options.date === null ? self.getMoment() : self._dates[0]).localeData().longDateFormat(formatInput) || formatInput; //todo taking the first date should be ok
       });
       this.parseFormats = this._options.extraFormats ? this._options.extraFormats.slice() : [];
 
@@ -1035,7 +1035,8 @@ var DateTimePicker = function ($, moment) {
       var returnMoment;
 
       if (d === undefined || d === null) {
-        returnMoment = moment(); //TODO should this use format? and locale?
+        // TODO: Should this use format?
+        returnMoment = moment().clone().locale(this._options.locale);
       } else if (this._hasTimeZone()) {
         // There is a string to parse and a default time zone
         // parse with the tz function which takes a default time zone if it is not in the format string
@@ -3090,7 +3091,7 @@ var TempusDominusBootstrap4 = function ($) {
         this.input.blur();
       }
 
-      this._viewDate = lastPickedDate ? lastPickedDate.clone() : moment();
+      this._viewDate = lastPickedDate ? lastPickedDate.clone() : this.getMoment();
     };
 
     _proto2.show = function show() {

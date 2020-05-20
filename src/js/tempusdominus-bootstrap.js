@@ -964,7 +964,7 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
                 this.input.blur();
             }
 
-            this._viewDate = lastPickedDate ? lastPickedDate.clone() : moment();
+            this._viewDate = lastPickedDate ? lastPickedDate.clone() : this.getMoment();
         }
 
         show() {

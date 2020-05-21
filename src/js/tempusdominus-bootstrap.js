@@ -1,5 +1,6 @@
 //noinspection JSUnusedGlobalSymbols
 /* global DateTimePicker */
+/* global feather */
 const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
     // ReSharper disable once InconsistentNaming
     const JQUERY_NO_CONFLICT = $.fn[DateTimePicker.NAME],
@@ -44,9 +45,17 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
             }
         }
 
-        _iconTag = function _iconTag(icon_name) {
-            if (typeof feather !== 'undefined' && this._options.icons.type === 'feather') return $('<span>').html(feather.icons[icon_name].toSvg());
-            else return $('<span>').addClass(icon_name);
+        _useFeatherIcons() {
+            return this._options.icons.type === 'feather';
+        }
+
+        _iconTag(iconName) {
+            if (typeof feather !== 'undefined' && this._useFeatherIcons()) {
+                return $('<span>').html(feather.icons[iconName].toSvg());
+            }
+            else {
+               return $('<span>').addClass(iconName);
+            }
         }
 
         _getDatePickerTemplate() {
@@ -198,11 +207,18 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
         }
 
         _getTemplate() {
-            const template = $('<div>').addClass(`bootstrap-datetimepicker-widget dropdown-menu ${this._options.calendarWeeks ? 'tempusdominus-bootstrap-datetimepicker-widget-with-calendar-weeks' : ''}`.trim()),
+            const template = $('<div>').addClass((
+                    `bootstrap-datetimepicker-widget dropdown-menu ${this._options.calendarWeeks ? 'tempusdominus-bootstrap-datetimepicker-widget-with-calendar-weeks' : ''} `
+                    +
+                    `${this._useFeatherIcons() ? 'tempusdominus-bootstrap-datetimepicker-widget-with-feather-icons' : ''} `
+                ).trim()),
                 dateView = $('<div>').addClass('datepicker').append(this._getDatePickerTemplate()),
                 timeView = $('<div>').addClass('timepicker').append(this._getTimePickerTemplate()),
                 content = $('<ul>').addClass('list-unstyled'),
-                toolbar = $('<li>').addClass(`picker-switch${this._options.collapse ? ' accordion-toggle' : ''}`).append(this._getToolbar());
+                toolbar = $('<li>').addClass((
+                    `picker-switch${this._options.collapse ? ' accordion-toggle' : ''} ` +
+                    `${this._useFeatherIcons() ? 'picker-switch-with-feathers-icons' : ''}`
+                ).trim()).append(this._getToolbar());
 
             if (this._options.inline) {
                 template.removeClass('dropdown-menu');
@@ -827,7 +843,7 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
                             expanded = $parent.find('.show'),
                             closed = $parent.find('.collapse:not(.show)'),
                             $span = $this.is('span') ? $this : $this.find('span');
-                        let collapseData;
+                        let collapseData, inactiveIcon, iconTest;
 
                         if (expanded && expanded.length) {
                             collapseData = expanded.data('collapse');
@@ -844,11 +860,23 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
                                 closed.addClass('show');
                             }
 
-                            $link.toggleClass(this._options.icons.time + ' ' + this._options.icons.date);
-                            inactiveIcon = ($link.hasClass(this._options.icons.time))? this._options.icons.date:this._options.icons.time;
-                            $link.html(this._iconTag(inactiveIcon));
+                            if (this._useFeatherIcons()) {
+                                $link.toggleClass(this._options.icons.time + ' ' + this._options.icons.date);
+                                inactiveIcon = ($link.hasClass(this._options.icons.time)) ? this._options.icons.date : this._options.icons.time;
+                                $link.html(this._iconTag(inactiveIcon));
+                            }
+                            else {
+                                $span.toggleClass(this._options.icons.time + ' ' + this._options.icons.date);
+                            }
 
-                            if ($link.hasClass(this._options.icons.date)) {
+                            if (this._useFeatherIcons()) {
+                                iconTest = $link.hasClass(this._options.icons.date);
+                            }
+                            else {
+                                iconTest = $span.hasClass(this._options.icons.date);
+                            }
+
+                            if (iconTest) {
                                 $link.attr('title', this._options.tooltips.selectDate);
                             } else {
                                 $link.attr('title', this._options.tooltips.selectTime);

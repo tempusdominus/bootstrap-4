@@ -1962,6 +1962,8 @@ var DateTimePicker = function ($, moment) {
 
 /* global DateTimePicker */
 
+/* global feather */
+
 
 var TempusDominusBootstrap4 = function ($) {
   // eslint-disable-line no-unused-vars
@@ -2020,8 +2022,20 @@ var TempusDominusBootstrap4 = function ($) {
       }
     };
 
+    _proto2._useFeatherIcons = function _useFeatherIcons() {
+      return this._options.icons.type === 'feather';
+    };
+
+    _proto2._iconTag = function _iconTag(iconName) {
+      if (typeof feather !== 'undefined' && this._useFeatherIcons()) {
+        return $('<span>').html(feather.icons[iconName].toSvg());
+      } else {
+        return $('<span>').addClass(iconName);
+      }
+    };
+
     _proto2._getDatePickerTemplate = function _getDatePickerTemplate() {
-      var headTemplate = $('<thead>').append($('<tr>').append($('<th>').addClass('prev').attr('data-action', 'previous').append($('<span>').addClass(this._options.icons.previous))).append($('<th>').addClass('picker-switch').attr('data-action', 'pickerSwitch').attr('colspan', "" + (this._options.calendarWeeks ? '6' : '5'))).append($('<th>').addClass('next').attr('data-action', 'next').append($('<span>').addClass(this._options.icons.next)))),
+      var headTemplate = $('<thead>').append($('<tr>').append($('<th>').addClass('prev').attr('data-action', 'previous').append(this._iconTag(this._options.icons.previous))).append($('<th>').addClass('picker-switch').attr('data-action', 'pickerSwitch').attr('colspan', "" + (this._options.calendarWeeks ? '6' : '5'))).append($('<th>').addClass('next').attr('data-action', 'next').append(this._iconTag(this._options.icons.next)))),
           contTemplate = $('<tbody>').append($('<tr>').append($('<td>').attr('colspan', "" + (this._options.calendarWeeks ? '8' : '7'))));
       return [$('<div>').addClass('datepicker-days').append($('<table>').addClass('table table-sm').append(headTemplate).append($('<tbody>'))), $('<div>').addClass('datepicker-months').append($('<table>').addClass('table-condensed').append(headTemplate.clone()).append(contTemplate.clone())), $('<div>').addClass('datepicker-years').append($('<table>').addClass('table-condensed').append(headTemplate.clone()).append(contTemplate.clone())), $('<div>').addClass('datepicker-decades').append($('<table>').addClass('table-condensed').append(headTemplate.clone()).append(contTemplate.clone()))];
     };
@@ -2036,7 +2050,7 @@ var TempusDominusBootstrap4 = function ($) {
           href: '#',
           tabindex: '-1',
           'title': this._options.tooltips.incrementHour
-        }).addClass('btn').attr('data-action', 'incrementHours').append($('<span>').addClass(this._options.icons.up))));
+        }).addClass('btn').attr('data-action', 'incrementHours').append(this._iconTag(this._options.icons.up))));
         middleRow.append($('<td>').append($('<span>').addClass('timepicker-hour').attr({
           'data-time-component': 'hours',
           'title': this._options.tooltips.pickHour
@@ -2045,7 +2059,7 @@ var TempusDominusBootstrap4 = function ($) {
           href: '#',
           tabindex: '-1',
           'title': this._options.tooltips.decrementHour
-        }).addClass('btn').attr('data-action', 'decrementHours').append($('<span>').addClass(this._options.icons.down))));
+        }).addClass('btn').attr('data-action', 'decrementHours').append(this._iconTag(this._options.icons.down))));
       }
 
       if (this._isEnabled('m')) {
@@ -2059,7 +2073,7 @@ var TempusDominusBootstrap4 = function ($) {
           href: '#',
           tabindex: '-1',
           'title': this._options.tooltips.incrementMinute
-        }).addClass('btn').attr('data-action', 'incrementMinutes').append($('<span>').addClass(this._options.icons.up))));
+        }).addClass('btn').attr('data-action', 'incrementMinutes').append(this._iconTag(this._options.icons.up))));
         middleRow.append($('<td>').append($('<span>').addClass('timepicker-minute').attr({
           'data-time-component': 'minutes',
           'title': this._options.tooltips.pickMinute
@@ -2068,7 +2082,7 @@ var TempusDominusBootstrap4 = function ($) {
           href: '#',
           tabindex: '-1',
           'title': this._options.tooltips.decrementMinute
-        }).addClass('btn').attr('data-action', 'decrementMinutes').append($('<span>').addClass(this._options.icons.down))));
+        }).addClass('btn').attr('data-action', 'decrementMinutes').append(this._iconTag(this._options.icons.down))));
       }
 
       if (this._isEnabled('s')) {
@@ -2082,7 +2096,7 @@ var TempusDominusBootstrap4 = function ($) {
           href: '#',
           tabindex: '-1',
           'title': this._options.tooltips.incrementSecond
-        }).addClass('btn').attr('data-action', 'incrementSeconds').append($('<span>').addClass(this._options.icons.up))));
+        }).addClass('btn').attr('data-action', 'incrementSeconds').append(this._iconTag(this._options.icons.up))));
         middleRow.append($('<td>').append($('<span>').addClass('timepicker-second').attr({
           'data-time-component': 'seconds',
           'title': this._options.tooltips.pickSecond
@@ -2091,7 +2105,7 @@ var TempusDominusBootstrap4 = function ($) {
           href: '#',
           tabindex: '-1',
           'title': this._options.tooltips.decrementSecond
-        }).addClass('btn').attr('data-action', 'decrementSeconds').append($('<span>').addClass(this._options.icons.down))));
+        }).addClass('btn').attr('data-action', 'decrementSeconds').append(this._iconTag(this._options.icons.down))));
       }
 
       if (!this.use24Hours) {
@@ -2137,7 +2151,7 @@ var TempusDominusBootstrap4 = function ($) {
           tabindex: '-1',
           'data-action': 'today',
           'title': this._options.tooltips.today
-        }).append($('<span>').addClass(this._options.icons.today))));
+        }).append(this._iconTag(this._options.icons.today))));
       }
 
       if (!this._options.sideBySide && this._options.collapse && this._hasDate() && this._hasTime()) {
@@ -2156,7 +2170,7 @@ var TempusDominusBootstrap4 = function ($) {
           tabindex: '-1',
           'data-action': 'togglePicker',
           'title': title
-        }).append($('<span>').addClass(icon))));
+        }).append(this._iconTag(icon))));
       }
 
       if (this._options.buttons.showClear) {
@@ -2165,7 +2179,7 @@ var TempusDominusBootstrap4 = function ($) {
           tabindex: '-1',
           'data-action': 'clear',
           'title': this._options.tooltips.clear
-        }).append($('<span>').addClass(this._options.icons.clear))));
+        }).append(this._iconTag(this._options.icons.clear))));
       }
 
       if (this._options.buttons.showClose) {
@@ -2174,18 +2188,18 @@ var TempusDominusBootstrap4 = function ($) {
           tabindex: '-1',
           'data-action': 'close',
           'title': this._options.tooltips.close
-        }).append($('<span>').addClass(this._options.icons.close))));
+        }).append(this._iconTag(this._options.icons.close))));
       }
 
       return row.length === 0 ? '' : $('<table>').addClass('table-condensed').append($('<tbody>').append($('<tr>').append(row)));
     };
 
     _proto2._getTemplate = function _getTemplate() {
-      var template = $('<div>').addClass(("bootstrap-datetimepicker-widget dropdown-menu " + (this._options.calendarWeeks ? 'tempusdominus-bootstrap-datetimepicker-widget-with-calendar-weeks' : '')).trim()),
+      var template = $('<div>').addClass(("bootstrap-datetimepicker-widget dropdown-menu " + (this._options.calendarWeeks ? 'tempusdominus-bootstrap-datetimepicker-widget-with-calendar-weeks' : '') + " " + ((this._useFeatherIcons() ? 'tempusdominus-bootstrap-datetimepicker-widget-with-feather-icons' : '') + " ")).trim()),
           dateView = $('<div>').addClass('datepicker').append(this._getDatePickerTemplate()),
           timeView = $('<div>').addClass('timepicker').append(this._getTimePickerTemplate()),
           content = $('<ul>').addClass('list-unstyled'),
-          toolbar = $('<li>').addClass("picker-switch" + (this._options.collapse ? ' accordion-toggle' : '')).append(this._getToolbar());
+          toolbar = $('<li>').addClass(("picker-switch" + (this._options.collapse ? ' accordion-toggle' : '') + " " + ("" + (this._useFeatherIcons() ? 'picker-switch-with-feathers-icons' : ''))).trim()).append(this._getToolbar());
 
       if (this._options.inline) {
         template.removeClass('dropdown-menu');
@@ -2923,7 +2937,7 @@ var TempusDominusBootstrap4 = function ($) {
                 expanded = $parent.find('.show'),
                 closed = $parent.find('.collapse:not(.show)'),
                 $span = $this.is('span') ? $this : $this.find('span');
-            var collapseData;
+            var collapseData, inactiveIcon, iconTest;
 
             if (expanded && expanded.length) {
               collapseData = expanded.data('collapse');
@@ -2942,9 +2956,21 @@ var TempusDominusBootstrap4 = function ($) {
                 closed.addClass('show');
               }
 
-              $span.toggleClass(this._options.icons.time + ' ' + this._options.icons.date);
+              if (this._useFeatherIcons()) {
+                $link.toggleClass(this._options.icons.time + ' ' + this._options.icons.date);
+                inactiveIcon = $link.hasClass(this._options.icons.time) ? this._options.icons.date : this._options.icons.time;
+                $link.html(this._iconTag(inactiveIcon));
+              } else {
+                $span.toggleClass(this._options.icons.time + ' ' + this._options.icons.date);
+              }
 
-              if ($span.hasClass(this._options.icons.date)) {
+              if (this._useFeatherIcons()) {
+                iconTest = $link.hasClass(this._options.icons.date);
+              } else {
+                iconTest = $span.hasClass(this._options.icons.date);
+              }
+
+              if (iconTest) {
                 $link.attr('title', this._options.tooltips.selectDate);
               } else {
                 $link.attr('title', this._options.tooltips.selectTime);

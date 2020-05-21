@@ -45,9 +45,17 @@ body.tempusdominus-bootstrap-datetimepicker-widget-day-click {
         margin: 2px 0;
         padding: 4px;
         width: 14rem;
+
+        &.tempusdominus-bootstrap-datetimepicker-widget-with-feather-icons {
+          width: 16rem;
+        }
         
         &.tempusdominus-bootstrap-datetimepicker-widget-with-calendar-weeks {
           width: 16rem;
+
+          &.tempusdominus-bootstrap-datetimepicker-widget-with-feather-icons {
+            width: 17rem;
+          }
         }
 
         &.timepicker-sbs {
@@ -148,6 +156,13 @@ body.tempusdominus-bootstrap-datetimepicker-widget-day-click {
         padding: 6px;
     }
 
+    .btn[data-action="togglePeriod"] {
+        text-align: center;
+        font-family: Arial, sans-serif, -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        width: 38px;
+        height: 38px;
+    }
+
     .btn[data-action="incrementHours"]::after {
         @extend .sr-only;
         content: "Increment Hours";
@@ -212,6 +227,15 @@ body.tempusdominus-bootstrap-datetimepicker-widget-day-click {
                 line-height: 2.5;
                 height: 2.5em;
                 width: 100%;
+            }
+        }
+
+        &.picker-switch-with-feathers-icons {
+            td {
+                span {
+                  line-height: 2.8;
+                  height: 2.8em;
+                }
             }
         }
     }
@@ -333,7 +357,8 @@ body.tempusdominus-bootstrap-datetimepicker-widget-day-click {
                 width: 54px;
                 height: 54px;
                 line-height: 54px;
-                margin: 2px 1.5px;
+                margin-top: 2px;
+                margin-bottom: 2px;
                 cursor: pointer;
                 border-radius: $bs-datetimepicker-border-radius;
 

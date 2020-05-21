@@ -165,6 +165,17 @@ var DateTimePicker = function ($, moment) {
     multidateSeparator: -2,
     updateOnlyThroughDateOption: -1,
     date: 1
+  },
+      defaultFeatherIcons = {
+    time: 'clock',
+    date: 'calendar',
+    up: 'arrow-up',
+    down: 'arrow-down',
+    previous: 'arrow-left',
+    next: 'arrow-right',
+    today: 'arrow-down-circle',
+    clear: 'trash-2',
+    close: 'x'
   };
 
   function optionsSortFn(optionKeyA, optionKeyB) {
@@ -202,6 +213,7 @@ var DateTimePicker = function ($, moment) {
     disabledDates: false,
     enabledDates: false,
     icons: {
+      type: 'class',
       time: 'fa fa-clock-o',
       date: 'fa fa-calendar',
       up: 'fa fa-arrow-up',
@@ -690,7 +702,9 @@ var DateTimePicker = function ($, moment) {
     ;
 
     _proto._getOptions = function _getOptions(options) {
-      options = $.extend(true, {}, Default, options);
+      options = $.extend(true, {}, Default, options.icons && options.icons.type === 'feather' ? {
+        icons: defaultFeatherIcons
+      } : {}, options);
       return options;
     };
 
@@ -1867,6 +1881,10 @@ var DateTimePicker = function ($, moment) {
 
     _proto._fillDate = function _fillDate() {};
 
+    _proto._useFeatherIcons = function _useFeatherIcons() {
+      return this._options.icons.type === 'feather';
+    };
+
     _proto.allowMultidate = function allowMultidate(_allowMultidate) {
       if (typeof _allowMultidate !== 'boolean') {
         throw new TypeError('allowMultidate() expects a boolean parameter');
@@ -2020,10 +2038,6 @@ var TempusDominusBootstrap4 = function ($) {
           this.component = datepickerButton;
         }
       }
-    };
-
-    _proto2._useFeatherIcons = function _useFeatherIcons() {
-      return this._options.icons.type === 'feather';
     };
 
     _proto2._iconTag = function _iconTag(iconName) {

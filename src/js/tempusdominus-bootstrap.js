@@ -50,7 +50,7 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
         }
 
         _iconTag(iconName) {
-            if (typeof feather !== 'undefined' && this._useFeatherIcons()) {
+            if (typeof feather !== 'undefined' && this._useFeatherIcons() && feather.icons[iconName]) {
                 return $('<span>').html(feather.icons[iconName].toSvg());
             }
             else {

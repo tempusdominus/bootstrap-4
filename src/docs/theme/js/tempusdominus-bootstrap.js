@@ -2027,7 +2027,7 @@ var TempusDominusBootstrap4 = function ($) {
     };
 
     _proto2._iconTag = function _iconTag(iconName) {
-      if (typeof feather !== 'undefined' && this._useFeatherIcons()) {
+      if (typeof feather !== 'undefined' && this._useFeatherIcons() && feather.icons[iconName]) {
         return $('<span>').html(feather.icons[iconName].toSvg());
       } else {
         return $('<span>').addClass(iconName);

@@ -44,8 +44,13 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
             }
         }
 
+        _iconTag = function _iconTag(icon_name) {
+            if (typeof feather !== 'undefined' && this._options.icons.type === 'feather') return $('<span>').html(feather.icons[icon_name].toSvg());
+            else return $('<span>').addClass(icon_name);
+        }
+
         _getDatePickerTemplate() {
-            const headTemplate = $('<thead>').append($('<tr>').append($('<th>').addClass('prev').attr('data-action', 'previous').append($('<span>').addClass(this._options.icons.previous))).append($('<th>').addClass('picker-switch').attr('data-action', 'pickerSwitch').attr('colspan', `${this._options.calendarWeeks ? '6' : '5'}`)).append($('<th>').addClass('next').attr('data-action', 'next').append($('<span>').addClass(this._options.icons.next)))),
+            const headTemplate = $('<thead>').append($('<tr>').append($('<th>').addClass('prev').attr('data-action', 'previous').append(this._iconTag(this._options.icons.previous))).append($('<th>').addClass('picker-switch').attr('data-action', 'pickerSwitch').attr('colspan', `${this._options.calendarWeeks ? '6' : '5'}`)).append($('<th>').addClass('next').attr('data-action', 'next').append(this._iconTag(this._options.icons.next)))),
                 contTemplate = $('<tbody>').append($('<tr>').append($('<td>').attr('colspan', `${this._options.calendarWeeks ? '8' : '7'}`)));
 
             return [$('<div>').addClass('datepicker-days').append($('<table>').addClass('table table-sm').append(headTemplate).append($('<tbody>'))), $('<div>').addClass('datepicker-months').append($('<table>').addClass('table-condensed').append(headTemplate.clone()).append(contTemplate.clone())), $('<div>').addClass('datepicker-years').append($('<table>').addClass('table-condensed').append(headTemplate.clone()).append(contTemplate.clone())), $('<div>').addClass('datepicker-decades').append($('<table>').addClass('table-condensed').append(headTemplate.clone()).append(contTemplate.clone()))];
@@ -61,7 +66,7 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
                     href: '#',
                     tabindex: '-1',
                     'title': this._options.tooltips.incrementHour
-                }).addClass('btn').attr('data-action', 'incrementHours').append($('<span>').addClass(this._options.icons.up))));
+                }).addClass('btn').attr('data-action', 'incrementHours').append(this._iconTag(this._options.icons.up))));
                 middleRow.append($('<td>').append($('<span>').addClass('timepicker-hour').attr({
                     'data-time-component': 'hours',
                     'title': this._options.tooltips.pickHour
@@ -70,7 +75,7 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
                     href: '#',
                     tabindex: '-1',
                     'title': this._options.tooltips.decrementHour
-                }).addClass('btn').attr('data-action', 'decrementHours').append($('<span>').addClass(this._options.icons.down))));
+                }).addClass('btn').attr('data-action', 'decrementHours').append(this._iconTag(this._options.icons.down))));
             }
             if (this._isEnabled('m')) {
                 if (this._isEnabled('h')) {
@@ -82,7 +87,7 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
                     href: '#',
                     tabindex: '-1',
                     'title': this._options.tooltips.incrementMinute
-                }).addClass('btn').attr('data-action', 'incrementMinutes').append($('<span>').addClass(this._options.icons.up))));
+                }).addClass('btn').attr('data-action', 'incrementMinutes').append(this._iconTag(this._options.icons.up))));
                 middleRow.append($('<td>').append($('<span>').addClass('timepicker-minute').attr({
                     'data-time-component': 'minutes',
                     'title': this._options.tooltips.pickMinute
@@ -91,7 +96,7 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
                     href: '#',
                     tabindex: '-1',
                     'title': this._options.tooltips.decrementMinute
-                }).addClass('btn').attr('data-action', 'decrementMinutes').append($('<span>').addClass(this._options.icons.down))));
+                }).addClass('btn').attr('data-action', 'decrementMinutes').append(this._iconTag(this._options.icons.down))));
             }
             if (this._isEnabled('s')) {
                 if (this._isEnabled('m')) {
@@ -103,7 +108,7 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
                     href: '#',
                     tabindex: '-1',
                     'title': this._options.tooltips.incrementSecond
-                }).addClass('btn').attr('data-action', 'incrementSeconds').append($('<span>').addClass(this._options.icons.up))));
+                }).addClass('btn').attr('data-action', 'incrementSeconds').append(this._iconTag(this._options.icons.up))));
                 middleRow.append($('<td>').append($('<span>').addClass('timepicker-second').attr({
                     'data-time-component': 'seconds',
                     'title': this._options.tooltips.pickSecond
@@ -112,7 +117,7 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
                     href: '#',
                     tabindex: '-1',
                     'title': this._options.tooltips.decrementSecond
-                }).addClass('btn').attr('data-action', 'decrementSeconds').append($('<span>').addClass(this._options.icons.down))));
+                }).addClass('btn').attr('data-action', 'decrementSeconds').append(this._iconTag(this._options.icons.down))));
             }
 
             if (!this.use24Hours) {
@@ -155,7 +160,7 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
                     tabindex: '-1',
                     'data-action': 'today',
                     'title': this._options.tooltips.today
-                }).append($('<span>').addClass(this._options.icons.today))));
+                }).append(this._iconTag(this._options.icons.today))));
             }
             if (!this._options.sideBySide && this._options.collapse && this._hasDate() && this._hasTime()) {
                 let title, icon;
@@ -171,7 +176,7 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
                     tabindex: '-1',
                     'data-action': 'togglePicker',
                     'title': title
-                }).append($('<span>').addClass(icon))));
+                }).append(this._iconTag(icon))));
             }
             if (this._options.buttons.showClear) {
                 row.push($('<td>').append($('<a>').attr({
@@ -179,7 +184,7 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
                     tabindex: '-1',
                     'data-action': 'clear',
                     'title': this._options.tooltips.clear
-                }).append($('<span>').addClass(this._options.icons.clear))));
+                }).append(this._iconTag(this._options.icons.clear))));
             }
             if (this._options.buttons.showClose) {
                 row.push($('<td>').append($('<a>').attr({
@@ -187,7 +192,7 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
                     tabindex: '-1',
                     'data-action': 'close',
                     'title': this._options.tooltips.close
-                }).append($('<span>').addClass(this._options.icons.close))));
+                }).append(this._iconTag(this._options.icons.close))));
             }
             return row.length === 0 ? '' : $('<table>').addClass('table-condensed').append($('<tbody>').append($('<tr>').append(row)));
         }
@@ -838,9 +843,12 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
                                 expanded.removeClass('show');
                                 closed.addClass('show');
                             }
-                            $span.toggleClass(this._options.icons.time + ' ' + this._options.icons.date);
 
-                            if ($span.hasClass(this._options.icons.date)) {
+                            $link.toggleClass(this._options.icons.time + ' ' + this._options.icons.date);
+                            inactiveIcon = ($link.hasClass(this._options.icons.time))? this._options.icons.date:this._options.icons.time;
+                            $link.html(this._iconTag(inactiveIcon));
+
+                            if ($link.hasClass(this._options.icons.date)) {
                                 $link.attr('title', this._options.tooltips.selectDate);
                             } else {
                                 $link.attr('title', this._options.tooltips.selectTime);

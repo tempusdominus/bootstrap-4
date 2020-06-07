@@ -3331,6 +3331,16 @@ var TempusDominusBootstrap4 = function ($) {
         this.hide();
         this.show();
       }
+    };
+
+    _proto2.setMultiDate = function setMultiDate(multiDateArray) {
+      var dateFormat = this._options.format;
+
+      for (var index = 0; index < multiDateArray.length; index++) {
+        var date = moment(multiDateArray[index], dateFormat);
+
+        this._setValue(date, index);
+      }
     } //static
     ;
 

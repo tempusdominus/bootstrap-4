@@ -12,3 +12,4 @@ site
 /index.html
 /test.html
 /npm-debug.log
+private_local_dir/**

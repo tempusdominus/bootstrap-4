@@ -1,3 +1,11 @@
+# tempusdominus-bootstrap
+
+This package is a fork of the original [tempusdominus/bootstrap-4](https://github.com/tempusdominus/bootstrap-4) repo.
+
+This fork includes bugfixes and comes with updated NPM packages.
+
+The original README.md follows below this paragraph.
+
 # Tempus Dominus Bootstrap 4
 ![GitHub version](https://badge.fury.io/gh/tempusdominus%2Fbootstrap-3-datetimepicker.png)
 

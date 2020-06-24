@@ -1,8 +1,8 @@
 site_name: Tempus Dominus - Bootstrap 4
 repo_url: https://github.com/tempusdominus/bootstrap-4-datetimepicker
 edit_uri: edit/master/src/docs/
-extra_javascript: ['theme\js\base.js','//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js','theme\js\tempusdominus-bootstrap-4.js']
-extra_css: ['theme\css\base.css','//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/github.min.css','theme\css\tempusdominus-bootstrap-4.css']
+extra_javascript: ['theme\js\base.js','//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js','theme\js\tempusdominus-bootstrap.js']
+extra_css: ['theme\css\base.css','//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/github.min.css','theme\css\tempusdominus-bootstrap.css']
 docs_dir: src/docs
 site_dir: docs
 theme_dir: src/docs/theme

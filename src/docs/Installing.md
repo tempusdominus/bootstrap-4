@@ -19,8 +19,8 @@
 ## CDN
 ```html
 <head>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/js/tempusdominus-bootstrap-4.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/css/tempusdominus-bootstrap-4.min.css" />
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap/5.0.0-alpha14/js/tempusdominus-bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap/5.0.0-alpha14/css/tempusdominus-bootstrap.min.css" />
 </head>
 ```
 
@@ -32,8 +32,8 @@ Rails 5.1 Support - [Bootstrap 4 Datetime Picker Rails](https://github.com/Bialo
 
 1. Add `gem 'bootstrap4-datetime-picker-rails'` to your `Gemfile`
 2. Execute `bundle`
-3. Add `//= require tempusdominus-bootstrap-4.js` to your `application.js`
-4. Add `@import "tempusdominus-bootstrap-4.css"` to your `application.scss`
+3. Add `//= require tempusdominus-bootstrap.js` to your `application.js`
+4. Add `@import "tempusdominus-bootstrap.css"` to your `application.scss`
 
 ### Django
 
@@ -59,7 +59,7 @@ Need new wrapper for this version.
 ```html
 <script type="text/javascript" src="/path/to/jquery.js"></script>
 <script type="text/javascript" src="/path/to/moment.js"></script>
-<script type="text/javascript" src="/path/to/tempusdominus-bootstrap-4.min.js"></script>
+<script type="text/javascript" src="/path/to/tempusdominus-bootstrap.min.js"></script>
 ```
 
 ## Knockout

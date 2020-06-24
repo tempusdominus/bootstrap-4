@@ -29,7 +29,7 @@
 		<p>Include Tempus Dominus's source Sass and JavaScript files via npm</p>
 		<pre>
 <code>
-npm i tempusdominus-bootstrap-4
+npm i tempusdominus-bootstrap
 </code>
 		</pre>
 		<hr class="half-rule"/>
@@ -43,8 +43,8 @@ npm i tempusdominus-bootstrap-4
 <code>
 &lt;script type=&quot;text/javascript&quot; src=&quot;https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js&quot;&gt;&lt;/script&gt;
 &lt;script type=&quot;text/javascript&quot; src=&quot;https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js&quot;&gt;&lt;/script&gt;
-&lt;script type=&quot;text/javascript&quot; src=&quot;https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js&quot;&gt;&lt;/script&gt;
-&lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css&quot; /&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap/5.0.1/js/tempusdominus-bootstrap.min.js&quot;&gt;&lt;/script&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap/5.0.1/css/tempusdominus-bootstrap.min.css&quot; /&gt;
 </code>
 		</pre>
 		<hr class="half-rule"/>

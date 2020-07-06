@@ -45,7 +45,7 @@
     "publish-minor": "npm version minor && npm run build && ((npm run git-add-cm -- \"Next minor version\" 2>/dev/null) || echo) && npm publish && git push && git push --tags",
     "publish-major": "npm version major && npm run build && ((npm run git-add-cm -- \"Next major version\" 2>/dev/null) || echo) && npm publish && git push && git push --tags"
   },
-  "description": "A date/time picker component designed to work with Bootstrap 4 and Momentjs. For usage, installation and demos see Project Site on GitHub",
+  "description": "A date/time picker component designed to work with Bootstrap 4 and Momentjs.",
   "devDependencies": {
     "@babel/core": "^7.10.3",
     "@babel/preset-env": "^7.10.3",

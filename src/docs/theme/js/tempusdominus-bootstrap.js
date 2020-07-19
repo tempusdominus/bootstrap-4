@@ -1,5 +1,5 @@
 /*!@preserve
- * Tempus Dominus Bootstrap4 v5.21.1 (https://tempusdominus.github.io/bootstrap-4/)
+ * Tempus Dominus Bootstrap4 v5.27.1 ()
  * Copyright 2016-2020 Jonathan Peterson and contributors
  * Licensed under MIT (https://github.com/tempusdominus/bootstrap-3/blob/master/LICENSE)
  */
@@ -440,7 +440,9 @@ var DateTimePicker = function ($, moment) {
     viewDate: false,
     allowMultidate: false,
     multidateSeparator: ', ',
-    updateOnlyThroughDateOption: false
+    updateOnlyThroughDateOption: false,
+    promptTimeOnDateChange: false,
+    promptTimeOnDateChangeTransitionDelay: 200
   }; // ReSharper restore InconsistentNaming
   // ReSharper disable once DeclarationHides
   // ReSharper disable once InconsistentNaming
@@ -469,6 +471,7 @@ var DateTimePicker = function ($, moment) {
       this.hasInitDate = false;
       this.initDate = void 0;
       this._notifyChangeEventContext = void 0;
+      this._currentPromptTimeTimeout = null;
 
       this._int();
     }
@@ -702,7 +705,7 @@ var DateTimePicker = function ($, moment) {
     ;
 
     _proto._getOptions = function _getOptions(options) {
-      options = $.extend(true, {}, Default, options.icons && options.icons.type === 'feather' ? {
+      options = $.extend(true, {}, Default, options && options.icons && options.icons.type === 'feather' ? {
         icons: defaultFeatherIcons
       } : {}, options);
       return options;
@@ -794,11 +797,34 @@ var DateTimePicker = function ($, moment) {
           this._notifyChangeEventContext = void 0;
           return;
         }
+
+        this._handlePromptTimeIfNeeded(e);
       }
 
       this._element.trigger(e);
 
       this._notifyChangeEventContext = void 0;
+    };
+
+    _proto._handlePromptTimeIfNeeded = function _handlePromptTimeIfNeeded(e) {
+      if (this._options.promptTimeOnDateChange) {
+        if (!e.oldDate && this._options.useCurrent) {
+          // First time ever. If useCurrent option is set to true (default), do nothing
+          // because the first date is selected automatically.
+          return;
+        } else if (e.oldDate && e.date && (e.oldDate.format('YYYY-MM-DD') === e.date.format('YYYY-MM-DD') || e.oldDate.format('YYYY-MM-DD') !== e.date.format('YYYY-MM-DD') && e.oldDate.format('HH:mm:ss') !== e.date.format('HH:mm:ss'))) {
+          // Date didn't change (time did) or date changed because time did.
+          return;
+        }
+
+        var that = this;
+        clearTimeout(this._currentPromptTimeTimeout);
+        this._currentPromptTimeTimeout = setTimeout(function () {
+          if (that.widget) {
+            that.widget.find('[data-action="togglePicker"]').click();
+          }
+        }, this._options.promptTimeOnDateChangeTransitionDelay);
+      }
     };
 
     _proto._viewUpdate = function _viewUpdate(e) {
@@ -3330,6 +3356,16 @@ var TempusDominusBootstrap4 = function ($) {
       if (this.widget) {
         this.hide();
         this.show();
+      }
+    };
+
+    _proto2.setMultiDate = function setMultiDate(multiDateArray) {
+      var dateFormat = this._options.format;
+
+      for (var index = 0; index < multiDateArray.length; index++) {
+        var date = moment(multiDateArray[index], dateFormat);
+
+        this._setValue(date, index);
       }
     } //static
     ;

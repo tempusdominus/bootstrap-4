@@ -7,7 +7,7 @@
     "Anton Bagdatyev (Tonix)"
   ],
   "bugs": {
-    "url": "https://github.com/tempusdominus/bootstrap-4/issues"
+    "url": "https://github.com/tonix-tuft/tempusdominus-bootstrap/pulls"
   },
   "dependencies": {
     "bootstrap": "^4.5.0",
@@ -39,18 +39,19 @@
     "test": "npm run eslint && grunt test",
     "watch": "./node_modules/.bin/onchange './src/js/**' './src/sass/**' -- npm run build",
     "build": "grunt build:travis",
+    "build-all": "npm run build",
     "git-add-cm": "git add . && git commit -am",
     "publish-patch": "npm version patch && npm run build && ((npm run git-add-cm -- \"Next patch version\" 2>/dev/null) || echo) && npm publish && git push && git push --tags",
     "publish-minor": "npm version minor && npm run build && ((npm run git-add-cm -- \"Next minor version\" 2>/dev/null) || echo) && npm publish && git push && git push --tags",
     "publish-major": "npm version major && npm run build && ((npm run git-add-cm -- \"Next major version\" 2>/dev/null) || echo) && npm publish && git push && git push --tags"
   },
-  "description": "A date/time picker component designed to work with Bootstrap 4 and Momentjs. For usage, installation and demos see Project Site on GitHub",
+  "description": "A date/time picker component designed to work with Bootstrap 4 and Momentjs.",
   "devDependencies": {
-    "@babel/core": "^7.9.6",
-    "@babel/preset-env": "^7.9.6",
-    "autoprefixer": "^9.8.0",
+    "@babel/core": "^7.10.4",
+    "@babel/preset-env": "^7.10.4",
+    "autoprefixer": "^9.8.4",
     "babel-plugin-transform-es2015-modules-strip": "^0.1.1",
-    "grunt": "^1.1.0",
+    "grunt": "^1.2.1",
     "grunt-babel": "^8.0.0",
     "grunt-contrib-concat": "^1.0.1",
     "grunt-contrib-cssmin": "^3.0.0",
@@ -69,10 +70,9 @@
     "moment-timezone": "^0.5.31",
     "node-sass": "^4.14.1",
     "onchange": "^7.0.2",
-    "tempusdominus": "^5.11.1",
-    "uglify-js": "^3.9.3"
+    "tempusdominus": "^5.15.1",
+    "uglify-js": "^3.10.0"
   },
-  "homepage": "https://tempusdominus.github.io/bootstrap-4/",
   "keywords": [
     "bootstrap",
     "datepicker",
@@ -82,9 +82,9 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/tempusdominus/bootstrap-4.git"
+    "url": "https://github.com/tonix-tuft/tempusdominus-bootstrap"
   },
-  "version": "5.21.1",
+  "version": "5.27.1",
   "files": [
     "build",
     "src/js/**/*.js",

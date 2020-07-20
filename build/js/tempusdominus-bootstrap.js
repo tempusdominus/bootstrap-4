@@ -1,5 +1,5 @@
 /*!@preserve
- * Tempus Dominus Bootstrap4 v5.27.1 ()
+ * Tempus Dominus Bootstrap4 v5.27.2 ()
  * Copyright 2016-2020 Jonathan Peterson and contributors
  * Licensed under MIT (https://github.com/tempusdominus/bootstrap-3/blob/master/LICENSE)
  */
@@ -3361,6 +3361,7 @@ var TempusDominusBootstrap4 = function ($) {
 
     _proto2.setMultiDate = function setMultiDate(multiDateArray) {
       var dateFormat = this._options.format;
+      this.clear();
 
       for (var index = 0; index < multiDateArray.length; index++) {
         var date = moment(multiDateArray[index], dateFormat);

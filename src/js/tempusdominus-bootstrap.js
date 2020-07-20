@@ -1170,6 +1170,7 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
 
         setMultiDate(multiDateArray) {
             var dateFormat = this._options.format;
+            this.clear();
             for (let index = 0; index < multiDateArray.length; index++) {
                 let date = moment(multiDateArray[index], dateFormat);
                 this._setValue(date, index);

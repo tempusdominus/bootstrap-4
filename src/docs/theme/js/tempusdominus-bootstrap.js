@@ -1,5 +1,5 @@
 /*!@preserve
- * Tempus Dominus Bootstrap4 v5.27.2 ()
+ * Tempus Dominus Bootstrap4 v5.27.3 ()
  * Copyright 2016-2020 Jonathan Peterson and contributors
  * Licensed under MIT (https://github.com/tempusdominus/bootstrap-3/blob/master/LICENSE)
  */
@@ -3141,7 +3141,7 @@ var TempusDominusBootstrap4 = function ($) {
       }
 
       this.widget.hide();
-      $(window).off('resize', this._place());
+      $(window).off('resize', this._place);
       this.widget.off('click', '[data-action]');
       this.widget.off('mousedown', false);
       this.widget.remove();

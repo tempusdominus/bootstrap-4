@@ -979,7 +979,7 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
             }
             this.widget.hide();
 
-            $(window).off('resize', this._place());
+            $(window).off('resize', this._place);
             this.widget.off('click', '[data-action]');
             this.widget.off('mousedown', false);
 

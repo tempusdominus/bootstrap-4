@@ -2,7 +2,7 @@
 
 This package is a fork of the original [tempusdominus/bootstrap-4](https://github.com/tempusdominus/bootstrap-4) repo.
 
-This fork includes bugfixes, new features, and comes with updated NPM packages.
+This fork includes bugfixes, new features, and comes with updated NPM packages ([JSFiddle](https://jsfiddle.net/kpsoqdnr/3/)).
 
 The original README.md follows below this paragraph.
 

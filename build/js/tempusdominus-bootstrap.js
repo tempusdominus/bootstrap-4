@@ -3147,6 +3147,12 @@ var TempusDominusBootstrap4 = function ($) {
       this.widget.remove();
       this.widget = false;
 
+      if (this.input !== undefined && this.input.val() !== undefined && this.input.val().trim().length !== 0) {
+        this._setValue(this._parseInputDate(this.input.val().trim(), {
+          isPickerShow: false
+        }), 0);
+      }
+
       var lastPickedDate = this._getLastPickedDate();
 
       this._notifyEvent({
@@ -3162,7 +3168,8 @@ var TempusDominusBootstrap4 = function ($) {
     };
 
     _proto2.show = function show() {
-      var currentMoment;
+      var currentMoment,
+          shouldUseCurrentIfUnset = false;
       var useCurrentGranularity = {
         'year': function year(m) {
           return m.month(0).date(1).hours(0).seconds(0).minutes(0);
@@ -3190,16 +3197,14 @@ var TempusDominusBootstrap4 = function ($) {
           this._setValue(this._parseInputDate(this.input.val().trim(), {
             isPickerShow: true
           }), 0);
-        } else if (this.unset && this._options.useCurrent) {
-          currentMoment = this.getMoment();
-
-          if (typeof this._options.useCurrent === 'string') {
-            currentMoment = useCurrentGranularity[this._options.useCurrent](currentMoment);
-          }
-
-          this._setValue(currentMoment, 0);
+        } else {
+          shouldUseCurrentIfUnset = true;
         }
-      } else if (this.unset && this._options.useCurrent) {
+      } else {
+        shouldUseCurrentIfUnset = true;
+      }
+
+      if (shouldUseCurrentIfUnset && this.unset && this._options.useCurrent) {
         currentMoment = this.getMoment();
 
         if (typeof this._options.useCurrent === 'string') {

@@ -986,6 +986,11 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
             this.widget.remove();
             this.widget = false;
 
+            if (this.input !== undefined && this.input.val() !== undefined && this.input.val().trim().length !== 0) {
+                this._setValue(this._parseInputDate(this.input.val().trim(), {
+                    isPickerShow: false
+                }), 0);
+            }
             const lastPickedDate = this._getLastPickedDate();
             this._notifyEvent({
                 type: DateTimePicker.Event.HIDE,
@@ -1000,7 +1005,7 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
         }
 
         show() {
-            let currentMoment;
+            let currentMoment, shouldUseCurrentIfUnset = false;
             const useCurrentGranularity = {
                 'year': function (m) {
                     return m.month(0).date(1).hours(0).seconds(0).minutes(0);
@@ -1027,14 +1032,15 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
                     this._setValue(this._parseInputDate(this.input.val().trim(), {
                         isPickerShow: true
                     }), 0);
-                } else if (this.unset && this._options.useCurrent) {
-                    currentMoment = this.getMoment();
-                    if (typeof this._options.useCurrent === 'string') {
-                        currentMoment = useCurrentGranularity[this._options.useCurrent](currentMoment);
-                    }
-                    this._setValue(currentMoment, 0);
+                } else {
+                    shouldUseCurrentIfUnset = true
                 }
-            } else if (this.unset && this._options.useCurrent) {
+            }
+            else {
+              shouldUseCurrentIfUnset = true;
+            }
+
+            if (shouldUseCurrentIfUnset && this.unset && this._options.useCurrent) {
                 currentMoment = this.getMoment();
                 if (typeof this._options.useCurrent === 'string') {
                     currentMoment = useCurrentGranularity[this._options.useCurrent](currentMoment);

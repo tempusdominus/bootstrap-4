@@ -10,7 +10,7 @@
     "url": "https://github.com/tonix-tuft/tempusdominus-bootstrap/pulls"
   },
   "dependencies": {
-    "bootstrap": "^4.5.0",
+    "bootstrap": "^4.5.2",
     "jquery": "^3.5.1",
     "moment": "~2.24.0",
     "popper.js": "^1.16.1"
@@ -47,9 +47,9 @@
   },
   "description": "A date/time picker component designed to work with Bootstrap 4 and Momentjs.",
   "devDependencies": {
-    "@babel/core": "^7.10.4",
-    "@babel/preset-env": "^7.10.4",
-    "autoprefixer": "^9.8.4",
+    "@babel/core": "^7.11.1",
+    "@babel/preset-env": "^7.11.0",
+    "autoprefixer": "^9.8.6",
     "babel-plugin-transform-es2015-modules-strip": "^0.1.1",
     "grunt": "^1.2.1",
     "grunt-babel": "^8.0.0",
@@ -71,7 +71,7 @@
     "node-sass": "^4.14.1",
     "onchange": "^7.0.2",
     "tempusdominus": "^5.15.1",
-    "uglify-js": "^3.10.0"
+    "uglify-js": "^3.10.1"
   },
   "keywords": [
     "bootstrap",

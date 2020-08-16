@@ -2029,7 +2029,7 @@ var TempusDominusBootstrap4 = function ($) {
     $selector = $(selector);
 
     if ($selector.length === 0) {
-      return $selector;
+      return $element;
     }
 
     if (!$selector.data(DateTimePicker.DATA_KEY)) {

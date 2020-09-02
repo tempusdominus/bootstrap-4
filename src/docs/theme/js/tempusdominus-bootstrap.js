@@ -697,7 +697,7 @@ var DateTimePicker = function ($, moment) {
       var val = $(e.target).val().trim(),
           parsedDate = val ? this._parseInputDate(val) : null;
 
-      this._setValue(parsedDate);
+      this._setValue(parsedDate, 0);
 
       e.stopImmediatePropagation();
       return false;

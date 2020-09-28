@@ -1,5 +1,3 @@
-## Options
-
 <div class="alert alert-info">
     <strong>Note</strong>
    Initialize options as 

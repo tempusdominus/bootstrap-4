@@ -1,5 +1,3 @@
-# Extras
-
 Guides for making the picker work better with rails, IE, etc. **Note:** I have no idea if these guides still apply for v5 or not.
 
 ## Rails 3

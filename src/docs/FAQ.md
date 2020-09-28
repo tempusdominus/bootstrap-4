@@ -1,5 +1,3 @@
-# FAQs
-
 # How do I disable the date or time element
 <small>How do I format ...; How do I add seconds; etc.</small>
 

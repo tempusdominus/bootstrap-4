@@ -1,5 +1,3 @@
-## Functions
-
 <div class="alert alert-info">
     <strong>Note</strong>
     All functions are accessed via the <code>data</code> attribute e.g. <code>$('#datetimepicker').datetimepicker(FUNCTION)</code>

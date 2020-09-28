@@ -1,5 +1,3 @@
-## Events
-
 ### hide.datetimepicker
 
 Fired when the widget is hidden.

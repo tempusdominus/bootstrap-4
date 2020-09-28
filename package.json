@@ -7,18 +7,18 @@
     "url": "https://github.com/tempusdominus/bootstrap-4/issues"
   },
   "dependencies": {
-    "bootstrap": ">=4.1.2",
-    "jquery": "^3.0",
-    "moment": "^2.22.2",
-    "moment-timezone": "^0.5.11",
-    "popper.js": "^1.14.3"
+    "bootstrap": "^4.5.2",
+    "jquery": "^3.5.1",
+    "moment": "^2.29.0",
+    "moment-timezone": "^0.5.31",
+    "popper.js": "^1.16.1"
   },
   "peerDependencies": {
-    "bootstrap": ">=4.1.2",
-    "jquery": "^3.0",
-    "popper.js": "^1.14.3",
-    "moment": "^2.17",
-    "moment-timezone": "^0.5.11",
+    "bootstrap": ">=4.5.2",
+    "jquery": "^3.5.1",
+    "popper.js": "^1.16.1",
+    "moment": "^2.29.0",
+    "moment-timezone": "^0.5.31",
     "tempusdominus-core": "5.0.3"
   },
   "scripts": {
@@ -40,20 +40,19 @@
   "devDependencies": {
     "babel-plugin-transform-es2015-modules-strip": "^0.1.0",
     "babel-preset-es2015": "^6.24.1",
-    "grunt": "^1.0.3",
+    "grunt": "^1.3.0",
     "grunt-babel": "6.0.0",
     "grunt-contrib-concat": "^1.0.1",
     "grunt-contrib-uglify": "latest",
     "grunt-contrib-watch": "^1.1.0",
     "grunt-eslint": "^19.0.0",
-    "grunt-jscs": "latest",
     "grunt-mkdocs": "^0.2.3",
     "grunt-sass": "3.0.0",
     "grunt-sass-tilde-importer": "^1.0.2",
     "grunt-stamp": "^0.3.0",
     "grunt-string-replace": "latest",
     "load-grunt-tasks": "latest",
-    "node-sass": "^4.9.3",
+    "node-sass": "^4.14.1",
     "tempusdominus-core": "^5.0.3",
     "uglify-js": "^2.7.5"
   },
@@ -69,7 +68,7 @@
     "type": "git",
     "url": "https://github.com/tempusdominus/bootstrap-4.git"
   },
-  "version": "5.1.2",
+  "version": "5.1.4",
   "files": [
     "build",
     "src/js/**/*.js",

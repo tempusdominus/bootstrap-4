@@ -9,13 +9,13 @@
                 <a href="#" class="nav-item nav-link dropdown-toggle mr-md-2" data-toggle="dropdown" id="{{ nav_item.title }}">{{ nav_item.title }}</a>
                 <div class="dropdown-menu dropdown-menu-right show" aria-labelledby="{{ nav_item.title }}">
                     {% for nav_item in nav_item.children %}
-                    <a class="dropdown-item {% if nav_item.active %}active{% endif %}" href="{{ nav_item.url }}">{{ nav_item.title }}</a>
+                    <a class="dropdown-item {% if nav_item.active %}active{% endif %}" href="{{ nav_item.url|url }}">{{ nav_item.title }}</a>
                     {% endfor %}
                 </div>
             </li>
             {% else %}
             <li class="nav-item">
-                <a class="nav-link {% if nav_item.active %}active{% endif %}" href="{{ nav_item.url }}">{{ nav_item.title }}</a>
+                <a class="nav-link {% if nav_item.active %}active{% endif %}" href="{{ nav_item.url|url }}">{{ nav_item.title }}</a>
             </li>
             {% endif %}
             {% endfor %}

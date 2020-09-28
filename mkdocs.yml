@@ -5,15 +5,16 @@ extra_javascript: ['theme\js\base.js','//cdnjs.cloudflare.com/ajax/libs/highligh
 extra_css: ['theme\css\base.css','//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/github.min.css','theme\css\tempusdominus-bootstrap-4.css']
 docs_dir: src/docs
 site_dir: docs
-theme_dir: src/docs/theme
-pages:
+theme:
+    name: null
+    custom_dir: src/docs/theme
+nav:
 - Tempus Dominus Bootstrap 4: 'index.md'
 - Usage: 'Usage.md'
 - Installing: 'Installing.md'
 - Functions: 'Functions.md'
 - Options: 'Options.md'
 - Events: 'Events.md'
-- Change Log: 'Changelog.md'
 - Dev Guide: 'ContributorsGuide.md'
 - Extras: 'Extras.md'
 - FAQs: 'FAQ.md'

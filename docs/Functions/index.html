@@ -15,7 +15,7 @@
     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#144287">
     <meta name="theme-color" content="#ffffff">
     <title>Functions - Tempus Dominus - Bootstrap 4</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha256-Md8eaeo67OiouuXAi8t/Xpd8t2+IaJezATVTWbZqSOw=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha512-MoRNloxbStBcD8z3M/2BmnT+rg4IsMxPkXaGh2zD6LGNNFE80W3onsAhRcMAMrSoyWL9xD7Ert0men7vR8LUZg==" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css" />
     <link href="../theme/css/base.css" rel="stylesheet">
     <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/github.min.css" rel="stylesheet">
@@ -25,11 +25,11 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha256-98vAGjEDGN79TjHkYWVD4s87rvWkdWLHPs5MC3FvFX4=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha256-xaF9RpdtRxzwYMWg4ldJoyPWqyDPCRD0Cv7YEEe6Ie8=" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.21/moment-timezone-with-data-2012-2022.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js" integrity="sha512-ubuT8Z88WxezgSqf3RLuNi5lmjstiJcyezx34yIU2gAHonIi27Na7atqzUZCOoY4CExaoFumzOsFQ2Ch+I/HCw==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha512-M5KW3ztuIICmVIhjSqXe01oV2bpe248gOxqmlcYrEzAvws7Pw3z6BK0iGbrwvdrUQUhi3eXgtxp5I8PDo9YfjQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.0/moment-with-locales.min.js" integrity="sha512-EATaemfsDRVs6gs1pHbvhc6+rKFGv8+w4Wnxk4LmkC0fzdVoyWb+Xtexfrszd1YuUMBEhucNuorkf8LpFBhj6w==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.31/moment-timezone-with-data-10-year-range.min.js" integrity="sha512-Rb9RCtecTEK3SdnnQhrZx4GM1ascb2CNHybgugRDTriP/b1As79OemxeIT5qs6RMJ/fCpeJrDjtpASh7I7EKMQ==" crossorigin="anonymous"></script>
     <script>var base_url = '..';</script>
     
     <script src="../theme/js/base.js"></script>
@@ -39,8 +39,6 @@
     
     
     <script src="../theme/js/tempusdominus-bootstrap-4.js"></script>
-    
-    
     
     
      
@@ -92,12 +90,6 @@
             
             
             <li class="nav-item">
-                <a class="nav-link " href="../Changelog/">Change Log</a>
-            </li>
-            
-            
-            
-            <li class="nav-item">
                 <a class="nav-link " href="../ContributorsGuide/">Dev Guide</a>
             </li>
             
@@ -132,15 +124,20 @@
 <nav class="bd-links" id="docsNavbarContent">
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
-            <li class="active bd-sidenav-active"><a href="#functions">Functions</a></li>
-            <li><a href="#destroy">destroy</a></li>
-            <li><a href="#toggle">toggle</a></li>
-            <li><a href="#show">show</a></li>
-            <li><a href="#hide">hide</a></li>
-            <li><a href="#disable">disable</a></li>
-            <li><a href="#enable">enable</a></li>
-            <li><a href="#clear">clear</a></li>
-            <li><a href="#viewdate">viewDate</a></li>
+            <li class="active bd-sidenav-active"><a href="#destroy">destroy</a></li>
+            <li class=""><a href="#toggle">toggle</a></li>
+            <li><a href="#emits">Emits</a></li>
+            <li class=""><a href="#show">show</a></li>
+            <li><a href="#emits_1">Emits</a></li>
+            <li class=""><a href="#hide">hide</a></li>
+            <li><a href="#emits_2">Emits</a></li>
+            <li class=""><a href="#disable">disable</a></li>
+            <li><a href="#emits_3">Emits</a></li>
+            <li class=""><a href="#enable">enable</a></li>
+            <li class=""><a href="#clear">clear</a></li>
+            <li class=""><a href="#viewdate">viewDate</a></li>
+            <li><a href="#viewdate_1">viewDate</a></li>
+            <li><a href="#viewdateviewdate">viewDate(viewDate)</a></li>
         </ul>
     </div>
 </nav></div>
@@ -148,7 +145,6 @@
                 <h1 class="bd-title">Functions</h1>
                 
                 
-<h2 id="functions">Functions</h2>
 <div class="alert alert-info">
     <strong>Note</strong>
     All functions are accessed via the <code>data</code> attribute e.g. <code>$('#datetimepicker').datetimepicker(FUNCTION)</code>

@@ -15,13 +15,72 @@
           <a href="Installing/" class="btn btn-lg btn-outline-secondary">Download</a>
         </div>
         <p class="text-muted mb-0">
-         Currently v5.0.1
+         Currently v5.1.3
 		 <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CK7DC5QN&placement=eonasdangithubio" id="_carbonads_js"></script>
         </p>
       </div>
     </div>
   </div>
 </main>
+<div class="container">
+    <div class="row center-block">
+        <h3>Get awesome Dashboard Templates</h3>
+        <p>Looking for a template with the datepicker ready to go? Then get check out these templates from our partners.</p>
+    </div>
+    <div class="row center-block">
+        <div class="col-12">
+            <h4 class="row">Creative Tim</h4>
+        </div>
+        <div class="col-sm-12 col-md-3">
+            <a href="https://www.creative-tim.com/product/material-dashboard-pro?partner=127205 " target="_blank" class="affiliate-project">
+                Material Pro
+                <img src="https://s3.amazonaws.com/creativetim_bucket/products/51/original/opt_mdp_thumbnail.jpg" alt="Material Pro" class="img-fluid">
+                <div class="button">Get this Template</div>
+            </a>
+        </div>
+        <div class="col-sm-12 col-md-3">
+            <a href="https://www.creative-tim.com/product/material-dashboard-pro-angular2?partner=127205 " target="_blank" class="affiliate-project">
+                Material Pro Angular
+                <img src="https://s3.amazonaws.com/creativetim_bucket/products/55/original/opt_mdp_angular_thumbnail.jpg" alt="Material Pro Angular" class="img-fluid">
+                <div class="button">Get this Template</div>
+            </a>
+        </div>
+        <div class="col-sm-12 col-md-3">
+            <a href="https://www.creative-tim.com/product/argon-dashboard-pro?partner=127205 " target="_blank" class="affiliate-project">
+                Argon Pro
+                <img src="https://s3.amazonaws.com/creativetim_bucket/products/137/thumb/opt_adp_thumbnail.jpg?1544778965" alt="Argon Pro" class="img-fluid">
+                <div class="button">Get this Template</div>
+            </a>
+        </div>
+    </div>
+     <div class="row center-block">     
+        <div class="col-12">
+            <h4 class="row">Flatlogic</h4>
+        </div>
+        <div class="col-sm-12 col-md-3">
+            <a href="https://flatlogic.com/templates/light-blue-vue-lite?ref=dg1K3bfa8w " target="_blank" class="affiliate-project">
+                Light Blue Vue Admin
+                <img src="https://flatlogic.com/assets/templates/light_blue_vue_lite-c1937a2a01e5e8e8ede29a3ead011126e9dab5c58b9017daefe36411f9a1089e.webp" alt="Light Blue Vue Admin" class="img-fluid">
+                <div class="button">Get this Template</div>
+            </a>
+        </div>
+        <div class="col-sm-12 col-md-3">
+            <a href="https://www.creative-tim.com/product/material-dashboard-pro-angular2?ref=dg1K3bfa8w" target="_blank" class="affiliate-project">
+                Sing App Angular Node.js
+                <img src="https://flatlogic.com/assets/templates/sing_angular_full_nodejs-d5ba7a572d545c0ab39ebcd0fad85a7239b3fcb2bdc899ae4b222bd2ab45595d.webp" alt=" Sing App Angular Node.js" class="img-fluid">
+                <div class="button">Get this Template</div>
+            </a>
+        </div>
+        <div class="col-sm-12 col-md-3">
+            <a href="https://flatlogic.com/templates/sing-app-angular-node-js?ref=dg1K3bfa8w" target="_blank" class="affiliate-project">
+               Sing App Vue
+                <img src="https://flatlogic.com/assets/templates/sing_vue_full-2acf74b95004f96202c570c128770ab23a923e6f09b6672ab76365492f2287db.png" alt="Light Sing App Vue" class="img-fluid">
+                <div class="button">Get this Template</div>
+            </a>
+        </div>
+    </div>
+</div>
+<br/>
 <div class="masthead-followup row m-0 border border-white">
 	<div class="col-12 col-md-6 p-3 p-md-5 bg-light border border-white">
 		<span class="fa fa-download"></span>
@@ -43,8 +102,8 @@ npm i tempusdominus-bootstrap-4
 <code>
 &lt;script type=&quot;text/javascript&quot; src=&quot;https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js&quot;&gt;&lt;/script&gt;
 &lt;script type=&quot;text/javascript&quot; src=&quot;https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js&quot;&gt;&lt;/script&gt;
-&lt;script type=&quot;text/javascript&quot; src=&quot;https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js&quot;&gt;&lt;/script&gt;
-&lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css&quot; /&gt;
+&#x3C;script src=&#x22;https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.1.2/js/tempusdominus-bootstrap-4.min.js&#x22; integrity=&#x22;sha512-2JBCbWoMJPH+Uj7Wq5OLub8E5edWHlTM4ar/YJkZh3plwB2INhhOC3eDoqHm1Za/ZOSksrLlURLoyXVdfQXqwg==&#x22; crossorigin=&#x22;anonymous&#x22;&#x3E;&#x3C;/script&#x3E;
+&#x3C;link rel=&#x22;stylesheet&#x22; href=&#x22;https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.1.2/css/tempusdominus-bootstrap-4.min.css&#x22; integrity=&#x22;sha512-PMjWzHVtwxdq7m7GIxBot5vdxUY+5aKP9wpKtvnNBZrVv1srI8tU6xvFMzG8crLNcMj/8Xl/WWmo/oAP/40p1g==&#x22; crossorigin=&#x22;anonymous&#x22; /&#x3E;
 </code>
 		</pre>
 		<hr class="half-rule"/>

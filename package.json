@@ -47,7 +47,7 @@
   },
   "description": "A date/time picker component designed to work with Bootstrap 4 and Momentjs.",
   "devDependencies": {
-    "@babel/core": "^7.11.5",
+    "@babel/core": "^7.11.6",
     "@babel/preset-env": "^7.11.5",
     "autoprefixer": "^9.8.6",
     "babel-plugin-transform-es2015-modules-strip": "^0.1.1",
@@ -70,8 +70,8 @@
     "moment-timezone": "^0.5.31",
     "node-sass": "^4.14.1",
     "onchange": "^7.0.2",
-    "tempusdominus": "^5.15.2",
-    "uglify-js": "^3.10.3"
+    "tempusdominus": "^5.16.0",
+    "uglify-js": "^3.11.0"
   },
   "keywords": [
     "bootstrap",

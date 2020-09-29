@@ -1,7 +1,6 @@
 {
   "name": "tonix-tuft/tempusdominus-bootstrap",
   "type": "component",
-  "version": "5.1.2",
   "description": "Date/time picker widget based on twitter bootstrap",
   "keywords": [
     "bootstrap",

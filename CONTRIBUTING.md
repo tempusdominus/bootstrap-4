@@ -13,7 +13,7 @@ PRs are welcome.
 
 **Working on your first Pull Request?** You can learn how from this _free_ series [How to Contribute to an Open Source Project on GitHub](https://egghead.io/series/how-to-contribute-to-an-open-source-project-on-github).
 
-To contribute, fork the library and install `grunt` and dependencies. You will need [node](http://nodejs.org/).
+To contribute, fork the library and install dependencies. You will need [node](http://nodejs.org/).
 You can use [nvm](https://github.com/nvm-sh/nvm) or [nenv](https://github.com/ryuone/nenv) to install it.
 
 Then, run the following commands:

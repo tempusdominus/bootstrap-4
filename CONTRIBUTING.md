@@ -9,6 +9,10 @@ Issues that are submitted without a description (title only) will be closed with
 Contributing code
 =================
 
+PRs are welcome.
+
+**Working on your first Pull Request?** You can learn how from this _free_ series [How to Contribute to an Open Source Project on GitHub](https://egghead.io/series/how-to-contribute-to-an-open-source-project-on-github).
+
 To contribute, fork the library and install `grunt` and dependencies. You will need [node](http://nodejs.org/).
 You can use [nvm](https://github.com/nvm-sh/nvm) or [nenv](https://github.com/ryuone/nenv) to install it.
 

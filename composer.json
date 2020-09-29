@@ -1,10 +1,13 @@
 {
   "name": "tonix-tuft/tempusdominus-bootstrap",
   "type": "component",
-  "description": "Date/time picker widget based on twitter bootstrap",
+  "description": "A date/time picker component designed to work with Bootstrap 4 and Momentjs.",
   "keywords": [
     "bootstrap",
-    "datetimepicker"
+    "datepicker",
+    "datetimepicker",
+    "timepicker",
+    "moment"
   ],
   "homepage": "https://github.com/tonix-tuft/tempusdominus-bootstrap",
   "license": "MIT",

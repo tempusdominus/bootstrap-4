@@ -1,5 +1,6 @@
 //noinspection JSUnusedGlobalSymbols
 /* global DateTimePicker */
+/* global feather */
 const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
     // ReSharper disable once InconsistentNaming
     const JQUERY_NO_CONFLICT = $.fn[DateTimePicker.NAME],
@@ -16,7 +17,7 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
             }
             $selector = $(selector);
             if ($selector.length === 0) {
-                return $selector;
+                return $element;
             }
 
             if (!$selector.data(DateTimePicker.DATA_KEY)) {
@@ -44,12 +45,17 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
             }
         }
 
-        _spanIcon(icon) {
-            return $('<span>').append($('<i>').addClass(icon));
-        };
-        
+        _iconTag(iconName) {
+            if (typeof feather !== 'undefined' && this._useFeatherIcons() && feather.icons[iconName]) {
+                return $('<span>').html(feather.icons[iconName].toSvg());
+            }
+            else {
+               return $('<span>').addClass(iconName);
+            }
+        }
+
         _getDatePickerTemplate() {
-            const headTemplate = $('<thead>').append($('<tr>').append($('<th>').addClass('prev').attr('data-action', 'previous').append(this._spanIcon(this._options.icons.previous))).append($('<th>').addClass('picker-switch').attr('data-action', 'pickerSwitch').attr('colspan', `${this._options.calendarWeeks ? '6' : '5'}`)).append($('<th>').addClass('next').attr('data-action', 'next').append(this._spanIcon(this._options.icons.next)))),
+            const headTemplate = $('<thead>').append($('<tr>').append($('<th>').addClass('prev').attr('data-action', 'previous').append(this._iconTag(this._options.icons.previous))).append($('<th>').addClass('picker-switch').attr('data-action', 'pickerSwitch').attr('colspan', `${this._options.calendarWeeks ? '6' : '5'}`)).append($('<th>').addClass('next').attr('data-action', 'next').append(this._iconTag(this._options.icons.next)))),
                 contTemplate = $('<tbody>').append($('<tr>').append($('<td>').attr('colspan', `${this._options.calendarWeeks ? '8' : '7'}`)));
 
             return [$('<div>').addClass('datepicker-days').append($('<table>').addClass('table table-sm').append(headTemplate).append($('<tbody>'))), $('<div>').addClass('datepicker-months').append($('<table>').addClass('table-condensed').append(headTemplate.clone()).append(contTemplate.clone())), $('<div>').addClass('datepicker-years').append($('<table>').addClass('table-condensed').append(headTemplate.clone()).append(contTemplate.clone())), $('<div>').addClass('datepicker-decades').append($('<table>').addClass('table-condensed').append(headTemplate.clone()).append(contTemplate.clone()))];
@@ -65,8 +71,8 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
                     href: '#',
                     tabindex: '-1',
                     'title': this._options.tooltips.incrementHour
-                }).addClass('btn').attr('data-action', 'incrementHours').append(this._spanIcon(this._options.icons.up))));
-                middleRow.append($('<td>').append(this._spanIcon('timepicker-hour').attr({
+                }).addClass('btn').attr('data-action', 'incrementHours').append(this._iconTag(this._options.icons.up))));
+                middleRow.append($('<td>').append($('<span>').addClass('timepicker-hour').attr({
                     'data-time-component': 'hours',
                     'title': this._options.tooltips.pickHour
                 }).attr('data-action', 'showHours')));
@@ -74,7 +80,7 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
                     href: '#',
                     tabindex: '-1',
                     'title': this._options.tooltips.decrementHour
-                }).addClass('btn').attr('data-action', 'decrementHours').append(this._spanIcon(this._options.icons.down))));
+                }).addClass('btn').attr('data-action', 'decrementHours').append(this._iconTag(this._options.icons.down))));
             }
             if (this._isEnabled('m')) {
                 if (this._isEnabled('h')) {
@@ -86,8 +92,8 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
                     href: '#',
                     tabindex: '-1',
                     'title': this._options.tooltips.incrementMinute
-                }).addClass('btn').attr('data-action', 'incrementMinutes').append(this._spanIcon(this._options.icons.up))));
-                middleRow.append($('<td>').append(this._spanIcon('timepicker-minute').attr({
+                }).addClass('btn').attr('data-action', 'incrementMinutes').append(this._iconTag(this._options.icons.up))));
+                middleRow.append($('<td>').append($('<span>').addClass('timepicker-minute').attr({
                     'data-time-component': 'minutes',
                     'title': this._options.tooltips.pickMinute
                 }).attr('data-action', 'showMinutes')));
@@ -95,7 +101,7 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
                     href: '#',
                     tabindex: '-1',
                     'title': this._options.tooltips.decrementMinute
-                }).addClass('btn').attr('data-action', 'decrementMinutes').append(this._spanIcon(this._options.icons.down))));
+                }).addClass('btn').attr('data-action', 'decrementMinutes').append(this._iconTag(this._options.icons.down))));
             }
             if (this._isEnabled('s')) {
                 if (this._isEnabled('m')) {
@@ -107,8 +113,8 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
                     href: '#',
                     tabindex: '-1',
                     'title': this._options.tooltips.incrementSecond
-                }).addClass('btn').attr('data-action', 'incrementSeconds').append(this._spanIcon(this._options.icons.up))));
-                middleRow.append($('<td>').append(this._spanIcon('timepicker-second').attr({
+                }).addClass('btn').attr('data-action', 'incrementSeconds').append(this._iconTag(this._options.icons.up))));
+                middleRow.append($('<td>').append($('<span>').addClass('timepicker-second').attr({
                     'data-time-component': 'seconds',
                     'title': this._options.tooltips.pickSecond
                 }).attr('data-action', 'showSeconds')));
@@ -116,7 +122,7 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
                     href: '#',
                     tabindex: '-1',
                     'title': this._options.tooltips.decrementSecond
-                }).addClass('btn').attr('data-action', 'decrementSeconds').append(this._spanIcon(this._options.icons.down))));
+                }).addClass('btn').attr('data-action', 'decrementSeconds').append(this._iconTag(this._options.icons.down))));
             }
 
             if (!this.use24Hours) {
@@ -159,9 +165,9 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
                     tabindex: '-1',
                     'data-action': 'today',
                     'title': this._options.tooltips.today
-                }).append(this._spanIcon(this._options.icons.today))));
+                }).append(this._iconTag(this._options.icons.today))));
             }
-            if (!this._options.sideBySide && this._hasDate() && this._hasTime()) {
+            if (!this._options.sideBySide && this._options.collapse && this._hasDate() && this._hasTime()) {
                 let title, icon;
                 if (this._options.viewMode === 'times') {
                     title = this._options.tooltips.selectDate;
@@ -175,7 +181,7 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
                     tabindex: '-1',
                     'data-action': 'togglePicker',
                     'title': title
-                }).append(this._spanIcon(icon))));
+                }).append(this._iconTag(icon))));
             }
             if (this._options.buttons.showClear) {
                 row.push($('<td>').append($('<a>').attr({
@@ -183,7 +189,7 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
                     tabindex: '-1',
                     'data-action': 'clear',
                     'title': this._options.tooltips.clear
-                }).append(this._spanIcon(this._options.icons.clear))));
+                }).append(this._iconTag(this._options.icons.clear))));
             }
             if (this._options.buttons.showClose) {
                 row.push($('<td>').append($('<a>').attr({
@@ -191,17 +197,24 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
                     tabindex: '-1',
                     'data-action': 'close',
                     'title': this._options.tooltips.close
-                }).append(this._spanIcon(this._options.icons.close))));
+                }).append(this._iconTag(this._options.icons.close))));
             }
             return row.length === 0 ? '' : $('<table>').addClass('table-condensed').append($('<tbody>').append($('<tr>').append(row)));
         }
 
         _getTemplate() {
-            const template = $('<div>').addClass('bootstrap-datetimepicker-widget dropdown-menu'),
+            const template = $('<div>').addClass((
+                    `bootstrap-datetimepicker-widget dropdown-menu ${this._options.calendarWeeks ? 'tempusdominus-bootstrap-datetimepicker-widget-with-calendar-weeks' : ''} `
+                    +
+                    `${this._useFeatherIcons() ? 'tempusdominus-bootstrap-datetimepicker-widget-with-feather-icons' : ''} `
+                ).trim()),
                 dateView = $('<div>').addClass('datepicker').append(this._getDatePickerTemplate()),
                 timeView = $('<div>').addClass('timepicker').append(this._getTimePickerTemplate()),
                 content = $('<ul>').addClass('list-unstyled'),
-                toolbar = $('<li>').addClass(`picker-switch${this._options.collapse ? ' accordion-toggle' : ''}`).append(this._getToolbar());
+                toolbar = $('<li>').addClass((
+                    `picker-switch${this._options.collapse ? ' accordion-toggle' : ''} ` +
+                    `${this._useFeatherIcons() ? 'picker-switch-with-feathers-icons' : ''}`
+                ).trim()).append(this._getToolbar());
 
             if (this._options.inline) {
                 template.removeClass('dropdown-menu');
@@ -209,6 +222,9 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
 
             if (this.use24Hours) {
                 template.addClass('usetwentyfour');
+            }
+            if ((this.input !== undefined && this.input.prop('readonly')) || this._options.readonly) {
+                template.addClass('bootstrap-datetimepicker-widget-readonly');
             }
             if (this._isEnabled('s') && !this.use24Hours) {
                 template.addClass('wider');
@@ -344,7 +360,8 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
         _updateMonths() {
             const monthsView = this.widget.find('.datepicker-months'),
                 monthsViewHeader = monthsView.find('th'),
-                months = monthsView.find('tbody').find('span'), self = this;
+                months = monthsView.find('tbody').find('span'), self = this,
+                lastPickedDate = this._getLastPickedDate();
 
             monthsViewHeader.eq(0).find('span').attr('title', this._options.tooltips.prevYear);
             monthsViewHeader.eq(1).attr('title', this._options.tooltips.selectYear);
@@ -363,8 +380,8 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
             }
 
             months.removeClass('active');
-            if (this._getLastPickedDate().isSame(this._viewDate, 'y') && !this.unset) {
-                months.eq(this._getLastPickedDate().month()).addClass('active');
+            if (lastPickedDate && lastPickedDate.isSame(this._viewDate, 'y') && !this.unset) {
+                months.eq(lastPickedDate.month()).addClass('active');
             }
 
             months.each(function (index) {
@@ -421,7 +438,8 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
                 decadesViewHeader = decadesView.find('th'),
                 yearCaps = this._getStartEndYear(100, this._viewDate.year()),
                 startDecade = this._viewDate.clone().year(yearCaps[0]),
-                endDecade = this._viewDate.clone().year(yearCaps[1]);
+                endDecade = this._viewDate.clone().year(yearCaps[1]),
+                lastPickedDate = this._getLastPickedDate();
             let minDateDecade = false,
                 maxDateDecade = false,
                 endDecadeYear,
@@ -452,7 +470,7 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
                 endDecadeYear = startDecade.year() + 11;
                 minDateDecade = this._options.minDate && this._options.minDate.isAfter(startDecade, 'y') && this._options.minDate.year() <= endDecadeYear;
                 maxDateDecade = this._options.maxDate && this._options.maxDate.isAfter(startDecade, 'y') && this._options.maxDate.year() <= endDecadeYear;
-                html += `<span data-action="selectDecade" class="decade${this._getLastPickedDate().isAfter(startDecade) && this._getLastPickedDate().year() <= endDecadeYear ? ' active' : ''}${!this._isValid(startDecade, 'y') && !minDateDecade && !maxDateDecade ? ' disabled' : ''}" data-selection="${startDecade.year() + 6}">${startDecade.year()}</span>`;
+                html += `<span data-action="selectDecade" class="decade${lastPickedDate && lastPickedDate.isAfter(startDecade) && lastPickedDate.year() <= endDecadeYear ? ' active' : ''}${!this._isValid(startDecade, 'y') && !minDateDecade && !maxDateDecade ? ' disabled' : ''}" data-selection="${startDecade.year() + 6}">${startDecade.year()}</span>`;
                 startDecade.add(10, 'y');
             }
             html += `<span data-action="selectDecade" class="decade old" data-selection="${startDecade.year() + 6}">${startDecade.year()}</span>`;
@@ -461,6 +479,7 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
         }
 
         _fillDate() {
+            super._fillDate();
             const daysView = this.widget.find('.datepicker-days'),
                 daysViewHeader = daysView.find('th'),
                 html = [];
@@ -527,7 +546,11 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
                 currentDate.add(1, 'd');
             }
 
+            $('body').addClass('tempusdominus-bootstrap-datetimepicker-widget-day-click');
+            $('body').append('<div class="tempusdominus-bootstrap-datetimepicker-widget-day-click-glass-panel"></div>');
             daysView.find('tbody').empty().append(html);
+            $('body').find('.tempusdominus-bootstrap-datetimepicker-widget-day-click-glass-panel').remove();
+            $('body').removeClass('tempusdominus-bootstrap-datetimepicker-widget-day-click');
 
             this._updateMonths();
 
@@ -594,13 +617,14 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
 
         _fillTime() {
             let toggle, newDate;
-            const timeComponents = this.widget.find('.timepicker span[data-time-component]');
+            const timeComponents = this.widget.find('.timepicker span[data-time-component]'),
+                lastPickedDate = this._getLastPickedDate();
 
             if (!this.use24Hours) {
                 toggle = this.widget.find('.timepicker [data-action=togglePeriod]');
-                newDate = this._getLastPickedDate().clone().add(this._getLastPickedDate().hours() >= 12 ? -12 : 12, 'h');
+                newDate = lastPickedDate ? lastPickedDate.clone().add(lastPickedDate.hours() >= 12 ? -12 : 12, 'h') : void 0;
 
-                toggle.text(this._getLastPickedDate().format('A'));
+                lastPickedDate && toggle.text(lastPickedDate.format('A'));
 
                 if (this._isValid(newDate, 'h')) {
                     toggle.removeClass('disabled');
@@ -608,9 +632,9 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
                     toggle.addClass('disabled');
                 }
             }
-            timeComponents.filter('[data-time-component=hours]').text(this._getLastPickedDate().format(`${this.use24Hours ? 'HH' : 'hh'}`));
-            timeComponents.filter('[data-time-component=minutes]').text(this._getLastPickedDate().format('mm'));
-            timeComponents.filter('[data-time-component=seconds]').text(this._getLastPickedDate().format('ss'));
+            lastPickedDate && timeComponents.filter('[data-time-component=hours]').text(lastPickedDate.format(`${this.use24Hours ? 'HH' : 'hh'}`));
+            lastPickedDate && timeComponents.filter('[data-time-component=minutes]').text(lastPickedDate.format('mm'));
+            lastPickedDate && timeComponents.filter('[data-time-component=seconds]').text(lastPickedDate.format('ss'));
 
             this._fillHours();
             this._fillMinutes();
@@ -720,48 +744,84 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
                     }
                 case 'incrementHours':
                     {
+                        if (!lastPicked) {
+                          break;
+                        }
                         const newDate = lastPicked.clone().add(1, 'h');
                         if (this._isValid(newDate, 'h')) {
+                            if (this._getLastPickedDateIndex() < 0) {
+                                this.date(newDate);
+                            }
                             this._setValue(newDate, this._getLastPickedDateIndex());
                         }
                         break;
                     }
                 case 'incrementMinutes':
                     {
+                        if (!lastPicked) {
+                          break;
+                        }
                         const newDate = lastPicked.clone().add(this._options.stepping, 'm');
                         if (this._isValid(newDate, 'm')) {
+                            if (this._getLastPickedDateIndex() < 0) {
+                                this.date(newDate);
+                            }
                             this._setValue(newDate, this._getLastPickedDateIndex());
                         }
                         break;
                     }
                 case 'incrementSeconds':
                     {
+                        if (!lastPicked) {
+                          break;
+                        }
                         const newDate = lastPicked.clone().add(1, 's');
                         if (this._isValid(newDate, 's')) {
+                            if (this._getLastPickedDateIndex() < 0) {
+                                this.date(newDate);
+                            }
                             this._setValue(newDate, this._getLastPickedDateIndex());
                         }
                         break;
                     }
                 case 'decrementHours':
                     {
+                        if (!lastPicked) {
+                          break;
+                        }
                         const newDate = lastPicked.clone().subtract(1, 'h');
                         if (this._isValid(newDate, 'h')) {
+                            if (this._getLastPickedDateIndex() < 0) {
+                                this.date(newDate);
+                            }
                             this._setValue(newDate, this._getLastPickedDateIndex());
                         }
                         break;
                     }
                 case 'decrementMinutes':
                     {
+                        if (!lastPicked) {
+                          break;
+                        }
                         const newDate = lastPicked.clone().subtract(this._options.stepping, 'm');
                         if (this._isValid(newDate, 'm')) {
+                            if (this._getLastPickedDateIndex() < 0) {
+                                this.date(newDate);
+                            }
                             this._setValue(newDate, this._getLastPickedDateIndex());
                         }
                         break;
                     }
                 case 'decrementSeconds':
                     {
+                        if (!lastPicked) {
+                          break;
+                        }
                         const newDate = lastPicked.clone().subtract(1, 's');
                         if (this._isValid(newDate, 's')) {
+                            if (this._getLastPickedDateIndex() < 0) {
+                                this.date(newDate);
+                            }
                             this._setValue(newDate, this._getLastPickedDateIndex());
                         }
                         break;
@@ -779,7 +839,7 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
                             expanded = $parent.find('.show'),
                             closed = $parent.find('.collapse:not(.show)'),
                             $span = $this.is('span') ? $this : $this.find('span');
-                        let collapseData;
+                        let collapseData, inactiveIcon, iconTest;
 
                         if (expanded && expanded.length) {
                             collapseData = expanded.data('collapse');
@@ -795,9 +855,24 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
                                 expanded.removeClass('show');
                                 closed.addClass('show');
                             }
-                            $span.toggleClass(this._options.icons.time + ' ' + this._options.icons.date);
 
-                            if ($span.hasClass(this._options.icons.date)) {
+                            if (this._useFeatherIcons()) {
+                                $link.toggleClass(this._options.icons.time + ' ' + this._options.icons.date);
+                                inactiveIcon = ($link.hasClass(this._options.icons.time)) ? this._options.icons.date : this._options.icons.time;
+                                $link.html(this._iconTag(inactiveIcon));
+                            }
+                            else {
+                                $span.toggleClass(this._options.icons.time + ' ' + this._options.icons.date);
+                            }
+
+                            if (this._useFeatherIcons()) {
+                                iconTest = $link.hasClass(this._options.icons.date);
+                            }
+                            else {
+                                iconTest = $span.hasClass(this._options.icons.date);
+                            }
+
+                            if (iconTest) {
                                 $link.attr('title', this._options.tooltips.selectDate);
                             } else {
                                 $link.attr('title', this._options.tooltips.selectTime);
@@ -904,27 +979,33 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
             }
             this.widget.hide();
 
-            $(window).off('resize', this._place());
+            $(window).off('resize', this._place);
             this.widget.off('click', '[data-action]');
             this.widget.off('mousedown', false);
 
             this.widget.remove();
             this.widget = false;
 
+            if (this.input !== undefined && this.input.val() !== undefined && this.input.val().trim().length !== 0) {
+                this._setValue(this._parseInputDate(this.input.val().trim(), {
+                    isPickerShow: false
+                }), 0);
+            }
+            const lastPickedDate = this._getLastPickedDate();
             this._notifyEvent({
                 type: DateTimePicker.Event.HIDE,
-                date: this._getLastPickedDate().clone()
+                date: this.unset ? null : (lastPickedDate ? lastPickedDate.clone() : void 0)
             });
 
             if (this.input !== undefined) {
                 this.input.blur();
             }
 
-            this._viewDate = this._getLastPickedDate().clone();
+            this._viewDate = lastPickedDate ? lastPickedDate.clone() : this.getMoment();
         }
 
         show() {
-            let currentMoment;
+            let currentMoment, shouldUseCurrentIfUnset = false;
             const useCurrentGranularity = {
                 'year': function (m) {
                     return m.month(0).date(1).hours(0).seconds(0).minutes(0);
@@ -948,15 +1029,18 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
                     return;
                 }
                 if (this.input.val() !== undefined && this.input.val().trim().length !== 0) {
-                    this._setValue(this._parseInputDate(this.input.val().trim()), 0);
-                } else if (this.unset && this._options.useCurrent) {
-                    currentMoment = this.getMoment();
-                    if (typeof this._options.useCurrent === 'string') {
-                        currentMoment = useCurrentGranularity[this._options.useCurrent](currentMoment);
-                    }
-                    this._setValue(currentMoment, 0);
+                    this._setValue(this._parseInputDate(this.input.val().trim(), {
+                        isPickerShow: true
+                    }), 0);
+                } else {
+                    shouldUseCurrentIfUnset = true
                 }
-            } else if (this.unset && this._options.useCurrent) {
+            }
+            else {
+              shouldUseCurrentIfUnset = true;
+            }
+
+            if (shouldUseCurrentIfUnset && this.unset && this._options.useCurrent) {
                 currentMoment = this.getMoment();
                 if (typeof this._options.useCurrent === 'string') {
                     currentMoment = useCurrentGranularity[this._options.useCurrent](currentMoment);
@@ -1090,6 +1174,15 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
             }
         }
 
+        setMultiDate(multiDateArray) {
+            var dateFormat = this._options.format;
+            this.clear();
+            for (let index = 0; index < multiDateArray.length; index++) {
+                let date = moment(multiDateArray[index], dateFormat);
+                this._setValue(date, index);
+            }
+        }
+
         //static
         static _jQueryHandleThis(me, option, argument) {
             let data = $(me).data(DateTimePicker.DATA_KEY);
@@ -1110,7 +1203,12 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
                     return data[option]();
                 }
                 else {
-                    return data[option](argument);
+                    if (option === 'date') {
+                        data.isDateUpdateThroughDateOptionFromClientCode = true;
+                    }
+                    const ret = data[option](argument);
+                    data.isDateUpdateThroughDateOptionFromClientCode = false;
+                    return ret;
                 }
             }
         }
@@ -1132,14 +1230,17 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
     * ------------------------------------------------------------------------
     */
     $(document).on(DateTimePicker.Event.CLICK_DATA_API, DateTimePicker.Selector.DATA_TOGGLE, function () {
-        const $target = getSelectorFromElement($(this));
+        const $originalTarget = $(this), $target = getSelectorFromElement($originalTarget), config = $target.data(DateTimePicker.DATA_KEY);
         if ($target.length === 0) {
             return;
+        }
+        if (config._options.allowInputToggle && $originalTarget.is('input[data-toggle="datetimepicker"]')) {
+          return;
         }
         TempusDominusBootstrap4._jQueryInterface.call($target, 'toggle');
     }).on(DateTimePicker.Event.CHANGE, `.${DateTimePicker.ClassName.INPUT}`, function (event) {
         const $target = getSelectorFromElement($(this));
-        if ($target.length === 0) {
+        if ($target.length === 0 || event.isInit) {
             return;
         }
         TempusDominusBootstrap4._jQueryInterface.call($target, '_change', event);

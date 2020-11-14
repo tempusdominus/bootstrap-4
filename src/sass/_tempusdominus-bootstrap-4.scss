@@ -9,6 +9,33 @@ $bs-datetimepicker-secondary-border-color: #ccc !default;
 $bs-datetimepicker-secondary-border-color-rgba: rgba(0, 0, 0, 0.2) !default;
 $bs-datetimepicker-primary-border-color: white !default;
 $bs-datetimepicker-text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25) !default;
+$bs-datetimepicker-buttons-color: #007bff;
+$bs-datetimepicker-buttons-color-dark: #0056b3;
+
+body.tempusdominus-bootstrap-datetimepicker-widget-day-click,
+body.tempusdominus-bootstrap-datetimepicker-widget-day-click * {
+  cursor: pointer !important;
+}
+
+body.tempusdominus-bootstrap-datetimepicker-widget-day-click {
+  position: relative !important;
+}
+
+.tempusdominus-bootstrap-datetimepicker-widget-day-click-glass-panel {
+  position: absolute;
+  z-index: 999999999999;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  cursor: pointer !important;
+}
+
+.bootstrap-datetimepicker-widget .datepicker-days {
+  tbody td {
+    cursor: pointer;
+  }
+}
 
 .bootstrap-datetimepicker-widget {
     list-style: none;
@@ -18,6 +45,18 @@ $bs-datetimepicker-text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25) !default;
         margin: 2px 0;
         padding: 4px;
         width: 14rem;
+
+        &.tempusdominus-bootstrap-datetimepicker-widget-with-feather-icons {
+          width: 16rem;
+        }
+        
+        &.tempusdominus-bootstrap-datetimepicker-widget-with-calendar-weeks {
+          width: 16rem;
+
+          &.tempusdominus-bootstrap-datetimepicker-widget-with-feather-icons {
+            width: 17rem;
+          }
+        }
 
         &.timepicker-sbs {
             @media (min-width: map-get($grid-breakpoints, 'sm')) {
@@ -117,6 +156,13 @@ $bs-datetimepicker-text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25) !default;
         padding: 6px;
     }
 
+    .btn[data-action="togglePeriod"] {
+        text-align: center;
+        font-family: Arial, sans-serif, -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        width: 38px;
+        height: 38px;
+    }
+
     .btn[data-action="incrementHours"]::after {
         @extend .sr-only;
         content: "Increment Hours";
@@ -183,6 +229,15 @@ $bs-datetimepicker-text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25) !default;
                 width: 100%;
             }
         }
+
+        &.picker-switch-with-feathers-icons {
+            td {
+                span {
+                  line-height: 2.8;
+                  height: 2.8em;
+                }
+            }
+        }
     }
 
     table {
@@ -241,6 +296,7 @@ $bs-datetimepicker-text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25) !default;
                 height: 20px;
                 line-height: 20px;
                 color: $bs-datetimepicker-alternate-color;
+                cursor: default;
             }
 
             &.day {
@@ -301,7 +357,8 @@ $bs-datetimepicker-text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25) !default;
                 width: 54px;
                 height: 54px;
                 line-height: 54px;
-                margin: 2px 1.5px;
+                margin-top: 2px;
+                margin-bottom: 2px;
                 cursor: pointer;
                 border-radius: $bs-datetimepicker-border-radius;
 
@@ -334,6 +391,29 @@ $bs-datetimepicker-text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25) !default;
             height: 27px;
             line-height: 27px;
         }
+    }
+
+    .timepicker .timepicker-picker a.btn {
+      color: $bs-datetimepicker-buttons-color;
+      color: var(--blue, #{$bs-datetimepicker-buttons-color});
+    }
+    .timepicker .timepicker-picker a.btn:hover {
+      color: $bs-datetimepicker-buttons-color-dark;
+    }
+
+    &.bootstrap-datetimepicker-widget-readonly {
+      table td.day, table td.hour, table td.minute, table td.second,
+      table td [data-action="incrementHours"], table td [data-action="incrementMinutes"], table td [data-action="incrementSeconds"],
+      table td [data-action="decrementHours"], table td [data-action="decrementMinutes"], table td [data-action="decrementSeconds"],
+      table td [data-action="showHours"], table td [data-action="showMinutes"], table td [data-action="showSeconds"],
+      table td [data-action="togglePeriod"] {
+        pointer-events: none;
+        cursor: default;
+
+        &:hover {
+          background: none;
+        }
+      }
     }
 }
 

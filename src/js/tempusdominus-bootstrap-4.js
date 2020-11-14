@@ -344,7 +344,8 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
         _updateMonths() {
             const monthsView = this.widget.find('.datepicker-months'),
                 monthsViewHeader = monthsView.find('th'),
-                months = monthsView.find('tbody').find('span'), self = this;
+                months = monthsView.find('tbody').find('span'), self = this,
+                lastPickedDate = this._getLastPickedDate();
 
             monthsViewHeader.eq(0).find('span').attr('title', this._options.tooltips.prevYear);
             monthsViewHeader.eq(1).attr('title', this._options.tooltips.selectYear);
@@ -363,8 +364,8 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
             }
 
             months.removeClass('active');
-            if (this._getLastPickedDate().isSame(this._viewDate, 'y') && !this.unset) {
-                months.eq(this._getLastPickedDate().month()).addClass('active');
+            if (lastPickedDate && lastPickedDate.isSame(this._viewDate, 'y') && !this.unset) {
+                months.eq(lastPickedDate.month()).addClass('active');
             }
 
             months.each(function (index) {
@@ -421,7 +422,8 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
                 decadesViewHeader = decadesView.find('th'),
                 yearCaps = this._getStartEndYear(100, this._viewDate.year()),
                 startDecade = this._viewDate.clone().year(yearCaps[0]),
-                endDecade = this._viewDate.clone().year(yearCaps[1]);
+                endDecade = this._viewDate.clone().year(yearCaps[1]),
+                lastPickedDate = this._getLastPickedDate();
             let minDateDecade = false,
                 maxDateDecade = false,
                 endDecadeYear,
@@ -452,7 +454,7 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
                 endDecadeYear = startDecade.year() + 11;
                 minDateDecade = this._options.minDate && this._options.minDate.isAfter(startDecade, 'y') && this._options.minDate.year() <= endDecadeYear;
                 maxDateDecade = this._options.maxDate && this._options.maxDate.isAfter(startDecade, 'y') && this._options.maxDate.year() <= endDecadeYear;
-                html += `<span data-action="selectDecade" class="decade${this._getLastPickedDate().isAfter(startDecade) && this._getLastPickedDate().year() <= endDecadeYear ? ' active' : ''}${!this._isValid(startDecade, 'y') && !minDateDecade && !maxDateDecade ? ' disabled' : ''}" data-selection="${startDecade.year() + 6}">${startDecade.year()}</span>`;
+                html += `<span data-action="selectDecade" class="decade${lastPickedDate && lastPickedDate.isAfter(startDecade) && lastPickedDate.year() <= endDecadeYear ? ' active' : ''}${!this._isValid(startDecade, 'y') && !minDateDecade && !maxDateDecade ? ' disabled' : ''}" data-selection="${startDecade.year() + 6}">${startDecade.year()}</span>`;
                 startDecade.add(10, 'y');
             }
             html += `<span data-action="selectDecade" class="decade old" data-selection="${startDecade.year() + 6}">${startDecade.year()}</span>`;
@@ -594,13 +596,14 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
 
         _fillTime() {
             let toggle, newDate;
-            const timeComponents = this.widget.find('.timepicker span[data-time-component]');
+            const timeComponents = this.widget.find('.timepicker span[data-time-component]'),
+                lastPickedDate = this._getLastPickedDate();
 
             if (!this.use24Hours) {
                 toggle = this.widget.find('.timepicker [data-action=togglePeriod]');
-                newDate = this._getLastPickedDate().clone().add(this._getLastPickedDate().hours() >= 12 ? -12 : 12, 'h');
+                newDate = lastPickedDate ? lastPickedDate.clone().add(lastPickedDate.hours() >= 12 ? -12 : 12, 'h') : void 0;
 
-                toggle.text(this._getLastPickedDate().format('A'));
+                lastPickedDate && toggle.text(lastPickedDate.format('A'));
 
                 if (this._isValid(newDate, 'h')) {
                     toggle.removeClass('disabled');
@@ -608,9 +611,9 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
                     toggle.addClass('disabled');
                 }
             }
-            timeComponents.filter('[data-time-component=hours]').text(this._getLastPickedDate().format(`${this.use24Hours ? 'HH' : 'hh'}`));
-            timeComponents.filter('[data-time-component=minutes]').text(this._getLastPickedDate().format('mm'));
-            timeComponents.filter('[data-time-component=seconds]').text(this._getLastPickedDate().format('ss'));
+            lastPickedDate && timeComponents.filter('[data-time-component=hours]').text(lastPickedDate.format(`${this.use24Hours ? 'HH' : 'hh'}`));
+            lastPickedDate && timeComponents.filter('[data-time-component=minutes]').text(lastPickedDate.format('mm'));
+            lastPickedDate && timeComponents.filter('[data-time-component=seconds]').text(lastPickedDate.format('ss'));
 
             this._fillHours();
             this._fillMinutes();
@@ -720,48 +723,84 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
                     }
                 case 'incrementHours':
                     {
+                        if (!lastPicked) {
+                          break;
+                        }
                         const newDate = lastPicked.clone().add(1, 'h');
                         if (this._isValid(newDate, 'h')) {
+                            if (this._getLastPickedDateIndex() < 0) {
+                                this.date(newDate);
+                            }
                             this._setValue(newDate, this._getLastPickedDateIndex());
                         }
                         break;
                     }
                 case 'incrementMinutes':
                     {
+                        if (!lastPicked) {
+                          break;
+                        }
                         const newDate = lastPicked.clone().add(this._options.stepping, 'm');
                         if (this._isValid(newDate, 'm')) {
+                            if (this._getLastPickedDateIndex() < 0) {
+                                this.date(newDate);
+                            }
                             this._setValue(newDate, this._getLastPickedDateIndex());
                         }
                         break;
                     }
                 case 'incrementSeconds':
                     {
+                        if (!lastPicked) {
+                          break;
+                        }
                         const newDate = lastPicked.clone().add(1, 's');
                         if (this._isValid(newDate, 's')) {
+                            if (this._getLastPickedDateIndex() < 0) {
+                                this.date(newDate);
+                            }
                             this._setValue(newDate, this._getLastPickedDateIndex());
                         }
                         break;
                     }
                 case 'decrementHours':
                     {
+                        if (!lastPicked) {
+                          break;
+                        }
                         const newDate = lastPicked.clone().subtract(1, 'h');
                         if (this._isValid(newDate, 'h')) {
+                            if (this._getLastPickedDateIndex() < 0) {
+                                this.date(newDate);
+                            }
                             this._setValue(newDate, this._getLastPickedDateIndex());
                         }
                         break;
                     }
                 case 'decrementMinutes':
                     {
+                        if (!lastPicked) {
+                          break;
+                        }
                         const newDate = lastPicked.clone().subtract(this._options.stepping, 'm');
                         if (this._isValid(newDate, 'm')) {
+                            if (this._getLastPickedDateIndex() < 0) {
+                                this.date(newDate);
+                            }
                             this._setValue(newDate, this._getLastPickedDateIndex());
                         }
                         break;
                     }
                 case 'decrementSeconds':
                     {
+                        if (!lastPicked) {
+                          break;
+                        }
                         const newDate = lastPicked.clone().subtract(1, 's');
                         if (this._isValid(newDate, 's')) {
+                            if (this._getLastPickedDateIndex() < 0) {
+                                this.date(newDate);
+                            }
                             this._setValue(newDate, this._getLastPickedDateIndex());
                         }
                         break;
@@ -911,16 +950,17 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
             this.widget.remove();
             this.widget = false;
 
+            const lastPickedDate = this._getLastPickedDate();
             this._notifyEvent({
                 type: DateTimePicker.Event.HIDE,
-                date: this._getLastPickedDate().clone()
+                date: lastPickedDate ? lastPickedDate.clone() : void 0
             });
 
             if (this.input !== undefined) {
                 this.input.blur();
             }
 
-            this._viewDate = this._getLastPickedDate().clone();
+            this._viewDate = lastPickedDate ? lastPickedDate.clone() : void 0;
         }
 
         show() {

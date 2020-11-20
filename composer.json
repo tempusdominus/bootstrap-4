@@ -1,11 +1,14 @@
 {
   "name": "tempusdominus/bootstrap-4",
   "type": "component",
-  "version": "5.1.4",
-  "description": "Date/time picker widget based on twitter bootstrap",
+  "description": "A date/time picker component designed to work with Bootstrap 4 and Momentjs.",
+  "version": "5.38.0",
   "keywords": [
     "bootstrap",
-    "datetimepicker"
+    "datepicker",
+    "datetimepicker",
+    "timepicker",
+    "moment"
   ],
   "homepage": "https://github.com/tempusdominus/bootstrap-4",
   "license": "MIT",

@@ -1,11 +1,9 @@
-const sass = require('node-sass'), tildeImporter = require('grunt-sass-tilde-importer');
-
 module.exports = function (grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
-        banner: '/*@preserve\n' +
+        banner: '/*!@preserve\n' +
         ' * Tempus Dominus Bootstrap4 v<%= pkg.version %> (<%= pkg.homepage %>)\n' +
-        ' * Copyright 2016-<%= grunt.template.today("yyyy") %> <%= pkg.author %>\n' +
+        ' * Copyright 2016-<%= grunt.template.today("yyyy") %> <%= pkg.author %> and contributors\n' +
         ' * Licensed under MIT (https://github.com/tempusdominus/bootstrap-3/blob/master/LICENSE)\n' +
         ' */\n',
         jqueryCheck: 'if (typeof jQuery === \'undefined\') {\n' +
@@ -36,10 +34,10 @@ module.exports = function (grunt) {
                     dead_code: false // eslint-disable-line
                 },
                 output: {
-                    ascii_only: true // eslint-disable-line
+                    ascii_only: true, // eslint-disable-line
+                    comments: 'some'
                 },
-                report: 'min',
-                preserveComments: 'some'
+                report: 'min'
             }
         },
         eslint: {
@@ -63,7 +61,7 @@ module.exports = function (grunt) {
                     compact: false,
                     'presets': [
                         [
-                            'es2015',
+                            '@babel/preset-env',
                             {
                                 'modules': false,
                                 'loose': true
@@ -88,19 +86,16 @@ module.exports = function (grunt) {
             },
             bootstrap: {
                 src: [
-                    'node_modules/tempusdominus-core/src/js/tempusdominus-core.js',
+                    'node_modules/tempusdominus/src/js/tempusdominus.js',
                     'src/js/<%= pkg.name %>.js'
                 ],
                 dest: 'build/js/<%= pkg.name %>.js'
             }
         },
-        sass: {
+        'dart-sass': {
             production: {
                 options: {
-                    cleancss: true,
-                    compress: true,
-                    implementation: sass,
-                    importer: tildeImporter
+                    outputStyle: 'compressed'
                 },
                 files: {
                     'build/css/<%= pkg.name %>.min.css': 'src/sass/<%= pkg.name %>-build.scss'
@@ -108,8 +103,7 @@ module.exports = function (grunt) {
             },
             development: {
                 options: {
-                    importer: tildeImporter,
-                    implementation: sass
+
                 },
                 files: {
                     'build/css/<%= pkg.name %>.css': 'src/sass/<%= pkg.name %>-build.scss'
@@ -148,11 +142,43 @@ module.exports = function (grunt) {
                     clean: true
                 }
             }
+        },
+        postcss: {
+          options: {
+              map: false,
+              processors: [
+                  require('autoprefixer')({
+                      // grid: true
+                  })
+              ]
+          },
+          dist: {
+              src: 'build/css/<%= pkg.name %>.css'
+          }
+        },
+        cssmin: {
+            options: {
+                specialComments: 'all'
+            },
+            target: {
+                files: [{
+                    expand: true,
+                    cwd: 'build/css',
+                    src: ['*.css', '!*.min.css'],
+                    dest: 'build/css',
+                    ext: '.min.css'
+                }]
+            }
         }
     });
 
     grunt.loadTasks('tasks');
     grunt.loadNpmTasks('grunt-mkdocs');
+    grunt.loadNpmTasks('grunt-dart-sass');
+    grunt.loadNpmTasks('grunt-postcss')
+    grunt.loadNpmTasks('grunt-contrib-cssmin')
+    grunt.loadNpmTasks('grunt-contrib-uglify')
+    grunt.loadNpmTasks('grunt-contrib-watch')
 
     require('load-grunt-tasks')(grunt);
     grunt.registerTask('default', 'build:js');
@@ -163,9 +189,11 @@ module.exports = function (grunt) {
     ]);
 
     // Task to be run when building
+    grunt.registerTask('build', ['build:js', 'build:style']);
+
     grunt.registerTask('build:js', ['babel:dev', 'concat', 'eslint', 'babel:dist', 'stamp:bootstrap', 'uglify', 'copy']);
 
-    grunt.registerTask('build:style', ['sass', 'stamp:css', 'copy']);
+    grunt.registerTask('build:style', ['dart-sass', 'stamp:css', 'postcss', 'cssmin', 'copy']);
 
     grunt.registerTask('copy', 'Generate docs', function () {
         grunt.file.copy('build/js/tempusdominus-bootstrap-4.js', 'src/docs/theme/js/tempusdominus-bootstrap-4.js');

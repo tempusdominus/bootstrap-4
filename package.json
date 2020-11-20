@@ -3,6 +3,9 @@
   "main": "build/js/tempusdominus-bootstrap-4.js",
   "name": "tempusdominus-bootstrap-4",
   "author": "Jonathan Peterson",
+  "contributors": [
+    "Anton Bagdatyev (Tonix)"
+  ],
   "bugs": {
     "url": "https://github.com/tempusdominus/bootstrap-4/issues"
   },
@@ -19,7 +22,7 @@
     "popper.js": "^1.16.1",
     "moment": "^2.29.0",
     "moment-timezone": "^0.5.31",
-    "tempusdominus-core": "5.0.3"
+    "tempusdominus-core": "5.19.0"
   },
   "scripts": {
     "change-version": "node grunt/change-version.js",
@@ -34,27 +37,38 @@
     "uglify": "uglifyjs --compress warnings=false --mangle --output build/js/tempusdominus-bootstrap-3.min.js build/js/tempusdominus-bootstrap-3.js",
     "uglify-docs": "uglifyjs --compress warnings=false --mangle --comments '/^!/' --output docs/assets/js/docs.min.js docs/assets/js/vendor/*.js docs/assets/js/src/application.js",
     "update-shrinkwrap": "npm shrinkwrap --dev && shx mv ./npm-shrinkwrap.json ./grunt/npm-shrinkwrap.json",
-    "test": "npm run eslint && grunt test"
+    "test": "npm run eslint && grunt test",
+    "watch": "./node_modules/.bin/onchange './src/js/**' './src/sass/**' -- npm run build",
+    "build": "grunt build:travis",
+    "build-all": "npm run build",
+    "git-add-cm": "git add . && git commit -am",
+    "publish-patch": "npm version patch && npm run build && ((npm run git-add-cm -- \"Next patch version\" 2>/dev/null) || echo) && npm publish && git push && git push --tags",
+    "publish-minor": "npm version minor && npm run build && ((npm run git-add-cm -- \"Next minor version\" 2>/dev/null) || echo) && npm publish && git push && git push --tags",
+    "publish-major": "npm version major && npm run build && ((npm run git-add-cm -- \"Next major version\" 2>/dev/null) || echo) && npm publish && git push && git push --tags"
   },
-  "description": "A date/time picker component designed to work with Bootstrap 4 and Momentjs. For usage, installation and demos see Project Site on GitHub",
+  "description": "A date/time picker component designed to work with Bootstrap 4 and Momentjs.",
   "devDependencies": {
-    "babel-plugin-transform-es2015-modules-strip": "^0.1.0",
-    "babel-preset-es2015": "^6.24.1",
+    "@babel/core": "^7.11.6",
+    "@babel/preset-env": "^7.11.5",
+    "autoprefixer": "^9.8.6",
+    "babel-plugin-transform-es2015-modules-strip": "^0.1.1",
     "grunt": "^1.3.0",
-    "grunt-babel": "6.0.0",
+    "grunt-babel": "^8.0.0",
     "grunt-contrib-concat": "^1.0.1",
-    "grunt-contrib-uglify": "latest",
+    "grunt-contrib-cssmin": "^3.0.0",
+    "grunt-contrib-uglify": "^4.0.1",
     "grunt-contrib-watch": "^1.1.0",
-    "grunt-eslint": "^19.0.0",
-    "grunt-mkdocs": "^0.2.3",
-    "grunt-sass": "3.0.0",
-    "grunt-sass-tilde-importer": "^1.0.2",
+    "grunt-dart-sass": "^1.1.3",
+    "grunt-eslint": "^22.0.0",
+    "grunt-mkdocs": "^1.0.1",
+    "grunt-postcss": "^0.9.0",
     "grunt-stamp": "^0.3.0",
-    "grunt-string-replace": "latest",
-    "load-grunt-tasks": "latest",
-    "node-sass": "^4.14.1",
-    "tempusdominus-core": "^5.0.3",
-    "uglify-js": "^2.7.5"
+    "grunt-string-replace": "^1.3.1",
+    "load-grunt-tasks": "^5.1.0",
+    "moment-timezone": "^0.5.31",
+    "onchange": "^7.0.2",
+    "tempusdominus": "^5.16.0",
+    "uglify-js": "^3.11.0"
   },
   "homepage": "https://tempusdominus.github.io/bootstrap-4/",
   "keywords": [
@@ -68,11 +82,14 @@
     "type": "git",
     "url": "https://github.com/tempusdominus/bootstrap-4.git"
   },
-  "version": "5.1.4",
+  "version": "5.39.0",
   "files": [
     "build",
     "src/js/**/*.js",
     "src/sass/**/*.scss",
     "Gruntfile.js"
+  ],
+  "browserslist": [
+    "> .05%"
   ]
 }

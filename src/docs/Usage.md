@@ -709,7 +709,7 @@
             </div>
         </div>
         <div class="form-group">
-            <button class="btn btn-default" id="setOption">Set Option</button>
+            <button class="btn btn-primary" id="setOption">Set Option</button>
         </div>
     </div>
     <script type="text/javascript">
@@ -722,3 +722,32 @@
         });
     </script>
 </div>
+
+#### Code
+
+```
+<div class="container">
+    <div class="col-sm-6">
+        <div class="form-group">
+            <div class="input-group date" id="datetimepicker15" data-target-input="nearest">
+                <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker15"/>
+                <div class="input-group-append" data-target="#datetimepicker15" data-toggle="datetimepicker">
+                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary" id="setOption">Set Option</button>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(function () {
+            $('#datetimepicker15').datetimepicker();
+            
+            $('#setOption').click(function () {
+                $('#datetimepicker15').datetimepicker('daysOfWeekDisabled', [0, 6]);
+            });
+        });
+    </script>
+</div>
+```

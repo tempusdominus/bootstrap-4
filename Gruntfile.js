@@ -189,6 +189,8 @@ module.exports = function (grunt) {
     ]);
 
     // Task to be run when building
+    grunt.registerTask('build', ['build:js', 'build:style']);
+
     grunt.registerTask('build:js', ['babel:dev', 'concat', 'eslint', 'babel:dist', 'stamp:bootstrap', 'uglify', 'copy']);
 
     grunt.registerTask('build:style', ['dart-sass', 'stamp:css', 'postcss', 'cssmin', 'copy']);

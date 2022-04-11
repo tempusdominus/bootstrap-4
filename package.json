@@ -22,7 +22,7 @@
     "popper.js": "^1.16.1",
     "moment": "^2.29.0",
     "moment-timezone": "^0.5.31",
-    "tempusdominus-core": "5.19.0"
+    "tempusdominus-core": "5.19.1"
   },
   "scripts": {
     "change-version": "node grunt/change-version.js",

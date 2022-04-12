@@ -22,7 +22,7 @@
     "popper.js": "^1.16.1",
     "moment": "^2.29.0",
     "moment-timezone": "^0.5.31",
-    "tempusdominus-core": "5.19.1"
+    "tempusdominus-core": "5.19.3"
   },
   "scripts": {
     "change-version": "node grunt/change-version.js",
@@ -82,7 +82,7 @@
     "type": "git",
     "url": "https://github.com/tempusdominus/bootstrap-4.git"
   },
-  "version": "5.39.1",
+  "version": "5.39.2",
   "files": [
     "build",
     "src/js/**/*.js",
